@@ -1,73 +1,31 @@
-# React + TypeScript + Vite
+# AESPA FANMADE WEBSITE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my attempt to create and maintain a fanmade aespa website. Aespa (Korean: 에스파, stylized in all lowercase or as æspa) is a South Korean 4th-Gen girl group.
+The group consists of 4 members (KARINA, GISELLE, WINTER, NINGNING), known for bringing a metaverse concept, æspa achieves the highest views in 24-hours for a debut video BLACK MAMBA on 17 November 2020. ❤🌙⭐🦋
 
-Currently, two official plugins are available:
+## Tech stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I use React + Vite + Typescript + Tailwind to create this website.
 
-## React Compiler
+## Steps to recreate
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+In order to recreate this website, follow this procedures :
+- Clone this repository
+  
+  ```
+  git clone https://github.com/KangNasgor/aespa.git
+  cd aespa
+  ```
+- Install dependencies
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  ```
+  npm install
+  ```
+- Run the development server
+  ```
+  npm run dev
+  ```
+##
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Thank You!
