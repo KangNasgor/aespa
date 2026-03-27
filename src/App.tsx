@@ -5,22 +5,32 @@ import { useState } from "react";
 
 const headingText = "æspa";
 
-const members = [
+interface Members {
+  name : string,
+  logo : string,
+  description : string,
+}
+
+const members : Members[] = [
   {
     name: 'KARINA',
     logo: 'test/karina-logo.png',
+    description : 'Karina (카리나 karina) was born on April 11, 2000 in Suwon-si, South Korea. She is the leader, a dancer, rapper and visual of the group aespa and a rapper and vocalist of the unit GOT the beat.'
   },
   {
     name: 'GISELLE',
-    logo: 'test/giselle-logo.png'
+    logo: 'test/giselle-logo.png',
+    description : 'Giselle (지젤 jijel) was born on October 30, 2000 in Seoul, South Korea. She is a rapper and vocalist of the group aespa and ZOO unit.'
   },
   {
     name: 'WINTER',
-    logo: 'test/winter-logo.png'
+    logo: 'test/winter-logo.png',
+    description : 'Winter (윈터 winteo) was born on January 1, 2001 in Busan, South Korea. She is a vocalist, dancer and visual of the girl group aespa and a vocalist and the maknae of the unit GOT the beat.'
   },
   {
     name: 'NINGNING',
-    logo: 'test/ningning-logo.png'
+    logo: 'test/ningning-logo.png',
+    description : 'Ningning (닝닝 ningning) was born on October 23, 2002 in Heilongjiang, China. She is a vocalist and the maknae of the group aespa.'
   }
 ]
 
@@ -80,7 +90,7 @@ function App() {
           </div>
         </div>
       </motion.section>
-      <section className="bg-[#070fc1] dark:bg-black min-h-screen flex items-center" data-theme={theme}>
+      <section data-theme={theme} className="bg-[#070fc1] dark:bg-black min-h-screen flex items-center">
         <div className="flex flex-row justify-around items-center gap-5">
           <div className="w-5/12 flex flex-col gap-20">
             <h1 className="text-[#f4f015] dark:text-white font-bold text-5xl">The æ concept that changed everything</h1>
@@ -109,8 +119,17 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="min-h-screen">
-
+      <section data-theme={theme} className="min-h-screen bg-[#070fc1] dark:bg-black">
+            <div className="grid grid-cols-2 w-9/12 mx-auto gap-10">
+              {members.map(member => (
+                <div key={member.name} className="flex justify-center">
+                  <div className="bg-[#f4f015] w-6/12 px-5 flex flex-col justify-around gap-5 py-4 rounded-lg">
+                    <h1 className="font-bold text-2xl">{member.name}</h1>
+                    <p>{member.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
       </section>
     </>
   );
