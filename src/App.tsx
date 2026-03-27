@@ -1,6 +1,7 @@
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import Navbar from "./components/Navbar";
 import { useTheme } from "./context/ThemeContext";
+import { useState } from "react";
 
 const headingText = "æspa";
 
@@ -26,6 +27,8 @@ const members = [
 function App() {
   const { theme } = useTheme();
   const icon = theme === "dark" ? "images/aespa-dirtywork-icon.png" : "images/aespa-richman-icon.png";
+
+  const [imageClicked, setImageClicked] = useState<boolean>(false);
   return (
     <>
       <motion.section id="hero-section" data-theme={theme} className="bg-[#070fc1] dark:bg-black w-full h-screen relative"
@@ -77,15 +80,37 @@ function App() {
           </div>
         </div>
       </motion.section>
-      <section className="bg-[#070fc1] dark:bg-black min-h-screen" data-theme={theme}>
-            <div className="flex flex-row justify-between items-start px-10 pt-36">
-                <div className="w-6/12">
-                    <h1 className="text-[#f4f015] dark:text-white font-bold text-5xl">The æ concept that changed everything</h1>
-                </div>
-                <div className="w-6/12">
-                    
-                </div>
+      <section className="bg-[#070fc1] dark:bg-black min-h-screen flex items-center" data-theme={theme}>
+        <div className="flex flex-row justify-around items-center gap-5">
+          <div className="w-5/12 flex flex-col gap-20">
+            <h1 className="text-[#f4f015] dark:text-white font-bold text-5xl">The æ concept that changed everything</h1>
+            <div>
+              <p className="text-[#f4f015] dark:text-white font-bold text-2xl">
+                {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
+                The group name is a combination of "ae" (Avatar X Experience) and "aspect",
+                symbolizing the concept of a new experience by meeting a new world through another version of yourself.
+              </p>
             </div>
+          </div>
+          <div className="w-5/12">
+          <AnimatePresence>
+            {imageClicked && (
+              <motion.div
+                initial={{ opacity : 0 }}
+                animate={{ opacity : 1 }}
+                exit={{ opacity : 0 }}
+                onClick={() => setImageClicked(false)}
+                className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm">
+              </motion.div>
+            )}
+          </AnimatePresence>
+            <motion.img layout src={theme === "light" ? "images/aespa-richman-img-2.webp" : "images/aespa-richman-img-3.webp"} onClick={() => setImageClicked((prev) => !prev)}
+              className={imageClicked === true ? "fixed left-6/12 w-7/12 top-6/12 -translate-y-6/12 transform -translate-x-6/12 z-50" : "relative"}/>
+          </div>
+        </div>
+      </section>
+      <section className="min-h-screen">
+
       </section>
     </>
   );
