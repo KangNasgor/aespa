@@ -6,30 +6,35 @@ import { useState } from "react";
 const headingText = "æspa";
 
 interface Members {
+  id : number,
   name : string,
-  logo : string,
+  image : string,
   description : string,
 }
 
 const members : Members[] = [
   {
+    id: 1,
     name: 'KARINA',
-    logo: 'test/karina-logo.png',
+    image: 'members/Karina.webp',
     description : 'Karina (카리나 karina) was born on April 11, 2000 in Suwon-si, South Korea. She is the leader, a dancer, rapper and visual of the group aespa and a rapper and vocalist of the unit GOT the beat.'
   },
   {
+    id: 2,
     name: 'GISELLE',
-    logo: 'test/giselle-logo.png',
+    image: 'members/Giselle.webp',
     description : 'Giselle (지젤 jijel) was born on October 30, 2000 in Seoul, South Korea. She is a rapper and vocalist of the group aespa and ZOO unit.'
   },
   {
+    id: 3,
     name: 'WINTER',
-    logo: 'test/winter-logo.png',
+    image: 'members/Winter.webp',
     description : 'Winter (윈터 winteo) was born on January 1, 2001 in Busan, South Korea. She is a vocalist, dancer and visual of the girl group aespa and a vocalist and the maknae of the unit GOT the beat.'
   },
   {
+    id: 4,
     name: 'NINGNING',
-    logo: 'test/ningning-logo.png',
+    image: 'members/Ningning.webp',
     description : 'Ningning (닝닝 ningning) was born on October 23, 2002 in Heilongjiang, China. She is a vocalist and the maknae of the group aespa.'
   }
 ]
@@ -39,6 +44,7 @@ function App() {
   const icon = theme === "dark" ? "images/aespa-dirtywork-icon.png" : "images/aespa-richman-icon.png";
 
   const [imageClicked, setImageClicked] = useState<boolean>(false);
+  const [memberImageClicked, setMemberImageClicked] = useState<boolean>(false)
   return (
     <>
       <motion.section id="hero-section" data-theme={theme} className="bg-[#070fc1] dark:bg-black w-full h-screen relative"
@@ -111,6 +117,10 @@ function App() {
                 exit={{ opacity : 0 }}
                 onClick={() => setImageClicked(false)}
                 className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm">
+                  <div className="absolute top-5 right-5">
+                    <div className="w-6 h-0.5 transform translate-y-6/12 rotate-45 bg-white"></div>
+                    <div className="w-6 h-0.5 transform -translate-y-6/12 -rotate-45 bg-white"></div>
+                  </div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -119,14 +129,22 @@ function App() {
           </div>
         </div>
       </section>
-      <section data-theme={theme} className="min-h-screen bg-[#070fc1] dark:bg-black">
-            <div className="grid grid-cols-2 w-9/12 mx-auto gap-10">
-              {members.map(member => (
-                <div key={member.name} className="flex justify-center">
-                  <div className="bg-[#f4f015] w-6/12 px-5 flex flex-col justify-around gap-5 py-4 rounded-lg">
-                    <h1 className="font-bold text-2xl">{member.name}</h1>
-                    <p>{member.description}</p>
-                  </div>
+      <section data-theme={theme} className="min-h-screen bg-[#070fc1] dark:bg-black py-20">
+            <h1 className="font-bold text-5xl text-white mb-24 text-center">The <span className="text-[#f4f015]">Members</span></h1>
+            <div className="flex flex-rows gap-10 w-9/12 mx-auto">
+              {members.map((member, index) => (
+                <div key={member.name} className="flex w-6/12 relative justify-center">
+                    <motion.div layout className={`group ${member.id % 2 === 0 ? 'translate-y-10' : 'translate-y-0'} ${memberImageClicked === true ? 'fixed left-6/12 w-7/12 top-6/12 -translate-y-6/12 transform -translate-x-6/12 z-50' : 'relative'}`} onClick={() => setMemberImageClicked(prev => !prev)}>
+                      <span className="absolute -top-15 -left-5 text-8xl font-black opacity-10 select-none">
+                        0{index + 1}
+                      </span>
+                      <div data-name={member.name} className={`relative rounded-lg overflow-hidden after:absolute after:bg-linear-to-t after:from-black after:to-transparent after:w-full after:h-6/12 after:opacity-0 group-hover:after:opacity-75 after:bottom-0 after:left-0 after:transition after:overflow-hidden`} >
+                        <img src={member.image} className="w-full h-full object-cover rounded-lg" alt={member.name}/>
+                        <div className="absolute bottom-5 left-5 z-20 text-white opacity-0 group-hover:opacity-100">
+                          <h1 className="font-bold text-2xl">{member.name}</h1>
+                        </div>
+                      </div>
+                    </motion.div>
                 </div>
               ))}
             </div>
