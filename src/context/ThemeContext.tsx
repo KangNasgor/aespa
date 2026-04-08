@@ -5,10 +5,11 @@ interface ThemeContextType { // this type is to make the context provides values
     theme : Theme,
     changeTheme : () => void,
 }
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider ({ children } : { children : ReactNode}){
-    const [theme, setTheme] = useState<Theme>("light");
+    const [theme, setTheme] = useState<Theme>((localStorage.getItem('theme') as Theme) ?? "light");
+    
     const changeTheme = () => {
         setTheme((prev) => prev === "light" ? "dark" : "light")
     }

@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import Navbar from "./components/Navbar";
 import { useTheme } from "./context/ThemeContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const headingText = "æspa";
 
@@ -46,15 +46,14 @@ const members : Members[] = [
 
 function App() {
   const { theme } = useTheme();
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
   const icon = theme === "dark" ? "images/aespa-dirtywork-icon.png" : "images/aespa-richman-icon.png";
-
   const [imageClicked, setImageClicked] = useState<boolean>(false);
-  const [memberImageClicked, setMemberImageClicked] = useState<boolean>(false)
-  const [currentMemberIndex, setCurrentMemberIndex] = useState<number | null>(0)
-  const imageMemberClicked = (index : number) => {
-    setCurrentMemberIndex(index);
+  const [currentMemberIndex, setCurrentMemberIndex] = useState<number | null>(null);
 
-  }
   return (
     <>
       <motion.section id="hero-section" data-theme={theme} className="bg-[#070fc1] dark:bg-black w-full h-screen relative"
@@ -70,7 +69,7 @@ function App() {
           }
         }}>
         <Navbar icon={icon} />
-        <div className="flex justify-center items-start">
+        <div className="flex justify-center items-start select-none">
           <motion.img src="images/aespa-dirtywork.png" className="absolute bottom-0 w-8/12 mask-b-from-50%" initial={{
             opacity: 0,
             scale: 1.1,
@@ -124,7 +123,7 @@ function App() {
               <motion.div
                 initial={{ opacity : 0 }}
                 animate={{ opacity : 1 }}
-                exit={{ opacity : 0 }}
+                exit={{ opacity : 0, transition : { duration : 0.7 } }}
                 onClick={() => setImageClicked(false)}
                 className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm">
                   <div className="absolute top-5 right-5">
@@ -135,7 +134,7 @@ function App() {
             )}
           </AnimatePresence>
             <motion.img layout src={theme === "light" ? "images/aespa-richman-img-2.webp" : "images/aespa-richman-img-3.webp"} onClick={() => setImageClicked((prev) => !prev)}
-              className={imageClicked === true ? "fixed left-6/12 w-7/12 top-6/12 -translate-y-6/12 transform -translate-x-6/12 z-50" : "relative"}/>
+              className={imageClicked === true ? "fixed left-6/12 w-7/12 top-6/12 -translate-y-6/12 transform -translate-x-6/12 z-50" : "cursor-pointer relative"}/>
           </div>
         </div>
       </section>
@@ -147,7 +146,7 @@ function App() {
                       <motion.div
                         initial={{ opacity : 0 }}
                         animate={{ opacity : 1 }}
-                        exit={{ opacity : 0 }}
+                        exit={{ opacity : 0, transition : { duration : 0.5 } }}
                         onClick={() => setCurrentMemberIndex(null)}
                         className="fixed inset-0 z-20 bg-black/70">
                       </motion.div>
@@ -168,7 +167,7 @@ function App() {
                   </motion.div>
                   {currentMemberIndex === member.id && (
                     <AnimatePresence>
-                      <motion.div layout layoutId={member.name} className="fixed left-6/12 w-8/12 top-1/2 -translate-y-1/2 transform -translate-x-6/12 overflow-hidden z-50">
+                      <motion.div  layoutId={member.name} className="fixed left-6/12 w-8/12 top-1/2 -translate-y-1/2 transform -translate-x-6/12 overflow-hidden z-50">
                         <div style={{ backgroundColor: currentMemberIndex === member.id ? member.color : 'transparent' }} className={`relative flex justify-center rounded-lg overflow-hidden after:absolute after:bg-linear-to-t after:from-black after:to-transparent after:w-full after:h-6/12 ${currentMemberIndex === member.id ? 'after:opacity-80 after:z-30' : 'after:opacity-0 group-hover:after:opacity-75'} after:bottom-0 after:left-0 after:transition after:overflow-hidden`} >
                           <motion.img layoutId={member.image} src={member.image} className="w-75 rounded-lg" alt={member.name} />
                           <div className={`absolute bottom-5 left-5 z-40 text-white ${currentMemberIndex === member.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
@@ -191,6 +190,7 @@ function App() {
               ))}
             </div>
       </section>
+      <section className="min-h-screen"></section>
     </>
   );
 }
