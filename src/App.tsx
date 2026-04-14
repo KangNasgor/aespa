@@ -165,27 +165,27 @@ function App() {
                       </div>
                     </div>
                   </motion.div>
-                  {currentMemberIndex === member.id && (
-                    <AnimatePresence>
-                      <motion.div  layoutId={member.name} className="fixed left-6/12 w-8/12 top-1/2 -translate-y-1/2 transform -translate-x-6/12 overflow-hidden z-50">
-                        <div style={{ backgroundColor: currentMemberIndex === member.id ? member.color : 'transparent' }} className={`relative flex justify-center rounded-lg overflow-hidden after:absolute after:bg-linear-to-t after:from-black after:to-transparent after:w-full after:h-6/12 ${currentMemberIndex === member.id ? 'after:opacity-80 after:z-30' : 'after:opacity-0 group-hover:after:opacity-75'} after:bottom-0 after:left-0 after:transition after:overflow-hidden`} >
-                          <motion.img layoutId={member.image} src={member.image} className="w-75 rounded-lg" alt={member.name} />
-                          <div className={`absolute bottom-5 left-5 z-40 text-white ${currentMemberIndex === member.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
-                            <motion.h1 layout className="font-bold text-2xl">{member.name}</motion.h1>
-                            <AnimatePresence>
-                              <motion.h3
-                                className={currentMemberIndex === member.id ? 'block' : 'hidden'}
-                                layout
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                              >{member.description}</motion.h3>
-                            </AnimatePresence>
+                  <AnimatePresence>
+                    {currentMemberIndex === member.id && (
+                        <motion.div layoutId={member.name} className="fixed left-6/12 w-8/12 top-1/2 -translate-y-1/2 transform -translate-x-6/12 overflow-hidden z-50">
+                          <div style={{ backgroundColor: currentMemberIndex === member.id ? member.color + 'd9' : 'transparent' }} className={`relative flex justify-center rounded-lg overflow-hidden after:absolute after:bg-linear-to-t after:from-black after:to-transparent after:w-full after:h-6/12 ${currentMemberIndex === member.id ? 'after:opacity-80 after:z-30' : 'after:opacity-0 group-hover:after:opacity-75'} after:bottom-0 after:left-0 after:transition after:overflow-hidden`} >
+                            <motion.img layoutId={member.image} src={member.image} className="w-75 rounded-lg" alt={member.name} />
+                            <div className={`absolute bottom-5 left-5 z-40 text-white ${currentMemberIndex === member.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
+                              <motion.h1 layout className="font-bold text-2xl">{member.name}</motion.h1>
+                              <AnimatePresence>
+                                <motion.h3
+                                  className={currentMemberIndex === member.id ? 'block' : 'hidden'}
+                                  layout
+                                  initial={{ opacity: 0 }}
+                                  animate={{ opacity: 1 }}
+                                  exit={{ opacity: 0 }}
+                                >{member.description}</motion.h3>
+                              </AnimatePresence>
+                            </div>
                           </div>
-                        </div>
-                      </motion.div>
-                    </AnimatePresence>
-                  )}
+                        </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               ))}
             </div>
