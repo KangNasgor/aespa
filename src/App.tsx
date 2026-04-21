@@ -11,6 +11,7 @@ interface Members {
   image : string,
   description : string,
   color : string,
+  gallery : Array<string>,
 }
 
 const members : Members[] = [
@@ -19,28 +20,32 @@ const members : Members[] = [
     name: 'KARINA',
     image: 'members/Karina.webp',
     description : 'Karina (카리나 karina) was born on April 11, 2000 in Suwon-si, South Korea. She is the leader, a dancer, rapper and visual of the group aespa and a rapper and vocalist of the unit GOT the beat.',
-    color : '#0d02fe'
+    color : '#0d02fe',
+    gallery : ['members/Karina-richman-1.webp', 'members/Karina-dirtywork-1.webp', 'members/Karina-richman-3.webp', 'members/Karina-richman-2.webp'],
   },
   {
     id: 2,
     name: 'GISELLE',
     image: 'members/Giselle.webp',
     description : 'Giselle (지젤 jijel) was born on October 30, 2000 in Seoul, South Korea. She is a rapper and vocalist of the group aespa and ZOO unit.',
-    color : '#fc261a'
+    color : '#fc261a',
+    gallery : ['members/Giselle-richman-1.webp', 'members/Giselle-richman-2.webp', 'members/Giselle-dirtywork-1.webp', 'members/Giselle-dirtywork-2.webp'],
   },
   {
     id: 3,
     name: 'WINTER',
     image: 'members/Winter.webp',
     description : 'Winter (윈터 winteo) was born on January 1, 2001 in Busan, South Korea. She is a vocalist, dancer, and visual of the girl group aespa and also a vocalist and the maknae of the unit GOT the beat.',
-    color : '#01fe00'
+    color : '#01fe00',
+    gallery : ['members/Winter-richman-1.webp', 'members/Winter-dirtywork-1.webp', 'members/Winter-richman-3.webp', 'members/Winter-richman-2.webp'],
   },
   {
     id: 4,
     name: 'NINGNING',
     image: 'members/Ningning.webp',
     description : 'Ningning (닝닝 ningning) was born on October 23, 2002 in Heilongjiang, China. She is a vocalist and the maknae of the group aespa.',
-    color : '#fcff00'
+    color : '#fcff00',
+    gallery : ['members/Ningning-richman-1.webp', 'members/Ningning-dirtywork-1.webp', 'members/Ningning-dirtywork-2.webp', 'members/Ningning-dirtywork-3.webp'],
   }
 ]
 
@@ -56,7 +61,7 @@ function App() {
 
   return (
     <main data-theme={theme}>
-      <motion.section id="hero-section" className="bg-[#070fc1] dark:bg-black w-full h-screen relative"
+      <motion.section id="hero-section" className="bg-black w-full h-screen relative"
         initial={{
           filter: "blur(10px)",
         }}
@@ -68,41 +73,19 @@ function App() {
             duration: 1,
           }
         }}>
-        <Navbar icon={icon} />
-        <div className="flex justify-center items-start select-none">
-          <motion.img src="images/aespa-dirtywork.png" className="absolute bottom-0 w-8/12 mask-b-from-50%" initial={{
-            opacity: 0,
-            scale: 1.1,
-            y: 50,
-            filter: "blur(10px)",
-          }}
-            whileInView={{
-              opacity: 1,
-              scale: 1,
-              y: 0,
-              filter: "blur(0px)",
-            }}
-            transition={{
-              opacity: {
-                duration: 1.2
-              },
-              scale: {
-                duration: 0.3,
-                delay: 0.5,
-              },
-              y: {
-                duration: 0.5,
-              },
-              filter: {
-                duration: 0.5
-              }
-            }} />
-          <h1 className="text-[#f4f015] dark:text-white absolute bottom-32 text-9xl font-bold z-10">{headingText}</h1>
-          <div className="absolute bottom-16 text-[#f4f015] dark:text-white text-3xl font-bold z-10 flex flex-row gap-10">
-            {members.map(member => (
-              <span key={member.name}>{member.name}</span>
-            ))}
+        <div className="relative h-[100vh]">
+          <Navbar icon={icon} />
+          <div className="flex justify-center items-start select-none">
+            <div className="w-4/12 absolute bottom-32">
+              <img src="svg/aespa.png"/>
+            </div>
+            <div className="absolute bottom-16 text-[#f4f015] dark:text-white text-3xl font-bold z-10 flex flex-row gap-10">
+              {members.map(member => (
+                <span key={member.name}>{member.name}</span>
+              ))}
+            </div>
           </div>
+          <img src={theme === "light" ? "images/aespa-richman-img-3.webp" : "images/aespa-dirtywork-img-6.jpg"} className="absolute inset-0 object-cover w-full h-full -z-10 opacity-60 select-none"/>
         </div>
       </motion.section>
       <section className="bg-[#070fc1] dark:bg-black min-h-screen flex items-center">
@@ -167,9 +150,16 @@ function App() {
                   </motion.div>
                   <AnimatePresence>
                     {currentMemberIndex === member.id && (
-                        <motion.div layoutId={member.name} className="fixed left-6/12 w-8/12 top-1/2 -translate-y-1/2 transform -translate-x-6/12 overflow-hidden z-50">
-                          <div style={{ backgroundColor: currentMemberIndex === member.id ? member.color + 'd9' : 'transparent' }} className={`relative flex justify-center rounded-lg overflow-hidden after:absolute after:bg-linear-to-t after:from-black after:to-transparent after:w-full after:h-6/12 ${currentMemberIndex === member.id ? 'after:opacity-80 after:z-30' : 'after:opacity-0 group-hover:after:opacity-75'} after:bottom-0 after:left-0 after:transition after:overflow-hidden`} >
+                        <motion.div layoutId={member.name} className="fixed left-6/12 w-8/12 h-[500px] top-1/2 -translate-y-1/2 transform -translate-x-6/12 overflow-hidden z-50">
+                          <div style={{ backgroundColor: currentMemberIndex === member.id ? member.color + '80' : 'transparent' }} className={`relative flex justify-between rounded-lg overflow-hidden after:absolute after:bg-linear-to-t after:from-black after:to-transparent after:w-full after:h-6/12 ${currentMemberIndex === member.id ? 'after:opacity-80 after:z-30' : 'after:opacity-0 group-hover:after:opacity-75'} after:bottom-0 after:left-0 after:transition after:overflow-hidden`} >
                             <motion.img layoutId={member.image} src={member.image} className="w-75 rounded-lg" alt={member.name} />
+                            <div className="grid grid-cols-3 gap-2 h-[400px]  my-auto px-3">
+                              {member.gallery.map((img, index) => (
+                                <div key={index} className={`overflow-hidden ${index === 0 ? 'row-span-2' : index === member.gallery.length - 1 ? 'col-span-2' :'row-span-1'}`}>
+                                  <img src={img} className="object-cover w-full h-full"/>
+                                </div>
+                              ))}
+                            </div>
                             <div className={`absolute bottom-5 left-5 px-3 z-40 text-white ${currentMemberIndex === member.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
                               <motion.h1 layout className="font-bold text-2xl">{member.name}</motion.h1>
                               <AnimatePresence>
