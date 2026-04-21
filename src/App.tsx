@@ -153,7 +153,7 @@ function App() {
                         <motion.div layoutId={member.name} className="fixed left-6/12 w-8/12 h-[500px] top-1/2 -translate-y-1/2 transform -translate-x-6/12 overflow-hidden z-50">
                           <div style={{ backgroundColor: currentMemberIndex === member.id ? member.color + '80' : 'transparent' }} className={`relative flex justify-between rounded-lg overflow-hidden after:absolute after:bg-linear-to-t after:from-black after:to-transparent after:w-full after:h-6/12 ${currentMemberIndex === member.id ? 'after:opacity-80 after:z-30' : 'after:opacity-0 group-hover:after:opacity-75'} after:bottom-0 after:left-0 after:transition after:overflow-hidden`} >
                             <motion.img layoutId={member.image} src={member.image} className="w-75 rounded-lg" alt={member.name} />
-                            <div className="grid grid-cols-3 gap-2 h-[400px]  my-auto px-3">
+                            <div className="grid grid-cols-3 gap-2 h-[400px] my-auto px-3">
                               {member.gallery.map((img, index) => (
                                 <div key={index} className={`overflow-hidden ${index === 0 ? 'row-span-2' : index === member.gallery.length - 1 ? 'col-span-2' :'row-span-1'}`}>
                                   <img src={img} className="object-cover w-full h-full"/>
@@ -180,13 +180,16 @@ function App() {
               ))}
             </div>
       </section>
-      <section className="min-h-screen bg-[#070fc1] dark:bg-black py-20 px-10 relative">
-              <div className="w-full overflow-hidden">
+      <section className="min-h-screen bg-[#070fc1] dark:bg-black py-20 px-10 relative overflow-hidden">
+              <div className="w-full">
                   <h1 className="text-white text-center font-bold text-4xl">THE DEBUT : <span className="text-[#f4f015]">BLACK MAMBA</span></h1>
               </div>
               <div className="w-full my-10">
-                <div className="w-6/12 mx-auto">
-                  <img src="/images/aespa-blackmamba-img-1.webp" className=""/>
+                <div className="w-full flex flex-row justify-center gap-10">
+                  <img src="/images/aespa-blackmamba-img-3.webp" className="w-4/12"/>
+                  <img src="/images/aespa-blackmamba-img-2.webp" className="w-4/12"/>
+                  <img src="/images/aespa-blackmamba-img-1.webp" className="w-4/12"/>
+                  <img src="/images/aespa-blackmamba-img-3.webp" className="w-4/12"/>
                 </div>
               </div>
               <div className="w-6/12 mx-auto">
