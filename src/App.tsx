@@ -186,18 +186,16 @@ function App() {
               </div>
               <div className="w-full my-10">
                 <div className="w-full flex flex-row justify-center gap-10">
-                  <div className="relative w-4/12">
-                    <img src="/images/aespa-blackmamba-img-2.webp" />
-                    <div className=" px-5 py-3 flex items-center absolute opacity-0 hover:opacity-100 content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full h-full bottom-0 left-0 transform transition-opacity">
-                      <p className="text-white text-start font-semibold">
-                        Upon its release, the music video for "Black Mamba" shattered records for K-pop debut visibility. Within just 24 hours, it garnered 21.4 million views, setting a new benchmark for the most-viewed debut music video by a K-pop group in a single day. Furthermore, it became the fastest K-pop debut music video to reach 100 million views, achieving the milestone in only 51 days and 12 hours—surpassing the previous record of 57 days.
-                      </p>
+                  <div className="relative w-4/12 h-[300px] group">
+                    <img src="/images/aespa-blackmamba-img-2.webp" className="w-full h-full object-cover"/>
+                    <div className="overflow-hidden px-5  flex items-center absolute bottom-0 h-0 group-hover:h-[300px] content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full left-0 transform transition-all">
+                      <p className="text-white text-start font-semibold select-none">Upon its release, the music video for "Black Mamba" shattered records for K-pop debut visibility. Within just 24 hours, it garnered 21.4 million views, setting a new benchmark for the most-viewed debut music video by a K-pop group in a single day. Furthermore, it became the fastest K-pop debut music video to reach 100 million views, achieving the milestone in only 51 days and 12 hours—surpassing the previous record of 57 days.</p>
                     </div>
                   </div>
-                  <div className="relative w-4/12">
-                    <img src="/images/aespa-blackmamba-img-1.webp" />
-                    <div className="px-5 py-3 flex items-center absolute opacity-0 hover:opacity-100 content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full h-full bottom-0 left-0 transform transition-opacity">
-                      <p className="text-white text-start font-semibold">The song serves as the foundational narrative for the SM Culture Universe (SMCU). The "Black Mamba" is not just a title; it is the name of the central villain—a massive, serpentine entity that resides in the virtual world known as the FLAT. Its primary objective is to interfere with the "SYNK" connection between the real-life members (Karina, Giselle, Winter, and Ningning) and their digital counterparts (æ-aespa), preventing them from coexisting and communicating effectively</p>
+                  <div className="relative w-4/12 h-[300px] group">
+                    <img src="/images/aespa-blackmamba-img-1.webp" className="w-full h-full object-cover"/>
+                    <div className="overflow-hidden px-5  flex items-center absolute bottom-0 h-0 group-hover:h-[300px] content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full left-0 transform transition-all">
+                      <p className="text-white text-start font-semibold select-none">The song serves as the foundational narrative for the SM Culture Universe (SMCU). The "Black Mamba" is not just a title; it is the name of the central villain—a massive, serpentine entity that resides in the virtual world known as the FLAT. Its primary objective is to interfere with the "SYNK" connection between the real-life members (Karina, Giselle, Winter, and Ningning) and their digital counterparts (æ-aespa), preventing them from coexisting and communicating effectively</p>
                     </div>
                   </div>
                 </div>
