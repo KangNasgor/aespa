@@ -74,12 +74,12 @@ function App() {
           }
         }}>
         <div className="relative h-[100vh]">
-          <Navbar icon={icon} />
+          <Navbar />
           <div className="flex justify-center items-start select-none">
             <div className="w-4/12 absolute bottom-32">
               <img src="svg/aespa.png"/>
             </div>
-            <div className="absolute bottom-16 text-[#f4f015] dark:text-white text-3xl font-bold z-10 flex flex-row gap-10">
+            <div className="absolute bottom-16 text-[#fad643] dark:text-white text-3xl font-bold z-10 flex flex-row gap-10">
               {members.map(member => (
                 <span key={member.name}>{member.name}</span>
               ))}
@@ -88,10 +88,10 @@ function App() {
           <img src={theme === "light" ? "images/aespa-richman-img-3.webp" : "images/aespa-dirtywork-img-6.jpg"} className="absolute inset-0 object-cover w-full h-full -z-10 opacity-60 select-none"/>
         </div>
       </motion.section>
-      <section className="bg-[#070fc1] dark:bg-black min-h-screen flex items-center">
+      <section className="bg-[#4b3621] dark:bg-black min-h-screen flex items-center">
         <div className="flex flex-row justify-around items-center gap-5">
           <div className="w-5/12 flex flex-col gap-20">
-            <h1 className="text-[#f4f015] dark:text-white font-bold text-5xl">The æ concept that changed everything</h1>
+            <h1 className="text-[#fad643] dark:text-white font-bold text-5xl">The æ concept that changed everything</h1>
             <div>
               <p className="text-white dark:text-white font-bold text-2xl">
                 {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
@@ -121,7 +121,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="min-h-screen bg-[#070fc1] dark:bg-black py-20">
+      <section className="min-h-screen bg-[#4b3621] dark:bg-black py-20">
             <h1 className="font-bold text-5xl text-white mb-24 text-center">The <span className="text-[#f4f015]">Members</span></h1>
             <div className="flex flex-rows gap-10 w-9/12 mx-auto">
                 <AnimatePresence>
@@ -180,7 +180,7 @@ function App() {
               ))}
             </div>
       </section>
-      <section className="min-h-screen bg-[#070fc1] dark:bg-black py-20 px-10 relative overflow-hidden">
+      <section className="min-h-screen bg-black py-20 px-10 relative overflow-hidden">
               <div className="w-full">
                   <h1 className="text-white text-center font-bold text-4xl">THE DEBUT : <span className="text-[#f4f015]">BLACK MAMBA</span></h1>
               </div>
@@ -203,6 +203,9 @@ function App() {
               <div className="w-6/12 mx-auto">
                 <p className="text-white text-center font-semibold"> Released on November 17, 2020. Black Mamba is the debut and first digital single by South Korean girl group aespa. The music video reached 100 million views on January 8, 2021 and 200 million views on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
               </div>
+      </section>
+      <section className="min-h-screen">
+
       </section>
     </main>
   );
