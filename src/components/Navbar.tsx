@@ -7,8 +7,12 @@ function Navbar() {
             <h1 className="cursor-pointer">ABOUT</h1>
             <h1 className="cursor-pointer">MEMBERS</h1>
             <h1 className="cursor-pointer">KWANGYA</h1>
-            <div onClick={changeTheme} className="absolute right-5 bg-[#4b3621] dark:bg-black w-[100px] h-[50px] px-5 py-3 rounded-full cursor-pointer">
-                <img src={theme === "light" ? "/icons/rich-man-icon.png" : "/icons/dirty-work-icon.png"}/>
+            <div onClick={changeTheme} className="absolute right-5 bg-[#4b3621] w-[100px] h-[50px] px-5 py-3 rounded-full cursor-pointer overflow-hidden select-none">
+                {/* Rising Dark Theme Layer */}
+                <div className={`absolute inset-0 bg-black transition-transform duration-500 ease-in-out origin-bottom ${theme === "dark" ? "scale-x-100" : "scale-x-0"}`}/>
+
+                {/* Interactive Content Layer */}
+                <img className="relative z-10 w-full h-full object-contain"src={theme === "light" ? "/icons/rich-man-icon.png" : "/icons/dirty-work-icon.png"} alt="Theme Toggle"/>
             </div>
         </div>
     )
