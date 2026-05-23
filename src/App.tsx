@@ -204,8 +204,24 @@ function App() {
                 <p className="text-white text-center font-semibold"> Released on November 17, 2020. Black Mamba is the debut and first digital single by South Korean girl group aespa. The music video reached 100 million views on January 8, 2021 and 200 million views on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
               </div>
       </section>
-      <section className="min-h-screen">
-
+      <section className="min-h-screen relative flex flex-col gap-24 pt-0.5">
+              <div className="bg-white absolute w-5 h-[200vh] translate-x-6/12 left-1/2 rounded-4xl"></div>
+              <div className="w-6/12 ml-auto relative mt-28">
+                  <div className="absolute rounded-full translate-y-6/12 bottom-6/12 w-10 h-10 bg-red-600"></div>
+                  <div className="w-8/12 bg-white h-[250px] ml-15"></div>
+              </div>
+              <div className="w-6/12 relative">
+                  <div className="absolute rounded-full -right-5 translate-x-6/12 translate-y-6/12 bottom-6/12 w-10 h-10 bg-red-600"></div>
+                  <div className="w-8/12 bg-white h-[250px] mr-5 ml-auto"></div>
+              </div>
+              <div className="w-6/12 ml-auto relative mt-28">
+                  <div className="absolute rounded-full translate-y-6/12 bottom-6/12 w-10 h-10 bg-red-600"></div>
+                  <div className="w-8/12 bg-white h-[250px] ml-15"></div>
+              </div>
+              <div className="w-6/12 relative">
+                  <div className="absolute rounded-full -right-5 translate-x-6/12 translate-y-6/12 bottom-6/12 w-10 h-10 bg-red-600"></div>
+                  <div className="w-8/12 bg-white h-[250px] mr-5 ml-auto"></div>
+              </div>
       </section>
     </main>
   );
