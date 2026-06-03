@@ -180,13 +180,13 @@ function App() {
               ))}
             </div>
       </section>
-      <section className="min-h-screen bg-black py-20 px-10 relative overflow-hidden">
+      <section className="min-h-screen bg-[#4b3621] dark:bg-black py-20 px-10 relative overflow-hidden">
               <div className="w-full">
                   <h1 className="text-white text-center font-bold text-4xl">THE DEBUT : <span className="text-[#f4f015]">BLACK MAMBA</span></h1>
               </div>
               <div className="w-full my-10">
                 <div className="w-full flex flex-row justify-center gap-10">
-                  <div className="relative w-4/12 h-[300px] group">
+                  <div className="relative w-4/12 h-[250px] group">
                     <img src="/images/aespa-blackmamba-img-2.webp" className="w-full h-full object-cover"/>
                     <div className="overflow-hidden px-5  flex items-center absolute bottom-0 h-0 group-hover:h-[300px] content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full left-0 transform transition-all">
                       <p className="text-white text-start font-semibold select-none">Upon its release, the music video for "Black Mamba" shattered records for K-pop debut visibility. Within just 24 hours, it garnered 21.4 million views, setting a new benchmark for the most-viewed debut music video by a K-pop group in a single day. Furthermore, it became the fastest K-pop debut music video to reach 100 million views, achieving the milestone in only 51 days and 12 hours—surpassing the previous record of 57 days.</p>
@@ -204,23 +204,50 @@ function App() {
                 <p className="text-white text-center font-semibold"> Released on November 17, 2020. Black Mamba is the debut and first digital single by South Korean girl group aespa. The music video reached 100 million views on January 8, 2021 and 200 million views on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
               </div>
       </section>
-      <section className="min-h-screen relative flex flex-col gap-24 pt-0.5">
-              <div className="bg-white absolute w-5 h-[200vh] translate-x-6/12 left-1/2 rounded-4xl"></div>
-              <div className="w-6/12 ml-auto relative mt-28">
-                  <div className="absolute rounded-full translate-y-6/12 bottom-6/12 w-10 h-10 bg-red-600"></div>
-                  <div className="w-8/12 bg-white h-[250px] ml-15"></div>
-              </div>
-              <div className="w-6/12 relative">
-                  <div className="absolute rounded-full -right-5 translate-x-6/12 translate-y-6/12 bottom-6/12 w-10 h-10 bg-red-600"></div>
-                  <div className="w-8/12 bg-white h-[250px] mr-5 ml-auto"></div>
-              </div>
-              <div className="w-6/12 ml-auto relative mt-28">
-                  <div className="absolute rounded-full translate-y-6/12 bottom-6/12 w-10 h-10 bg-red-600"></div>
-                  <div className="w-8/12 bg-white h-[250px] ml-15"></div>
-              </div>
-              <div className="w-6/12 relative">
-                  <div className="absolute rounded-full -right-5 translate-x-6/12 translate-y-6/12 bottom-6/12 w-10 h-10 bg-red-600"></div>
-                  <div className="w-8/12 bg-white h-[250px] mr-5 ml-auto"></div>
+      <section className="min-h-screen bg-[#4b3621] dark:bg-black relative pt-0.5">
+              <h1 className="font-bold text-white text-5xl text-center"><span className="text-[#f4f015]">Disco</span>graphy</h1>
+              <div className="flex flex-col gap-36 mt-32">
+                <div className="bg-[#4b3621] absolute w-5 h-[300vh] -translate-x-6/12 left-1/2 rounded-4xl"></div>
+                <div className="w-full ml-auto relative mt-10 flex flex-row justify-around items-center px-10">
+                    <img src="/images/aespa-blackmamba-img-6.webp" className="w-5/12 bg-white h-[300px] object-cover object-top"/>
+                    <div className="rounded-full bottom-6/12 w-10 h-10 bg-[#f4f015]"></div>
+                    <div className="w-5/12 h-fit flex flex-col gap-5">
+                      <h1 className="text-[#f4f015] font-bold text-4xl">17 November 2020</h1>
+                      <h1 className="text-[#f4f015] font-bold text-3xl">BLACK MAMBA (Digital Single)</h1>
+                    </div>
+                </div>
+                <div className="w-full ml-auto relative flex flex-row justify-around items-center px-10">
+                    <div className="w-5/12 h-fit flex flex-col items-end gap-5">
+                      <h1 className="text-[#f4f015] font-bold text-4xl">17 May 2021</h1>
+                      <h1 className="text-[#f4f015] font-bold text-3xl">Next Level (2nd Mini Album)</h1>
+                    </div>
+                    <div className="rounded-full bottom-6/12 w-10 h-10 bg-[#f4f015]"></div>
+                    <img src="/images/nextlevel-1.webp" className="w-5/12 bg-white h-[300px] object-cover object-center"/>
+                </div>
+                <div className="w-full ml-auto relative flex flex-row justify-around items-center px-10">
+                    <img src="/images/armageddon-2.webp" className="w-5/12 bg-white h-[300px] object-cover object-center"/>
+                    <div className="rounded-full bottom-6/12 w-10 h-10 bg-[#f4f015]"></div>
+                    <div className="w-5/12 h-fit flex flex-col gap-5">
+                      <h1 className="text-[#f4f015] font-bold text-4xl">27 May 2024</h1>
+                      <h1 className="text-[#f4f015] font-bold text-3xl">Armageddon (1st Album)</h1>
+                    </div>
+                </div>
+                <div className="w-full ml-auto relative flex flex-row justify-around items-center px-10">
+                    <div className="w-5/12 h-fit flex flex-col items-end gap-5">
+                      <h1 className="text-[#f4f015] font-bold text-4xl">21 October 2024</h1>
+                      <h1 className="text-[#f4f015] font-bold text-3xl">Whiplash (5th Mini Album)</h1>
+                    </div>
+                    <div className="rounded-full bottom-6/12 w-10 h-10 bg-[#f4f015]"></div>
+                    <img src="/images/whiplash-1.webp" className="w-5/12 bg-white h-[300px] object-cover object-center"/>
+                </div>
+                <div className="w-full ml-auto relative flex flex-row justify-around items-center px-10">
+                    <img src="/images/lemonade-2.webp" className="w-5/12 bg-white h-[300px] object-cover object-center"/>
+                    <div className="rounded-full bottom-6/12 w-10 h-10 bg-[#f4f015]"></div>
+                    <div className="w-5/12 h-fit flex flex-col gap-5">
+                      <h1 className="text-[#f4f015] font-bold text-4xl">29 May 2026</h1>
+                      <h1 className="text-[#f4f015] font-bold text-3xl">LEMONADE (2nd Album)</h1>
+                    </div>
+                </div>
               </div>
       </section>
     </main>
