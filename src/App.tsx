@@ -115,7 +115,7 @@ function App() {
                       <div className="w-6 h-0.5 transform -translate-y-6/12 -rotate-45 bg-white"></div>
                     </div>
                   <motion.img layoutId='aespa-image' src={theme === "light" ? "images/aespa-richman-img-2.webp" : "images/aespa-richman-img-3.webp"} onClick={() => setImageClicked((prev) => !prev)}
-                  className="fixed left-6/12 w-7/12 top-6/12 -translate-y-6/12 transform -translate-x-6/12 z-50"/>
+                  className="fixed left-6/12 w-full md:w-8/12 top-6/12 -translate-y-6/12 transform -translate-x-6/12 z-50"/>
                 </motion.div>
               )}
             </AnimatePresence>
