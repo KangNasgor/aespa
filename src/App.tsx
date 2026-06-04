@@ -76,24 +76,25 @@ function App() {
         <div className="relative h-[100vh]">
           <Navbar />
           <div className="flex justify-center items-start select-none">
-            <div className="w-10/12 md:w-4/12 absolute top-1/2 -translate-y-1/2 md:top-auto md:translate-y-0 md:bottom-32">
+            <div className="w-10/12 md:w-4/12 absolute top-1/2 -translate-y-1/2 z-20 md:z-0 md:top-auto md:translate-y-0 md:bottom-32">
               <img src="svg/aespa.png"/>
             </div>
-            <div className="absolute bottom-16 text-[#fad643] dark:text-white text-lg font-semibold gap-2 md:text-3xl md:font-bold z-10 flex flex-row md:gap-10">
+            <div className="absolute bottom-5 md:bottom-16 text-[#fad643] dark:text-white text-lg font-semibold gap-2 md:text-3xl md:font-bold z-10 grid grid-cols-2 text-center md:flex md:flex-row md:gap-10">
               {members.map(member => (
                 <span key={member.name}>{member.name}</span>
               ))}
             </div>
           </div>
-          <img src={theme === "light" ? "images/aespa-richman-img-3.webp" : "images/aespa-dirtywork-img-6.jpg"} className="md:absolute md:inset-0 object-center object-cover w-full h-full -z-10 opacity-60 select-none"/>
+          <img src={theme === "light" ? "images/aespa-richman-img-3.webp" : "images/aespa-dirtywork-img-6.jpg"} className="absolute inset-0 object-center object-cover w-full h-full -z-50 opacity-60 select-none"/>
         </div>
       </motion.section>
-      <section className="bg-[#4b3621] dark:bg-black min-h-screen items-center px-2 md:px-10">
-        <h1 className="text-[#fad643] dark:text-white font-bold text-center md:text-start text-xl md:text-5xl/15 mt-32 mb-14">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</h1>
+      <section className="bg-[#4b3621] dark:bg-black min-h-screen items-center px-2 md:px-10 pt-32">
+        <h1 className="text-[#fad643] dark:text-white block md:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</h1>
         <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-5">
           <div className="md:w-5/12 flex flex-col gap-20">
-            <div>
-              <p className="text-white font-semibold text-lg md:font-bold md:text-2xl">
+            <h1 className="text-[#fad643] dark:text-white hidden md:block font-bold text-center md:text-start text-xl md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</h1>
+            <div className="px-3">
+              <p className="text-white font-semibold text-sm text-center md:text-start md:font-bold md:text-2xl">
                 {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
                 The group name is a combination of "ae" (Avatar X Experience) and "aspect",
                 symbolizing the concept of a new experience by meeting a new world through another version of yourself.
