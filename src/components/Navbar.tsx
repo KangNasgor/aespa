@@ -3,7 +3,7 @@ import { useTheme } from "../context/ThemeContext";
 function Navbar() {
     const { theme, changeTheme } = useTheme();
     return (
-        <div data-theme={theme} className="w-full flex flex-row gap-10 justify-center font-bold text-xl text-[#f4f015]  bg-none py-5">
+        <div data-theme={theme} className="md:w-full hidden md:flex flex-row gap-10 justify-center font-bold text-xl text-[#f4f015]  bg-none py-5">
             <h1 className="cursor-pointer">ABOUT</h1>
             <h1 className="cursor-pointer">MEMBERS</h1>
             <h1 className="cursor-pointer">KWANGYA</h1>

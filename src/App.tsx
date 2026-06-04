@@ -76,48 +76,50 @@ function App() {
         <div className="relative h-[100vh]">
           <Navbar />
           <div className="flex justify-center items-start select-none">
-            <div className="w-4/12 absolute bottom-32">
+            <div className="w-10/12 md:w-4/12 absolute top-1/2 -translate-y-1/2 md:top-auto md:translate-y-0 md:bottom-32">
               <img src="svg/aespa.png"/>
             </div>
-            <div className="absolute bottom-16 text-[#fad643] dark:text-white text-3xl font-bold z-10 flex flex-row gap-10">
+            <div className="absolute bottom-16 text-[#fad643] dark:text-white text-lg font-semibold gap-2 md:text-3xl md:font-bold z-10 flex flex-row md:gap-10">
               {members.map(member => (
                 <span key={member.name}>{member.name}</span>
               ))}
             </div>
           </div>
-          <img src={theme === "light" ? "images/aespa-richman-img-3.webp" : "images/aespa-dirtywork-img-6.jpg"} className="absolute inset-0 object-cover w-full h-full -z-10 opacity-60 select-none"/>
+          <img src={theme === "light" ? "images/aespa-richman-img-3.webp" : "images/aespa-dirtywork-img-6.jpg"} className="md:absolute md:inset-0 object-center object-cover w-full h-full -z-10 opacity-60 select-none"/>
         </div>
       </motion.section>
-      <section className="bg-[#4b3621] dark:bg-black min-h-screen flex items-center">
-        <div className="flex flex-row justify-around items-center gap-5">
-          <div className="w-5/12 flex flex-col gap-20">
-            <h1 className="text-[#fad643] dark:text-white font-bold text-5xl">The æ concept that changed everything</h1>
+      <section className="bg-[#4b3621] dark:bg-black min-h-screen items-center px-2 md:px-10">
+        <h1 className="text-[#fad643] dark:text-white font-bold text-center md:text-start text-xl md:text-5xl/15 mt-32 mb-14">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</h1>
+        <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-5">
+          <div className="md:w-5/12 flex flex-col gap-20">
             <div>
-              <p className="text-white dark:text-white font-bold text-2xl">
+              <p className="text-white font-semibold text-lg md:font-bold md:text-2xl">
                 {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
                 The group name is a combination of "ae" (Avatar X Experience) and "aspect",
                 symbolizing the concept of a new experience by meeting a new world through another version of yourself.
               </p>
             </div>
           </div>
-          <div className="w-5/12">
-          <AnimatePresence>
-            {imageClicked && (
-              <motion.div
-                initial={{ opacity : 0 }}
-                animate={{ opacity : 1 }}
-                exit={{ opacity : 0, transition : { duration : 0.7 } }}
-                onClick={() => setImageClicked(false)}
-                className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm">
-                  <div className="absolute top-5 right-5">
-                    <div className="w-6 h-0.5 transform translate-y-6/12 rotate-45 bg-white"></div>
-                    <div className="w-6 h-0.5 transform -translate-y-6/12 -rotate-45 bg-white"></div>
-                  </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-            <motion.img layout src={theme === "light" ? "images/aespa-richman-img-2.webp" : "images/aespa-richman-img-3.webp"} onClick={() => setImageClicked((prev) => !prev)}
-              className={imageClicked === true ? "fixed left-6/12 w-7/12 top-6/12 -translate-y-6/12 transform -translate-x-6/12 z-50" : "cursor-pointer relative"}/>
+          <div className="w-full md:w-5/12">
+            <AnimatePresence>
+              {imageClicked && (
+                <motion.div
+                  initial={{ opacity : 0 }}
+                  animate={{ opacity : 1 }}
+                  exit={{ opacity : 0, transition : { duration : 0.7 } }}
+                  onClick={() => setImageClicked(false)}
+                  className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm">
+                    <div className="absolute top-5 right-5">
+                      <div className="w-6 h-0.5 transform translate-y-6/12 rotate-45 bg-white"></div>
+                      <div className="w-6 h-0.5 transform -translate-y-6/12 -rotate-45 bg-white"></div>
+                    </div>
+                  <motion.img layoutId='aespa-image' src={theme === "light" ? "images/aespa-richman-img-2.webp" : "images/aespa-richman-img-3.webp"} onClick={() => setImageClicked((prev) => !prev)}
+                  className="fixed left-6/12 w-7/12 top-6/12 -translate-y-6/12 transform -translate-x-6/12 z-50"/>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <motion.img layoutId="aespa-image" src={theme === "light" ? "images/aespa-richman-img-2.webp" : "images/aespa-richman-img-3.webp"} onClick={() => setImageClicked((prev) => !prev)}
+              className="cursor-pointer relative"/>
           </div>
         </div>
       </section>
@@ -138,7 +140,7 @@ function App() {
               {members.map((member, index) => (
                 <div key={member.name} className="w-full relative">
                   <motion.div layoutId={member.name} className={`group cursor-pointer relative h-full w-full ${member.id % 2 === 0 ? 'translate-y-10' : 'translate-y-0'}`} onClick={() => setCurrentMemberIndex(member.id)}>
-                    <motion.span layout className={`absolute -top-15 -left-5 text-8xl font-black dark:text-white opacity-10 select-none ${currentMemberIndex === member.id ? 'hidden' : 'block'}`}>
+                    <motion.span layout className={`absolute -top-15 -left-5 text-xl md:text-8xl font-black dark:text-white opacity-10 select-none ${currentMemberIndex === member.id ? 'hidden' : 'block'}`}>
                       0{index + 1}
                     </motion.span>
                     <div className={`relative flex justify-center rounded-lg overflow-hidden after:absolute after:bg-linear-to-t after:from-black after:to-transparent after:w-full after:h-6/12 ${currentMemberIndex === member.id ? 'after:opacity-80 after:z-30' : 'after:opacity-0 group-hover:after:opacity-75'} after:bottom-0 after:left-0 after:transition after:overflow-hidden`} >
@@ -186,7 +188,7 @@ function App() {
               </div>
               <div className="w-full my-10">
                 <div className="w-full flex flex-row justify-center gap-10">
-                  <div className="relative w-4/12 h-[250px] group">
+                  <div className="relative w-4/12 h-[300px] group">
                     <img src="/images/aespa-blackmamba-img-2.webp" className="w-full h-full object-cover"/>
                     <div className="overflow-hidden px-5  flex items-center absolute bottom-0 h-0 group-hover:h-[300px] content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full left-0 transform transition-all">
                       <p className="text-white text-start font-semibold select-none">Upon its release, the music video for "Black Mamba" shattered records for K-pop debut visibility. Within just 24 hours, it garnered 21.4 million views, setting a new benchmark for the most-viewed debut music video by a K-pop group in a single day. Furthermore, it became the fastest K-pop debut music video to reach 100 million views, achieving the milestone in only 51 days and 12 hours—surpassing the previous record of 57 days.</p>
@@ -204,22 +206,22 @@ function App() {
                 <p className="text-white text-center font-semibold"> Released on November 17, 2020. Black Mamba is the debut and first digital single by South Korean girl group aespa. The music video reached 100 million views on January 8, 2021 and 200 million views on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
               </div>
       </section>
-      <section className="min-h-screen bg-[#4b3621] dark:bg-black relative pt-0.5">
+      <section className="min-h-screen h-fit bg-[#4b3621] dark:bg-black relative pt-0.5">
               <h1 className="font-bold text-white text-5xl text-center"><span className="text-[#f4f015]">Disco</span>graphy</h1>
               <div className="flex flex-col gap-36 mt-32">
-                <div className="bg-[#4b3621] absolute w-5 h-[300vh] -translate-x-6/12 left-1/2 rounded-4xl"></div>
+                <div className="bg-[#4b3621] absolute w-5 h-[280vh] -translate-x-6/12 left-1/2 rounded-4xl"></div>
                 <div className="w-full ml-auto relative mt-10 flex flex-row justify-around items-center px-10">
                     <img src="/images/aespa-blackmamba-img-6.webp" className="w-5/12 bg-white h-[300px] object-cover object-top"/>
                     <div className="rounded-full bottom-6/12 w-10 h-10 bg-[#f4f015]"></div>
                     <div className="w-5/12 h-fit flex flex-col gap-5">
-                      <h1 className="text-[#f4f015] font-bold text-4xl">17 November 2020</h1>
-                      <h1 className="text-[#f4f015] font-bold text-3xl">BLACK MAMBA (Digital Single)</h1>
+                      <h1 className="text-[#f4f015] font-bold md:text-4xl">17 November 2020</h1>
+                      <h1 className="text-[#f4f015] font-bold md:text-3xl">BLACK MAMBA (Digital Single)</h1>
                     </div>
                 </div>
                 <div className="w-full ml-auto relative flex flex-row justify-around items-center px-10">
                     <div className="w-5/12 h-fit flex flex-col items-end gap-5">
-                      <h1 className="text-[#f4f015] font-bold text-4xl">17 May 2021</h1>
-                      <h1 className="text-[#f4f015] font-bold text-3xl">Next Level (2nd Mini Album)</h1>
+                      <h1 className="text-[#f4f015] font-bold md:text-4xl">17 May 2021</h1>
+                      <h1 className="text-[#f4f015] font-bold md:text-3xl">Next Level (2nd Mini Album)</h1>
                     </div>
                     <div className="rounded-full bottom-6/12 w-10 h-10 bg-[#f4f015]"></div>
                     <img src="/images/nextlevel-1.webp" className="w-5/12 bg-white h-[300px] object-cover object-center"/>
@@ -228,14 +230,14 @@ function App() {
                     <img src="/images/armageddon-2.webp" className="w-5/12 bg-white h-[300px] object-cover object-center"/>
                     <div className="rounded-full bottom-6/12 w-10 h-10 bg-[#f4f015]"></div>
                     <div className="w-5/12 h-fit flex flex-col gap-5">
-                      <h1 className="text-[#f4f015] font-bold text-4xl">27 May 2024</h1>
-                      <h1 className="text-[#f4f015] font-bold text-3xl">Armageddon (1st Album)</h1>
+                      <h1 className="text-[#f4f015] font-bold md:text-4xl">27 May 2024</h1>
+                      <h1 className="text-[#f4f015] font-bold md:text-3xl">Armageddon (1st Album)</h1>
                     </div>
                 </div>
                 <div className="w-full ml-auto relative flex flex-row justify-around items-center px-10">
                     <div className="w-5/12 h-fit flex flex-col items-end gap-5">
-                      <h1 className="text-[#f4f015] font-bold text-4xl">21 October 2024</h1>
-                      <h1 className="text-[#f4f015] font-bold text-3xl">Whiplash (5th Mini Album)</h1>
+                      <h1 className="text-[#f4f015] font-bold md:text-4xl">21 October 2024</h1>
+                      <h1 className="text-[#f4f015] font-bold md:text-3xl">Whiplash (5th Mini Album)</h1>
                     </div>
                     <div className="rounded-full bottom-6/12 w-10 h-10 bg-[#f4f015]"></div>
                     <img src="/images/whiplash-1.webp" className="w-5/12 bg-white h-[300px] object-cover object-center"/>
@@ -244,12 +246,13 @@ function App() {
                     <img src="/images/lemonade-2.webp" className="w-5/12 bg-white h-[300px] object-cover object-center"/>
                     <div className="rounded-full bottom-6/12 w-10 h-10 bg-[#f4f015]"></div>
                     <div className="w-5/12 h-fit flex flex-col gap-5">
-                      <h1 className="text-[#f4f015] font-bold text-4xl">29 May 2026</h1>
-                      <h1 className="text-[#f4f015] font-bold text-3xl">LEMONADE (2nd Album)</h1>
+                      <h1 className="text-[#f4f015] font-bold md:text-4xl">29 May 2026</h1>
+                      <h1 className="text-[#f4f015] font-bold md:text-3xl">LEMONADE (2nd Album)</h1>
                     </div>
                 </div>
               </div>
       </section>
+      <section className="min-h-[100vh]"></section>
     </main>
   );
 }
