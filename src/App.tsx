@@ -126,7 +126,7 @@ function App() {
       </section>
       <section className="min-h-screen bg-[#4b3621] dark:bg-black py-20">
             <h1 className="font-bold text-5xl text-white mb-24 text-center">The <span className="text-[#f4f015]">Members</span></h1>
-            <div className="flex flex-rows gap-10 w-9/12 mx-auto">
+            <div className="flex flex-col md:flex-row gap-14 md:gap-10 w-9/12 mx-auto">
                 <AnimatePresence>
                     {currentMemberIndex && (
                       <motion.div
@@ -140,8 +140,8 @@ function App() {
                 </AnimatePresence>
               {members.map((member, index) => (
                 <div key={member.name} className="w-full relative">
-                  <motion.div layoutId={member.name} className={`group cursor-pointer relative h-full w-full ${member.id % 2 === 0 ? 'translate-y-10' : 'translate-y-0'}`} onClick={() => setCurrentMemberIndex(member.id)}>
-                    <motion.span layout className={`absolute -top-15 -left-5 text-xl md:text-8xl font-black dark:text-white opacity-10 select-none ${currentMemberIndex === member.id ? 'hidden' : 'block'}`}>
+                  <motion.div layoutId={member.name} className={`group cursor-pointer relative h-full w-full ${member.id % 2 === 0 ? 'md:translate-y-10' : 'md:translate-y-0'}`} onClick={() => setCurrentMemberIndex(member.id)}>
+                    <motion.span layout className={`absolute -top-15 -left-5  text-8xl font-black dark:text-white opacity-10 select-none ${currentMemberIndex === member.id ? 'hidden' : 'block'}`}>
                       0{index + 1}
                     </motion.span>
                     <div className={`relative flex justify-center rounded-lg overflow-hidden after:absolute after:bg-linear-to-t after:from-black after:to-transparent after:w-full after:h-6/12 ${currentMemberIndex === member.id ? 'after:opacity-80 after:z-30' : 'after:opacity-0 group-hover:after:opacity-75'} after:bottom-0 after:left-0 after:transition after:overflow-hidden`} >
@@ -153,7 +153,7 @@ function App() {
                   </motion.div>
                   <AnimatePresence>
                     {currentMemberIndex === member.id && (
-                        <motion.div layoutId={member.name} className="fixed left-6/12 w-8/12 h-[500px] top-1/2 -translate-y-1/2 transform -translate-x-6/12 overflow-hidden z-50">
+                        <motion.div layoutId={member.name} className="fixed left-6/12 w-11/12 md:w-8/12 h-[500px] top-1/2 -translate-y-1/2 transform -translate-x-6/12 overflow-hidden z-50">
                           <div style={{ backgroundColor: currentMemberIndex === member.id ? member.color + '80' : 'transparent' }} className={`relative flex justify-between rounded-lg overflow-hidden after:absolute after:bg-linear-to-t after:from-black after:to-transparent after:w-full after:h-6/12 ${currentMemberIndex === member.id ? 'after:opacity-80 after:z-30' : 'after:opacity-0 group-hover:after:opacity-75'} after:bottom-0 after:left-0 after:transition after:overflow-hidden`} >
                             <motion.img layoutId={member.image} src={member.image} className="w-75 rounded-lg" alt={member.name} />
                             <div className="grid grid-cols-3 gap-2 h-[400px] my-auto px-3">
