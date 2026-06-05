@@ -122,11 +122,15 @@ function App() {
                 </motion.div>
               )}
             </AnimatePresence>
-            <motion.img
-            transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.2 } }}
-            initial={{ clipPath: "inset(0 0 0 100%)" }} whileInView={{ clipPath : "inset(0 0 0% 0)" }} layoutId="aespa-image"
-            src={theme === "light" ? "images/aespa-richman-img-2.webp" : "images/aespa-richman-img-3.webp"} onClick={() => setImageClicked((prev) => !prev)}
-              className="cursor-pointer relative"/>
+            <motion.div initial={{ clipPath: "inset(0% 0% 0% 100%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} className="overflow-hidden">
+              <motion.img
+              transition={{ scale : { duration : 0.5, delay : 0.1 } }}
+              initial={{ scale : 1.2}}
+              whileInView={{ scale : 1}}
+              layoutId="aespa-image"
+              src={theme === "light" ? "images/aespa-richman-img-2.webp" : "images/aespa-richman-img-3.webp"} onClick={() => setImageClicked((prev) => !prev)}
+                className="block cursor-pointer relative w-full h-full"/>
+            </motion.div>
           </div>
         </div>
       </section>
