@@ -163,7 +163,7 @@ function App() {
                                 </div>
                               ))}
                             </div>
-                            <div className={`absolute bottom-5 left-5 px-3 z-40 text-white ${currentMemberIndex === member.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
+                            <div className={`absolute bottom-5 md:left-5 px-3 z-40 text-white ${currentMemberIndex === member.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
                               <motion.h1 layout className="font-bold text-2xl">{member.name}</motion.h1>
                               <AnimatePresence>
                                 <motion.h3
@@ -183,19 +183,19 @@ function App() {
               ))}
             </div>
       </section>
-      <section className="min-h-screen bg-[#4b3621] dark:bg-black py-20 px-10 relative overflow-hidden">
+      <section className="min-h-screen bg-[#4b3621] dark:bg-black py-20 px-5 md:px-10 relative overflow-hidden">
               <div className="w-full">
-                  <h1 className="text-white text-center font-bold text-4xl">THE DEBUT : <span className="text-[#f4f015]">BLACK MAMBA</span></h1>
+                  <h1 className="text-white text-center font-bold text-3xl md:text-4xl">THE DEBUT : <span className="text-[#f4f015]">BLACK MAMBA</span></h1>
               </div>
               <div className="w-full my-10">
-                <div className="w-full flex flex-row justify-center gap-10">
-                  <div className="relative w-4/12 h-[300px] group">
+                <div className="w-full flex flex-col md:flex-row justify-center gap-10">
+                  <div className="relative w-full md:w-4/12 h-[300px] group">
                     <img src="/images/aespa-blackmamba-img-2.webp" className="w-full h-full object-cover"/>
-                    <div className="overflow-hidden px-5  flex items-center absolute bottom-0 h-0 group-hover:h-[300px] content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full left-0 transform transition-all">
+                    <div className="overflow-hidden px-5 flex items-center absolute bottom-0 h-0 group-hover:h-[300px] content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full left-0 transform transition-all">
                       <p className="text-white text-start font-semibold select-none">Upon its release, the music video for "Black Mamba" shattered records for K-pop debut visibility. Within just 24 hours, it garnered 21.4 million views, setting a new benchmark for the most-viewed debut music video by a K-pop group in a single day. Furthermore, it became the fastest K-pop debut music video to reach 100 million views, achieving the milestone in only 51 days and 12 hours—surpassing the previous record of 57 days.</p>
                     </div>
                   </div>
-                  <div className="relative w-4/12 h-[300px] group">
+                  <div className="relative w-full md:w-4/12 h-[300px] group">
                     <img src="/images/aespa-blackmamba-img-1.webp" className="w-full h-full object-cover"/>
                     <div className="overflow-hidden px-5  flex items-center absolute bottom-0 h-0 group-hover:h-[300px] content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full left-0 transform transition-all">
                       <p className="text-white text-start font-semibold select-none">The song serves as the foundational narrative for the SM Culture Universe (SMCU). The "Black Mamba" is not just a title; it is the name of the central villain—a massive, serpentine entity that resides in the virtual world known as the FLAT. Its primary objective is to interfere with the "SYNK" connection between the real-life members (Karina, Giselle, Winter, and Ningning) and their digital counterparts (æ-aespa), preventing them from coexisting and communicating effectively</p>
@@ -203,7 +203,7 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div className="w-6/12 mx-auto">
+              <div className="md:w-6/12 mx-auto">
                 <p className="text-white text-center font-semibold"> Released on November 17, 2020. Black Mamba is the debut and first digital single by South Korean girl group aespa. The music video reached 100 million views on January 8, 2021 and 200 million views on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
               </div>
       </section>
