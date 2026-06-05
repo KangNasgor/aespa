@@ -89,10 +89,10 @@ function App() {
         </div>
       </motion.section>
       <section className="bg-[#4b3621] dark:bg-black min-h-screen items-center px-2 md:px-10 pt-32">
-        <h1 className="text-[#fad643] dark:text-white block md:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</h1>
-        <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-5">
-          <div className="md:w-5/12 flex flex-col gap-20">
-            <h1 className="text-[#fad643] dark:text-white hidden md:block font-bold text-center md:text-start text-xl md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</h1>
+        <h1 className="text-[#fad643] dark:text-white block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</h1>
+        <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-5">
+          <div className="lg:w-5/12 flex flex-col gap-20">
+            <h1 className="text-[#fad643] dark:text-white hidden lg:block font-bold text-center md:text-start text-xl md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</h1>
             <div className="px-3">
               <p className="text-white font-semibold text-sm text-center md:text-start md:font-bold md:text-2xl">
                 {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
@@ -101,7 +101,7 @@ function App() {
               </p>
             </div>
           </div>
-          <div className="w-full md:w-5/12">
+          <div className="w-full lg:w-5/12">
             <AnimatePresence>
               {imageClicked && (
                 <motion.div
@@ -126,7 +126,7 @@ function App() {
       </section>
       <section className="min-h-screen bg-[#4b3621] dark:bg-black py-20">
             <h1 className="font-bold text-5xl text-white mb-24 text-center">The <span className="text-[#f4f015]">Members</span></h1>
-            <div className="flex flex-col md:flex-row gap-14 md:gap-10 w-9/12 mx-auto">
+            <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-10 w-9/12 mx-auto">
                 <AnimatePresence>
                     {currentMemberIndex && (
                       <motion.div
@@ -153,7 +153,7 @@ function App() {
                   </motion.div>
                   <AnimatePresence>
                     {currentMemberIndex === member.id && (
-                        <motion.div layoutId={member.name} className="fixed left-6/12 w-11/12 md:w-8/12 h-[500px] top-1/2 -translate-y-1/2 transform -translate-x-6/12 overflow-hidden z-50">
+                        <motion.div layoutId={member.name} className="fixed left-6/12 w-11/12 lg:w-8/12 h-[500px] top-1/2 -translate-y-1/2 transform -translate-x-6/12 overflow-hidden z-50">
                           <div style={{ backgroundColor: currentMemberIndex === member.id ? member.color + '80' : 'transparent' }} className={`relative flex justify-between rounded-lg overflow-hidden after:absolute after:bg-linear-to-t after:from-black after:to-transparent after:w-full after:h-6/12 ${currentMemberIndex === member.id ? 'after:opacity-80 after:z-30' : 'after:opacity-0 group-hover:after:opacity-75'} after:bottom-0 after:left-0 after:transition after:overflow-hidden`} >
                             <motion.img layoutId={member.image} src={member.image} className="w-75 rounded-lg" alt={member.name} />
                             <div className="grid grid-cols-3 gap-2 h-[400px] my-auto px-3">
@@ -189,21 +189,21 @@ function App() {
               </div>
               <div className="w-full my-10">
                 <div className="w-full flex flex-col md:flex-row justify-center gap-10">
-                  <div className="relative w-full md:w-4/12 h-[300px] group">
+                  <div className="relative w-full lg:w-4/12 h-[300px] group">
                     <img src="/images/aespa-blackmamba-img-2.webp" className="w-full h-full object-cover"/>
                     <div className="overflow-hidden px-5 flex items-center absolute bottom-0 h-0 group-hover:h-[300px] content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full left-0 transform transition-all">
                       <p className="text-white text-start font-semibold select-none">Upon its release, the music video for "Black Mamba" shattered records for K-pop debut visibility. Within just 24 hours, it garnered 21.4 million views, setting a new benchmark for the most-viewed debut music video by a K-pop group in a single day. Furthermore, it became the fastest K-pop debut music video to reach 100 million views, achieving the milestone in only 51 days and 12 hours—surpassing the previous record of 57 days.</p>
                     </div>
                   </div>
-                  <div className="relative w-full md:w-4/12 h-[300px] group">
+                  <div className="relative w-full lg:w-4/12 h-[300px] group">
                     <img src="/images/aespa-blackmamba-img-1.webp" className="w-full h-full object-cover"/>
-                    <div className="overflow-hidden px-5  flex items-center absolute bottom-0 h-0 group-hover:h-[300px] content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full left-0 transform transition-all">
+                    <div className="overflow-hidden px-5 flex items-center absolute bottom-0 h-0 group-hover:h-[300px] content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full left-0 transform transition-all">
                       <p className="text-white text-start font-semibold select-none">The song serves as the foundational narrative for the SM Culture Universe (SMCU). The "Black Mamba" is not just a title; it is the name of the central villain—a massive, serpentine entity that resides in the virtual world known as the FLAT. Its primary objective is to interfere with the "SYNK" connection between the real-life members (Karina, Giselle, Winter, and Ningning) and their digital counterparts (æ-aespa), preventing them from coexisting and communicating effectively</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="md:w-6/12 mx-auto">
+              <div className="lg:w-6/12 mx-auto">
                 <p className="text-white text-center font-semibold"> Released on November 17, 2020. Black Mamba is the debut and first digital single by South Korean girl group aespa. The music video reached 100 million views on January 8, 2021 and 200 million views on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
               </div>
       </section>
