@@ -55,7 +55,6 @@ function App() {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const icon = theme === "dark" ? "images/aespa-dirtywork-icon.png" : "images/aespa-richman-icon.png";
   const [imageClicked, setImageClicked] = useState<boolean>(false);
   const [currentMemberIndex, setCurrentMemberIndex] = useState<number | null>(null);
 
@@ -88,11 +87,15 @@ function App() {
           <img src={theme === "light" ? "images/aespa-richman-img-3.webp" : "images/aespa-dirtywork-img-6.jpg"} className="absolute inset-0 object-center object-cover w-full h-full -z-50 opacity-60 select-none"/>
         </div>
       </motion.section>
-      <section className="bg-[#4b3621] dark:bg-black min-h-screen items-center px-2 md:px-10 pt-32">
-        <h1 className="text-[#fad643] dark:text-white block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</h1>
+      <section className="bg-[#4b3621] dark:bg-black min-h-screen items-center px-2 md:px-10 pt-32 overflow-hidden">
+        <motion.h1 className="text-[#fad643] dark:text-white block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
         <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-5">
           <div className="lg:w-5/12 flex flex-col gap-20">
-            <h1 className="text-[#fad643] dark:text-white hidden lg:block font-bold text-center md:text-start text-xl md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</h1>
+            <motion.h1
+            initial={{ x : "-30%", opacity : 0.5 }}
+            whileInView={{ x : 0, opacity : 1 }}
+            transition={{ type: "tween", duration: 0.6 }}
+            className="text-[#fad643] dark:text-white hidden lg:block font-bold text-center md:text-start text-xl md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
             <div className="px-3">
               <p className="text-white font-semibold text-sm text-center md:text-start md:font-bold md:text-2xl">
                 {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
@@ -119,7 +122,10 @@ function App() {
                 </motion.div>
               )}
             </AnimatePresence>
-            <motion.img layoutId="aespa-image" src={theme === "light" ? "images/aespa-richman-img-2.webp" : "images/aespa-richman-img-3.webp"} onClick={() => setImageClicked((prev) => !prev)}
+            <motion.img
+            transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.2 } }}
+            initial={{ clipPath: "inset(0 0 0 100%)" }} whileInView={{ clipPath : "inset(0 0 0% 0)" }} layoutId="aespa-image"
+            src={theme === "light" ? "images/aespa-richman-img-2.webp" : "images/aespa-richman-img-3.webp"} onClick={() => setImageClicked((prev) => !prev)}
               className="cursor-pointer relative"/>
           </div>
         </div>
