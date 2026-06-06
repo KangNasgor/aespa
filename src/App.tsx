@@ -72,7 +72,7 @@ function App() {
             duration: 1,
           }
         }}>
-        <div className="relative h-[100vh]">
+        <div className="relative h-[100vh] overflow-hidden">
           <Navbar />
           <div className="flex justify-center items-start select-none">
             <div className="w-10/12 md:w-4/12 absolute top-1/2 -translate-y-1/2 z-20 md:z-0 md:top-auto md:translate-y-0 md:bottom-32">
@@ -84,7 +84,10 @@ function App() {
               ))}
             </div>
           </div>
-          <img src={theme === "light" ? "images/aespa-richman-img-3.webp" : "images/aespa-dirtywork-img-6.jpg"} className="absolute inset-0 object-center object-cover w-full h-full -z-50 opacity-60 select-none"/>
+          {/* <img src={theme === "light" ? "images/aespa-richman-img-3.webp" : "images/aespa-dirtywork-img-6.jpg"} className="absolute inset-0 object-center object-cover w-full h-full -z-50 opacity-60 select-none"/> */}
+          <video autoPlay muted loop playsInline className="absolute scale-120 inset-0 object-center object-cover w-full h-full -z-50 opacity-60 select-none">
+            <source src="video/Lemonade.webm"></source>
+          </video>
         </div>
       </motion.section>
       <section className="bg-[#4b3621] dark:bg-black min-h-screen items-center px-2 md:px-10 pt-32 overflow-hidden">
