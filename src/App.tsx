@@ -51,12 +51,10 @@ const members : Members[] = [
 
 function App() {
   const { theme } = useTheme();
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-  }, [theme]);
 
-  const [imageClicked, setImageClicked] = useState<boolean>(false);
-  const [currentMemberIndex, setCurrentMemberIndex] = useState<number | null>(null);
+  const [imageClicked, setImageClicked] = useState<boolean>(false); // image is on the second section
+
+  const [currentMemberIndex, setCurrentMemberIndex] = useState<number | null>(null); // keeping track on members section
 
   return (
     <main data-theme={theme}>
@@ -74,14 +72,13 @@ function App() {
         }}>
         <div className="relative h-[100vh] overflow-hidden">
           <Navbar />
-          <div className="flex justify-center items-start select-none">
-            <div className="absolute bottom-5 text-white text-md font-semibold gap-2  z-10 grid grid-cols-2 text-center md:flex md:flex-row md:gap-10">
+            <motion.div
+            initial={{ y : "180%" }} whileInView={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }}
+            className="absolute bottom-5 text-white text-md font-semibold gap-2 z-10 grid grid-cols-2 text-center md:flex md:flex-row md:gap-10 md:justify-center md:w-full">
               {members.map(member => (
                 <span key={member.name}>{member.name}</span>
               ))}
-            </div>
-          </div>
-          {/* <img src={theme === "light" ? "images/aespa-richman-img-3.webp" : "images/aespa-dirtywork-img-6.jpg"} className="absolute inset-0 object-center object-cover w-full h-full -z-50 opacity-60 select-none"/> */}
+            </motion.div>
           <video autoPlay muted loop playsInline className="absolute scale-120 inset-0 object-center object-cover w-full h-full -z-50 opacity-60 select-none">
             <source src="video/Lemonade.webm"></source>
           </video>
@@ -149,7 +146,7 @@ function App() {
                     )}
                 </AnimatePresence>
               {members.map((member, index) => (
-                <motion.div key={member.name} className="w-full relative" initial={{ y: member.id % 2 === 0 ? "25%" : "-25%" }} whileInView={{ y: 0 }} transition={{ type: "tween", delay : 0.1 }}>
+                <motion.div key={member.name} className="w-full relative" initial={{  }} whileInView={{  }} transition={{ type: "tween", delay : 0.1 }}>
                   <motion.div layoutId={member.name} className={`group cursor-pointer relative h-full w-full ${member.id % 2 === 0 ? 'md:translate-y-10' : 'md:translate-y-0'}`} onClick={() => setCurrentMemberIndex(member.id)}>
                     <motion.span layout className={`absolute -top-15 -left-5  text-8xl font-black dark:text-white opacity-10 select-none ${currentMemberIndex === member.id ? 'hidden' : 'block'}`}>
                       0{index + 1}

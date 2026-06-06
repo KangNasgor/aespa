@@ -8,7 +8,7 @@ function Navbar() {
     const { theme, changeTheme } = useTheme();
     const [open, setOpen] = useState(false);
     return (
-        <nav data-theme={theme} className="relative z-30">
+        <motion.nav data-theme={theme} className="relative z-30" initial={{ y : "-100%" }} whileInView={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }}>
             <div className="hidden lg:flex md:flex-row md:gap-10 md:justify-center font-semibold text-md text-white bg-none px-3 py-3">
                 <div className="w-16 absolute left-3">
                     <img src="svg/aespa.png"/>
@@ -36,7 +36,7 @@ function Navbar() {
                 <h1 className="cursor-pointer">MEMBERS</h1>
                 <h1 className="cursor-pointer">STREAM</h1>
             </motion.div>
-        </nav>
+        </motion.nav>
     )
 }
 
