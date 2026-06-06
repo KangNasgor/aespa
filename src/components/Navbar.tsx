@@ -11,10 +11,6 @@ function Navbar() {
                 <h1 className="cursor-pointer">ABOUT</h1>
                 <h1 className="cursor-pointer">MEMBERS</h1>
                 <h1 className="cursor-pointer">KWANGYA</h1>
-                <div onClick={changeTheme} className="absolute right-5 bg-[#4b3621] w-[100px] h-[50px] px-5 py-3 rounded-full cursor-pointer overflow-hidden select-none">
-                    <div className={`absolute inset-0 bg-black transition-transform duration-500 ease-in-out origin-left ${theme === "dark" ? "scale-x-100" : "scale-x-0"}`}/>
-                    <img className="relative z-10 w-full h-full object-contain"src={theme === "light" ? "/icons/rich-man-icon.png" : "/icons/dirty-work-icon.png"} alt="Theme Toggle"/>
-                </div>
             </div>
             <div className="flex flex-col gap-1 lg:hidden pt-3 pl-3 relative z-40" onClick={() => setOpen(prev => !prev)}>
                 <motion.div animate={{ rotate : open ? 45 : 0, y: open ? 8 : 0}} className="bg-white w-6 h-1 rounded-full"></motion.div>

@@ -90,7 +90,7 @@ function App() {
           </video>
         </div>
       </motion.section>
-      <section className="bg-[#4b3621] dark:bg-black min-h-screen items-center px-2 md:px-10 pt-32 overflow-hidden">
+      <section className="bg-black min-h-screen items-center px-2 md:px-10 pt-32 overflow-hidden">
         <motion.h1 className="text-[#fad643] dark:text-white block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
         <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-5">
           <div className="lg:w-5/12 flex flex-col gap-20">
@@ -137,7 +137,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="min-h-screen bg-[#4b3621] dark:bg-black py-20">
+      <section className="min-h-screen bg-black py-20">
             <h1 className="font-bold text-5xl text-white mb-24 text-center">The <span className="text-[#f4f015]">Members</span></h1>
             <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-10 w-9/12 mx-auto">
                 <AnimatePresence>
@@ -196,7 +196,7 @@ function App() {
               ))}
             </div>
       </section>
-      <section className="min-h-screen bg-[#4b3621] dark:bg-black py-20 px-5 md:px-10 relative overflow-hidden">
+      <section className="min-h-screen bg-black py-20 px-5 md:px-10 relative overflow-hidden">
               <div className="w-full">
                   <h1 className="text-white text-center font-bold text-3xl md:text-4xl">THE DEBUT : <span className="text-[#f4f015]">BLACK MAMBA</span></h1>
               </div>
@@ -220,7 +220,7 @@ function App() {
                 <p className="text-white text-center font-semibold"> Released on November 17, 2020. Black Mamba is the debut and first digital single by South Korean girl group aespa. The music video reached 100 million views on January 8, 2021 and 200 million views on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
               </div>
       </section>
-      <section className="min-h-screen h-fit bg-[#4b3621] dark:bg-black relative pt-0.5">
+      <section className="min-h-screen h-fit bg-black relative pt-0.5">
               <h1 className="font-bold text-white text-5xl text-center"><span className="text-[#f4f015]">Disco</span>graphy</h1>
               <div className="flex flex-col gap-36 mt-32">
                 <div className="bg-[#4b3621] absolute w-5 h-[280vh] -translate-x-6/12 left-1/2 rounded-4xl"></div>
