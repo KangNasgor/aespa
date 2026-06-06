@@ -17,9 +17,15 @@ function Navbar() {
                 <h1 className="cursor-pointer">MEMBERS</h1>
                 <h1 className="cursor-pointer">STREAM</h1>
                 <div className="absolute flex flex-row gap-2 right-3">
-                    <FontAwesomeIcon icon={faInstagram} className="cursor-pointer"/>
-                    <FontAwesomeIcon icon={faYoutube} className="cursor-pointer"/>
-                    <FontAwesomeIcon icon={faXTwitter} className="cursor-pointer"/>
+                    <a href="https://www.instagram.com/aespa_official/" target="_blank">
+                        <FontAwesomeIcon icon={faInstagram} className="cursor-pointer"/>
+                    </a>
+                    <a href="https://www.youtube.com/@aespa" target="_blank">
+                        <FontAwesomeIcon icon={faYoutube} className="cursor-pointer"/>
+                    </a>
+                    <a href="https://x.com/aespa_official" target="_blank">
+                        <FontAwesomeIcon icon={faXTwitter} className="cursor-pointer"/>
+                    </a>
                 </div>
             </div>
             <div className="flex flex-col gap-1 lg:hidden pt-3 pl-3 relative z-40" onClick={() => setOpen(prev => !prev)}>
@@ -31,10 +37,21 @@ function Navbar() {
             initial={{ x: "-100%" }}
             animate={{ x: open ? 0 : "-100%" }}
             transition={{ type: "tween", ease: "easeInOut", duration: 0.3 }}
-            className="fixed flex flex-col gap-5 lg:hidden top-0 left-0 w-7/12 md:w-5/12 pl-3 pt-14 text-start bg-black h-screen font-bold text-xl text-[#f4f015]">
+            className="fixed flex flex-col gap-5 lg:hidden top-0 left-0 w-7/12 md:w-5/12 px-3 pt-14 text-start bg-black h-screen font-bold text-xl text-[#f4f015]">
                 <h1 className="cursor-pointer">ABOUT</h1>
                 <h1 className="cursor-pointer">MEMBERS</h1>
                 <h1 className="cursor-pointer">STREAM</h1>
+                <div className="absolute bottom-3 flex left-1/2 -translate-x-1/2 justify-around flex-row gap-2">
+                    <a href="https://www.instagram.com/aespa_official/" target="_blank">
+                        <FontAwesomeIcon icon={faInstagram} className="cursor-pointer"/>
+                    </a>
+                    <a href="https://www.youtube.com/@aespa" target="_blank">
+                        <FontAwesomeIcon icon={faYoutube} className="cursor-pointer"/>
+                    </a>
+                    <a href="https://x.com/aespa_official" target="_blank">
+                        <FontAwesomeIcon icon={faXTwitter} className="cursor-pointer"/>
+                    </a>
+                </div>
             </motion.div>
         </motion.nav>
     )

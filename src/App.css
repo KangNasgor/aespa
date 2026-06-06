@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+.font-black-han-sans {
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+

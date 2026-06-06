@@ -12,6 +12,7 @@ interface Members {
   description : string,
   color : string,
   gallery : Array<string>,
+  instagram : string,
 }
 
 const members : Members[] = [
@@ -22,6 +23,7 @@ const members : Members[] = [
     description : 'Karina (카리나 karina) was born on April 11, 2000 in Suwon-si, South Korea. She is the leader, a dancer, rapper and visual of the group aespa and a rapper and vocalist of the unit GOT the beat.',
     color : '#0d02fe',
     gallery : ['members/Karina-richman-1.webp', 'members/Karina-dirtywork-1.webp', 'members/Karina-richman-3.webp', 'members/Karina-richman-2.webp'],
+    instagram : "https://www.instagram.com/katarinabluu/",
   },
   {
     id: 2,
@@ -30,6 +32,7 @@ const members : Members[] = [
     description : 'Giselle (지젤 jijel) was born on October 30, 2000 in Seoul, South Korea. She is a rapper and vocalist of the group aespa and ZOO unit.',
     color : '#fc261a',
     gallery : ['members/Giselle-richman-1.webp', 'members/Giselle-richman-2.webp', 'members/Giselle-dirtywork-1.webp', 'members/Giselle-dirtywork-2.webp'],
+    instagram : "http://instagram.com/aerichandesu/"
   },
   {
     id: 3,
@@ -38,6 +41,7 @@ const members : Members[] = [
     description : 'Winter (윈터 winteo) was born on January 1, 2001 in Busan, South Korea. She is a vocalist, dancer, and visual of the girl group aespa and also a vocalist and the maknae of the unit GOT the beat.',
     color : '#01fe00',
     gallery : ['members/Winter-richman-1.webp', 'members/Winter-dirtywork-1.webp', 'members/Winter-richman-3.webp', 'members/Winter-richman-2.webp'],
+    instagram : "https://www.instagram.com/imwinter/"
   },
   {
     id: 4,
@@ -46,6 +50,7 @@ const members : Members[] = [
     description : 'Ningning (닝닝 ningning) was born on October 23, 2002 in Heilongjiang, China. She is a vocalist and the maknae of the group aespa.',
     color : '#fcff00',
     gallery : ['members/Ningning-richman-1.webp', 'members/Ningning-dirtywork-1.webp', 'members/Ningning-dirtywork-2.webp', 'members/Ningning-dirtywork-3.webp'],
+    instagram : "https://www.instagram.com/imnotningning/"
   }
 ]
 
@@ -76,7 +81,7 @@ function App() {
             initial={{ y : "180%" }} whileInView={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }}
             className="absolute bottom-5 text-white text-md font-semibold gap-2 z-10 grid grid-cols-2 text-center md:flex md:flex-row md:gap-10 md:justify-center md:w-full">
               {members.map(member => (
-                <span key={member.name}>{member.name}</span>
+                <a key={member.name} href={member.instagram} target="_blank">{member.name}</a>
               ))}
             </motion.div>
           <video autoPlay muted loop playsInline className="absolute scale-120 inset-0 object-center object-cover w-full h-full -z-50 opacity-60 select-none">
@@ -85,14 +90,14 @@ function App() {
         </div>
       </motion.section>
       <section className="bg-black min-h-screen items-center px-2 md:px-10 pt-32 overflow-hidden">
-        <motion.h1 className="text-[#fad643] dark:text-white block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
+        <motion.h1 className="text-white font-black-han-sans block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
         <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-5">
           <div className="lg:w-5/12 flex flex-col gap-20">
             <motion.h1
             initial={{ x : "-30%", opacity : 0.5 }}
             whileInView={{ x : 0, opacity : 1 }}
             transition={{ type: "tween", duration: 0.6 }}
-            className="text-[#fad643] dark:text-white hidden lg:block font-semibold text-center md:text-start text-xl md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
+            className="text-white hidden lg:block font-semibold text-center md:text-start text-xl md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
             <motion.div className="px-3" initial={{ opacity : 0, y : "50%" }} whileInView={{ opacity : 1, y : 0 }} transition={{ type : "tween", duration : 0.6, delay : 0.1 }}>
               <p className="text-white font-semibold text-sm text-center md:text-start md:text-xl">
                 {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
