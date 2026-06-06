@@ -92,9 +92,9 @@ function App() {
             initial={{ x : "-30%", opacity : 0.5 }}
             whileInView={{ x : 0, opacity : 1 }}
             transition={{ type: "tween", duration: 0.6 }}
-            className="text-[#fad643] dark:text-white hidden lg:block font-bold text-center md:text-start text-xl md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
+            className="text-[#fad643] dark:text-white hidden lg:block font-semibold text-center md:text-start text-xl md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
             <motion.div className="px-3" initial={{ opacity : 0, y : "50%" }} whileInView={{ opacity : 1, y : 0 }} transition={{ type : "tween", duration : 0.6, delay : 0.1 }}>
-              <p className="text-white font-semibold text-sm text-center md:text-start md:font-bold md:text-2xl">
+              <p className="text-white font-semibold text-sm text-center md:text-start md:text-xl">
                 {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
                 The group name is a combination of "ae" (Avatar X Experience) and "aspect",
                 symbolizing the concept of a new experience by meeting a new world through another version of yourself.
