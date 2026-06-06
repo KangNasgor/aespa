@@ -1,16 +1,26 @@
 import { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { motion } from "motion/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 function Navbar() {
     const { theme, changeTheme } = useTheme();
     const [open, setOpen] = useState(false);
     return (
         <nav data-theme={theme} className="relative z-30">
-            <div className="hidden lg:flex md:flex-row md:gap-10 md:justify-center font-bold text-xl text-[#f4f015] bg-none py-5">
+            <div className="hidden lg:flex md:flex-row md:gap-10 md:justify-center font-semibold text-md text-white bg-none px-3 py-3">
+                <div className="w-16 absolute left-3">
+                    <img src="svg/aespa.png"/>
+                </div>
                 <h1 className="cursor-pointer">ABOUT</h1>
                 <h1 className="cursor-pointer">MEMBERS</h1>
-                <h1 className="cursor-pointer">KWANGYA</h1>
+                <h1 className="cursor-pointer">STREAM</h1>
+                <div className="absolute flex flex-row gap-2 right-3">
+                    <FontAwesomeIcon icon={faInstagram} className="cursor-pointer"/>
+                    <FontAwesomeIcon icon={faYoutube} className="cursor-pointer"/>
+                    <FontAwesomeIcon icon={faXTwitter} className="cursor-pointer"/>
+                </div>
             </div>
             <div className="flex flex-col gap-1 lg:hidden pt-3 pl-3 relative z-40" onClick={() => setOpen(prev => !prev)}>
                 <motion.div animate={{ rotate : open ? 45 : 0, y: open ? 8 : 0}} className="bg-white w-6 h-1 rounded-full"></motion.div>
@@ -24,7 +34,7 @@ function Navbar() {
             className="fixed flex flex-col gap-5 lg:hidden top-0 left-0 w-7/12 md:w-5/12 pl-3 pt-14 text-start bg-black h-screen font-bold text-xl text-[#f4f015]">
                 <h1 className="cursor-pointer">ABOUT</h1>
                 <h1 className="cursor-pointer">MEMBERS</h1>
-                <h1 className="cursor-pointer">KWANGYA</h1>
+                <h1 className="cursor-pointer">STREAM</h1>
             </motion.div>
         </nav>
     )
