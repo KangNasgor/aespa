@@ -55,7 +55,7 @@ const members : Members[] = [
 ]
 
 function App() {
-  const { theme } = useTheme();
+  const { theme, changeTheme } = useTheme();
 
   const [imageClicked, setImageClicked] = useState<boolean>(false); // image is on the second section
 
@@ -78,10 +78,10 @@ function App() {
         <div className="relative h-[100vh] overflow-hidden">
           <Navbar />
             <motion.div
-            initial={{ y : "180%" }} whileInView={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }}
-            className="absolute bottom-5 text-white text-md font-semibold gap-2 z-10 grid grid-cols-2 text-center md:flex md:flex-row md:gap-10 md:justify-center md:w-full">
+            initial={{ y : "170%" }} whileInView={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }}
+            className="absolute bottom-5 text-white text-lg font-semibold gap-2 z-10 grid grid-cols-2 text-center md:flex md:flex-row md:gap-10 md:justify-center md:w-full">
               {members.map(member => (
-                <a key={member.name} href={member.instagram} target="_blank">{member.name}</a>
+                <a key={member.name} href={member.instagram} rel="noopener noreferrer" target="_blank">{member.name}</a>
               ))}
             </motion.div>
           <video autoPlay muted loop playsInline className="absolute scale-120 inset-0 object-center object-cover w-full h-full -z-50 opacity-60 select-none">
@@ -119,18 +119,17 @@ function App() {
                       <div className="w-6 h-0.5 transform translate-y-6/12 rotate-45 bg-white"></div>
                       <div className="w-6 h-0.5 transform -translate-y-6/12 -rotate-45 bg-white"></div>
                     </div>
-                  <motion.img layoutId='aespa-image' src={theme === "light" ? "images/aespa-richman-img-2.webp" : "images/aespa-richman-img-3.webp"} onClick={() => setImageClicked((prev) => !prev)}
+                  <motion.img layoutId='aespa-image' src="images/lemonade-3.webp" onClick={() => setImageClicked((prev) => !prev)}
                   className="fixed left-6/12 w-full md:w-8/12 top-6/12 -translate-y-6/12 transform -translate-x-6/12 z-50"/>
                 </motion.div>
               )}
             </AnimatePresence>
-            <motion.div initial={{ clipPath: "inset(0% 0% 0% 100%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} className="overflow-hidden">
+            <motion.div layoutId="aespa-image" initial={{ clipPath: "inset(0% 0% 0% 100%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} className="overflow-hidden">
               <motion.img
               transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }}
               initial={{ scale : 1.2, filter : "blur(10px)"}}
               whileInView={{ scale : 1, filter : "blur(0px)" }}
-              layoutId="aespa-image"
-              src={theme === "light" ? "images/aespa-richman-img-2.webp" : "images/aespa-richman-img-3.webp"} onClick={() => setImageClicked((prev) => !prev)}
+              src="images/lemonade-3.webp" onClick={() => setImageClicked((prev) => !prev)}
                 className="block cursor-pointer relative w-full h-full"/>
             </motion.div>
           </div>

@@ -9,13 +9,16 @@ function Navbar() {
     const [open, setOpen] = useState(false);
     return (
         <motion.nav data-theme={theme} className="relative z-30" initial={{ y : "-100%" }} whileInView={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }}>
-            <div className="hidden lg:flex md:flex-row md:gap-10 md:justify-center font-semibold text-md text-white bg-none px-3 py-3">
-                <div className="w-16 absolute left-3">
+            <div className="hidden lg:flex md:flex-row md:gap-10 items-center md:justify-center font-semibold text-lg text-white bg-none px-3 py-3">
+                <div className="w-18 absolute left-3">
                     <img src="svg/aespa.png"/>
                 </div>
                 <h1 className="cursor-pointer">ABOUT</h1>
                 <h1 className="cursor-pointer">MEMBERS</h1>
                 <h1 className="cursor-pointer">STREAM</h1>
+                <motion.div layout className={`w-[60px] h-[24px] items-center px-1 bg-[#00D812] dark:bg-white rounded-full flex ${theme === "dark" ? "justify-end" : "justify-start"} cursor-pointer`} onClick={changeTheme}>
+                    <motion.div layout className="w-[18px] h-[18px] bg-[#CCFF00] dark:bg-black rounded-full"></motion.div>
+                </motion.div>
                 <div className="absolute flex flex-row gap-2 right-3">
                     <a href="https://www.instagram.com/aespa_official/" target="_blank">
                         <FontAwesomeIcon icon={faInstagram} className="cursor-pointer"/>
