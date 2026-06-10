@@ -55,7 +55,7 @@ const members : Members[] = [
 ]
 
 function App() {
-  const { theme, changeTheme } = useTheme();
+  const { theme } = useTheme();
 
   const [imageClicked, setImageClicked] = useState<boolean>(false); // image is on the second section
 
@@ -78,6 +78,7 @@ function App() {
         <div className="relative h-[100vh] overflow-hidden">
           <Navbar />
             <motion.div
+            animate={{ color : theme === "dark" ? "white" : "#CCFF00" }}
             initial={{ y : "170%" }} whileInView={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }}
             className="absolute bottom-5 text-white text-lg font-semibold gap-2 z-10 grid grid-cols-2 text-center md:flex md:flex-row md:gap-10 md:justify-center md:w-full">
               {members.map(member => (
@@ -89,17 +90,17 @@ function App() {
           </video>
         </div>
       </motion.section>
-      <section className="bg-black min-h-screen items-center px-2 md:px-10 pt-32 overflow-hidden">
-        <motion.h1 className="text-white font-black-han-sans block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
+      <section className="bg-[#02af10] min-h-screen items-center px-2 md:px-10 pt-32 overflow-hidden">
+        <motion.h1 className="text-[#CCFF00] font-black-han-sans block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
         <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-5">
           <div className="lg:w-5/12 flex flex-col gap-20">
             <motion.h1
             initial={{ x : "-30%", opacity : 0.5 }}
             whileInView={{ x : 0, opacity : 1 }}
             transition={{ type: "tween", duration: 0.6 }}
-            className="text-white hidden lg:block font-semibold text-center md:text-start text-xl md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
-            <motion.div className="px-3" initial={{ opacity : 0, y : "50%" }} whileInView={{ opacity : 1, y : 0 }} transition={{ type : "tween", duration : 0.6, delay : 0.1 }}>
-              <p className="text-white font-semibold text-sm text-center md:text-start md:text-xl">
+            className="text-[#CCFF00] hidden lg:block font-semibold text-center md:text-start text-xl md:text-5xl/15">The <span className="text-[#f4f015]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
+            <motion.div className="px-3 md:px-0" initial={{ opacity : 0, y : "50%" }} whileInView={{ opacity : 1, y : 0 }} transition={{ type : "tween", duration : 0.6, delay : 0.1 }}>
+              <p className="text-[#CCFF00] font-semibold text-sm text-center md:text-start md:text-xl">
                 {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
                 The group name is a combination of "ae" (Avatar X Experience) and "aspect",
                 symbolizing the concept of a new experience by meeting a new world through another version of yourself.

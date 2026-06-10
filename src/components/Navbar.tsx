@@ -9,15 +9,15 @@ function Navbar() {
     const [open, setOpen] = useState(false);
     return (
         <motion.nav data-theme={theme} className="relative z-30" initial={{ y : "-100%" }} whileInView={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }}>
-            <div className="hidden lg:flex md:flex-row md:gap-10 items-center md:justify-center font-semibold text-lg text-white bg-none px-3 py-3">
+            <motion.div animate={{ color : theme === "dark" ? "white" : "#CCFF00" }} className="hidden lg:flex md:flex-row md:gap-10 items-center md:justify-center font-semibold text-lg text-[#CCFF00] dark:text-white bg-none px-3 py-3">
                 <div className="w-18 absolute left-3">
                     <img src="svg/aespa.png"/>
                 </div>
                 <h1 className="cursor-pointer">ABOUT</h1>
                 <h1 className="cursor-pointer">MEMBERS</h1>
                 <h1 className="cursor-pointer">STREAM</h1>
-                <motion.div layout className={`w-[60px] h-[24px] items-center px-1 bg-[#00D812] dark:bg-white rounded-full flex ${theme === "dark" ? "justify-end" : "justify-start"} cursor-pointer`} onClick={changeTheme}>
-                    <motion.div layout className="w-[18px] h-[18px] bg-[#CCFF00] dark:bg-black rounded-full"></motion.div>
+                <motion.div layout animate={{ backgroundColor: theme === "dark" ? "#ffffff" : "#00D812" }} className={`w-[60px] h-[24px] items-center px-1 rounded-full flex ${theme === "dark" ? "justify-end" : "justify-start"} cursor-pointer`} onClick={changeTheme}>
+                    <motion.div layout animate={{ backgroundColor : theme === "dark" ? "black" : "#CCFF00" }} className="w-[18px] h-[18px] rounded-full"></motion.div>
                 </motion.div>
                 <div className="absolute flex flex-row gap-2 right-3">
                     <a href="https://www.instagram.com/aespa_official/" target="_blank">
@@ -30,7 +30,7 @@ function Navbar() {
                         <FontAwesomeIcon icon={faXTwitter} className="cursor-pointer"/>
                     </a>
                 </div>
-            </div>
+            </motion.div>
             <div className="flex flex-col gap-1 lg:hidden pt-3 pl-3 relative z-40" onClick={() => setOpen(prev => !prev)}>
                 <motion.div animate={{ rotate : open ? 45 : 0, y: open ? 8 : 0}} className="bg-white w-6 h-1 rounded-full"></motion.div>
                 <motion.div animate={{ opacity : open ? 0 : 1}} className="bg-white w-6 h-1 rounded-full"></motion.div>
