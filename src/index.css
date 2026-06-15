@@ -9,6 +9,18 @@
 @theme {
   --font-black-han-sans: "Black Han Sans", sans-serif;
   --font-gothic-a1: "Gothic A1", sans-serif;
+  --font-tenada: "Tenada", sans-serif;
+  --font-revamped: "Revamped", sans-serif;
+}
+
+@font-face {
+  font-family: 'Tenada';
+  src: url('./assets/fonts/Tenada.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Revamped';
+  src: url('./assets/fonts/Revamped.otf') format('truetype');
 }
 
 body{
