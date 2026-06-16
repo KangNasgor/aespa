@@ -4,22 +4,21 @@ import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
-function Navbar() {
+function Navbar({ about } : { about : string }) {
     const { theme, changeTheme } = useTheme();
     const [open, setOpen] = useState(false);
     return (
         <motion.nav data-theme={theme} className="relative z-30" initial={{ y : "-100%" }} whileInView={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }}>
-            <motion.div animate={{ color : theme === "dark" ? "white" : "#CCFF00" }} className="hidden lg:flex md:flex-row md:gap-10 items-center md:justify-center font-semibold text-lg text-[#CCFF00] dark:text-white bg-none px-3 py-3">
-                <div className="w-18 absolute left-3">
-                    <img src="svg/aespa.png"/>
+            <motion.div animate={{ color : theme === "dark" ? "white" : "#CCFF00" }} className="hidden lg:grid grid-cols-3 items-center font-semibold text-lg text-[#CCFF00] dark:text-white bg-none px-3 py-3">
+                <div className="w-18">
+                    <img src="svg/loading.svg"/>
                 </div>
-                <h1 className="cursor-pointer">ABOUT</h1>
-                <h1 className="cursor-pointer">MEMBERS</h1>
-                <h1 className="cursor-pointer">STREAM</h1>
-                <motion.div layout animate={{ backgroundColor: theme === "dark" ? "#ffffff" : "#00D812" }} className={`w-[60px] h-[24px] items-center px-1 rounded-full flex ${theme === "dark" ? "justify-end" : "justify-start"} cursor-pointer`} onClick={changeTheme}>
-                    <motion.div layout animate={{ backgroundColor : theme === "dark" ? "black" : "#CCFF00" }} className="w-[18px] h-[18px] rounded-full"></motion.div>
-                </motion.div>
-                <div className="absolute flex flex-row gap-2 right-3">
+                <div className="flex flex-row gap-10 justify-center">
+                    <a className="cursor-pointer" href={about}>ABOUT</a>
+                    <h1 className="cursor-pointer">MEMBERS</h1>
+                    <h1 className="cursor-pointer">STREAM</h1>
+                </div>
+                <div className="flex flex-row gap-2 justify-self-end">
                     <a href="https://www.instagram.com/aespa_official/" target="_blank">
                         <FontAwesomeIcon icon={faInstagram} className="cursor-pointer"/>
                     </a>

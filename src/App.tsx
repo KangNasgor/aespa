@@ -55,7 +55,7 @@ const members : Members[] = [
 ]
 
 function App() {
-  const { theme } = useTheme();
+  const { theme, changeTheme } = useTheme();
 
   const [imageClicked, setImageClicked] = useState<boolean>(false); // image is on the second section
 
@@ -80,21 +80,23 @@ function App() {
           }
         }}>
         <div className="relative h-[100vh] overflow-hidden">
-          <Navbar />
-            <motion.div
-            animate={{ color : theme === "dark" ? "white" : "#CCFF00" }}
-            initial={{ y : "170%" }} whileInView={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }}
-            className="absolute bottom-5 text-white text-lg font-semibold gap-2 z-10 grid grid-cols-2 text-center md:flex md:flex-row md:gap-10 md:justify-center md:w-full">
-              {members.map(member => (
-                <a key={member.name} href={member.instagram} rel="noopener noreferrer" target="_blank">{member.name}</a>
-              ))}
-            </motion.div>
+          <Navbar about="#about-section"/>
+          <motion.div initial={{ y : "170%" }} whileInView={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="grid grid-rows-1 grid-cols-3 absolute bottom-5 w-full px-5 items-center">
+              <motion.div animate={{ color : theme === "dark" ? "white" : "#CCFF00" }} className="text-white text-lg font-semibold col-2 gap-2 z-10 grid grid-cols-2 text-center md:flex md:flex-row md:gap-10 md:justify-center md:w-full">
+                {members.map(member => (
+                  <a key={member.name} href={member.instagram} rel="noopener noreferrer" target="_blank">{member.name}</a>
+                ))}
+              </motion.div>
+              <motion.div layout animate={{ backgroundColor: theme === "dark" ? "#ffffff" : "#00D812" }} className={`cursor-pointer col-3 justify-self-end w-[60px] h-[24px] items-center px-1 rounded-full flex ${theme === "dark" ? "justify-end" : "justify-start"} cursor-pointer`} onClick={changeTheme}>
+                <motion.div layout animate={{ backgroundColor : theme === "dark" ? "black" : "#CCFF00" }} className="w-[18px] h-[18px] rounded-full"></motion.div>
+              </motion.div>
+          </motion.div>
           <video autoPlay muted loop playsInline className="absolute scale-120 inset-0 object-center object-cover w-full h-full -z-50 opacity-60 select-none">
             <source src="video/Lemonade.webm"></source>
           </video>
         </div>
       </motion.section>
-      <section className="min-h-screen h-[100vh] bg-linear-to-b from-[#39FF14] to-[#0f4805] dark:from-[#000000] dark:to-[#565656] flex items-center justify-center">
+      <section className="min-h-screen h-[100vh] bg-linear-to-b from-[#39FF14] to-[#0f4805] dark:from-[#000000] dark:to-[#565656] flex items-center justify-center" id="about-section">
           <div className="w-full lg:w-7/12 mb-10">
             <AnimatePresence>
               {imageClicked && (

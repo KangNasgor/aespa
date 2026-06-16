@@ -23,6 +23,10 @@
   src: url('./assets/fonts/Revamped.otf') format('truetype');
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body{
   background-color: black;
 }
