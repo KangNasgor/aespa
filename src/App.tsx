@@ -2,6 +2,8 @@ import { AnimatePresence, motion } from "motion/react";
 import Navbar from "./components/Navbar";
 import { useTheme } from "./context/ThemeContext";
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 const headingText = "æspa";
 
@@ -87,9 +89,17 @@ function App() {
                   <a key={member.name} href={member.instagram} rel="noopener noreferrer" target="_blank">{member.name}</a>
                 ))}
               </motion.div>
-              <motion.div layout animate={{ backgroundColor: theme === "dark" ? "#ffffff" : "#00D812" }} className={`cursor-pointer col-3 justify-self-end w-[60px] h-[24px] items-center px-1 rounded-full flex ${theme === "dark" ? "justify-end" : "justify-start"} cursor-pointer`} onClick={changeTheme}>
-                <motion.div layout animate={{ backgroundColor : theme === "dark" ? "black" : "#CCFF00" }} className="w-[18px] h-[18px] rounded-full"></motion.div>
-              </motion.div>
+              <div className="flex flex-row text-[#CCFF00] dark:text-white gap-2 justify-self-end">
+                <a href="https://www.instagram.com/aespa_official/" target="_blank">
+                  <FontAwesomeIcon icon={faInstagram} className="cursor-pointer"/>
+                </a>
+                <a href="https://www.youtube.com/@aespa" target="_blank">
+                  <FontAwesomeIcon icon={faYoutube} className="cursor-pointer"/>
+                </a>
+                <a href="https://x.com/aespa_official" target="_blank">
+                  <FontAwesomeIcon icon={faXTwitter} className="cursor-pointer"/>
+                </a>
+              </div>
           </motion.div>
           <video autoPlay muted loop playsInline className="absolute scale-120 inset-0 object-center object-cover w-full h-full -z-50 opacity-60 select-none">
             <source src="video/Lemonade.webm"></source>
@@ -124,6 +134,9 @@ function App() {
               onClick={() => setImageClicked((prev) => !prev)}
               className="block cursor-pointer relative w-full h-full"/>
             </motion.div>
+            <div className="bg-white w-2/12 h-[50px] absolute left-6/12 -translate-x-6/12">
+
+            </div>
           </div>
       </section>
       <section className="min-h-screen bg-linear-to-b from-[#0f4805] dark:from-[#565656] dark:to-[#686868] items-center px-2 md:px-10 overflow-hidden">

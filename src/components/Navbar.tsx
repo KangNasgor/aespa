@@ -18,17 +18,9 @@ function Navbar({ about } : { about : string }) {
                     <h1 className="cursor-pointer">MEMBERS</h1>
                     <h1 className="cursor-pointer">STREAM</h1>
                 </div>
-                <div className="flex flex-row gap-2 justify-self-end">
-                    <a href="https://www.instagram.com/aespa_official/" target="_blank">
-                        <FontAwesomeIcon icon={faInstagram} className="cursor-pointer"/>
-                    </a>
-                    <a href="https://www.youtube.com/@aespa" target="_blank">
-                        <FontAwesomeIcon icon={faYoutube} className="cursor-pointer"/>
-                    </a>
-                    <a href="https://x.com/aespa_official" target="_blank">
-                        <FontAwesomeIcon icon={faXTwitter} className="cursor-pointer"/>
-                    </a>
-                </div>
+                <motion.div layout animate={{ backgroundColor: theme === "dark" ? "color-mix(in oklab, #ffffff 40%, transparent)" : "color-mix(in oklab, #00D812 40%, transparent)" }} className={`cursor-pointer col-3 justify-self-end w-[60px] h-[24px] items-center px-1 rounded-full flex ${theme === "dark" ? "justify-end" : "justify-start"} cursor-pointer`} onClick={changeTheme}>
+                    <motion.div layout animate={{ backgroundColor : theme === "dark" ? "black" : "#CCFF00" }} className="w-[18px] h-[18px] rounded-full"></motion.div>
+                </motion.div>
             </motion.div>
             <div className="flex flex-col gap-1 lg:hidden pt-3 pl-3 relative z-40" onClick={() => setOpen(prev => !prev)}>
                 <motion.div animate={{ rotate : open ? 45 : 0, y: open ? 8 : 0}} className="bg-white w-6 h-1 rounded-full"></motion.div>
