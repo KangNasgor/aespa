@@ -9,7 +9,8 @@ function Navbar({ about } : { about : string }) {
     const [open, setOpen] = useState(false);
     return (
         <motion.nav data-theme={theme} className="relative z-30" initial={{ y : "-100%" }} whileInView={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }}>
-            <motion.div animate={{ color : theme === "dark" ? "white" : "#CCFF00" }} className="hidden lg:grid grid-cols-3 items-center font-semibold text-lg text-[#CCFF00] dark:text-white bg-none px-3 py-3">
+            <motion.div animate={{ color : theme === "dark" ? "white" : "#CCFF00" }} className="hidden lg:block font-semibold text-md text-[#CCFF00] dark:text-white bg-none px-3 py-3">
+            <div className="w-6/12 grid grid-cols-3 items-center bg-[#CCFF00]/30 dark:bg-white/30 backdrop-filter backdrop-blur-3xl shadow-md px-3 py-3 rounded-2xl mx-auto">
                 <div className="w-18">
                     <img src="svg/loading.svg"/>
                 </div>
@@ -21,6 +22,7 @@ function Navbar({ about } : { about : string }) {
                 <motion.div layout animate={{ backgroundColor: theme === "dark" ? "color-mix(in oklab, #ffffff 40%, transparent)" : "color-mix(in oklab, #00D812 40%, transparent)" }} className={`cursor-pointer col-3 justify-self-end w-[60px] h-[24px] items-center px-1 rounded-full flex ${theme === "dark" ? "justify-end" : "justify-start"} cursor-pointer`} onClick={changeTheme}>
                     <motion.div layout animate={{ backgroundColor : theme === "dark" ? "black" : "#CCFF00" }} className="w-[18px] h-[18px] rounded-full"></motion.div>
                 </motion.div>
+            </div>
             </motion.div>
             <div className="flex flex-col gap-1 lg:hidden pt-3 pl-3 relative z-40" onClick={() => setOpen(prev => !prev)}>
                 <motion.div animate={{ rotate : open ? 45 : 0, y: open ? 8 : 0}} className="bg-white w-6 h-1 rounded-full"></motion.div>
