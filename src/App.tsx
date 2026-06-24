@@ -85,13 +85,7 @@ function App() {
         <div className="relative h-[100vh] overflow-hidden">
           <Navbar about="#about-section"/>
           <motion.div initial={{ y : "200%" }} animate={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="w-full grid grid-cols-3 justify-center items-center px-3 absolute bottom-5">
-              <div className="bg-[#CCFF00]/30 dark:bg-white/30 col-1 w-fit justify-self-start px-5 py-3 rounded-2xl flex flex-row items-center gap-2">
-                <a>
-                  <FontAwesomeIcon icon={faHeadphones} className="text-[#CCFF00] dark:text-white"/>
-                </a>
-                <h1 className="text-[#CCFF00] dark:text-white font-semibold">LEMONADE is out</h1>
-              </div>
-              <div className="bg-[#CCFF00]/30 dark:bg-white/30 col-2 w-fit justify-self-center px-5 py-3 rounded-2xl flex flex-row items-center gap-3">
+              <div className="bg-[#CCFF00]/30 dark:bg-white/30 col-1 w-fit justify-self-start px-5 py-3 rounded-2xl flex flex-row items-center gap-3">
                 <a className="text-[#CCFF00] dark:text-white font-semibold flex flex-row gap-3">Stream now on</a>
                 <div className="flex flex-row gap-1">
                     <a>
@@ -101,6 +95,9 @@ function App() {
                       <FontAwesomeIcon icon={faYoutube} className="text-[#CCFF00] dark:text-white"/>
                     </a>
                 </div>
+              </div>
+              <div className="bg-[#CCFF00]/70 dark:bg-white/70 shadow-2xl col-2 w-fit justify-self-center px-5 py-3 rounded-2xl flex flex-row items-center gap-3">
+                <h1 className="text-white/90 text-xl font-bold tracking-wide"></h1>
               </div>
               <div className="col-3 flex flex-row w-fit justify-self-end text-[#CCFF00] dark:text-white gap-2 justify-center bg-[#CCFF00]/30 dark:bg-white/30 backdrop-filter backdrop-blur-md rounded-2xl px-5 py-3">
                 <a href="https://www.instagram.com/aespa_official/" target="_blank">
