@@ -3,7 +3,8 @@ import Navbar from "./components/Navbar";
 import { useTheme } from "./context/ThemeContext";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram, faSpotify, faXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faAngleDown, faHeadphones } from "@fortawesome/free-solid-svg-icons";
 
 const headingText = "æspa";
 
@@ -83,13 +84,25 @@ function App() {
         }}>
         <div className="relative h-[100vh] overflow-hidden">
           <Navbar about="#about-section"/>
-          <motion.div initial={{ y : "170%" }} whileInView={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="grid grid-rows-1 grid-cols-3 absolute bottom-5 w-full px-5 items-center">
-              <motion.div animate={{ color : theme === "dark" ? "white" : "#CCFF00" }} className="text-white text-lg font-semibold col-2 gap-2 z-10 grid grid-cols-2 text-center md:flex md:flex-row md:gap-10 md:justify-center md:w-full">
-                {members.map(member => (
-                  <a key={member.name} href={member.instagram} rel="noopener noreferrer" target="_blank">{member.name}</a>
-                ))}
-              </motion.div>
-              <div className="flex flex-row text-[#CCFF00] dark:text-white gap-2 justify-self-end">
+          <motion.div initial={{ y : "200%" }} animate={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="w-full grid grid-cols-3 justify-center items-center px-3 absolute bottom-5">
+              <div className="bg-[#CCFF00]/30 dark:bg-white/30 col-1 w-fit justify-self-start px-5 py-3 rounded-2xl flex flex-row items-center gap-2">
+                <a>
+                  <FontAwesomeIcon icon={faHeadphones} className="text-[#CCFF00] dark:text-white"/>
+                </a>
+                <h1 className="text-[#CCFF00] dark:text-white font-semibold">LEMONADE is out</h1>
+              </div>
+              <div className="bg-[#CCFF00]/30 dark:bg-white/30 col-2 w-fit justify-self-center px-5 py-3 rounded-2xl flex flex-row items-center gap-3">
+                <a className="text-[#CCFF00] dark:text-white font-semibold flex flex-row gap-3">Stream now on</a>
+                <div className="flex flex-row gap-1">
+                    <a>
+                      <FontAwesomeIcon icon={faSpotify} className="text-[#CCFF00] dark:text-white"/>
+                    </a>
+                    <a>
+                      <FontAwesomeIcon icon={faYoutube} className="text-[#CCFF00] dark:text-white"/>
+                    </a>
+                </div>
+              </div>
+              <div className="col-3 flex flex-row w-fit justify-self-end text-[#CCFF00] dark:text-white gap-2 justify-center bg-[#CCFF00]/30 dark:bg-white/30 backdrop-filter backdrop-blur-md rounded-2xl px-5 py-3">
                 <a href="https://www.instagram.com/aespa_official/" target="_blank">
                   <FontAwesomeIcon icon={faInstagram} className="cursor-pointer"/>
                 </a>
@@ -106,7 +119,7 @@ function App() {
           </video>
         </div>
       </motion.section>
-      <section className="min-h-screen h-[100vh] bg-linear-to-b from-[#39FF14] to-[#0f4805] dark:from-[#000000] dark:to-[#565656] flex items-center justify-center" id="about-section">
+      <section className="min-h-screen h-[110vh]  bg-linear-to-b from-[#39FF14] to-[#0f4805] dark:from-[#000000] dark:to-[#565656] flex items-center justify-center" id="about-section">
           <div className="w-full lg:w-7/12 mb-10">
             <AnimatePresence>
               {imageClicked && (
@@ -134,10 +147,10 @@ function App() {
               onClick={() => setImageClicked((prev) => !prev)}
               className="block cursor-pointer relative w-full h-full"/>
             </motion.div>
-            <div className="bg-white w-2/12 h-[50px] absolute left-6/12 -translate-x-6/12">
-
-            </div>
           </div>
+          <motion.div initial={{ opacity : 0 }} animate={{ y: [0, 20, 0] }} whileInView={{ opacity: 1 }} transition={{ y: { repeat : Infinity }, opacity:{ delay : 3 }}} className="bg-white/30 w-fit rounded-full w-[50px] h-[50px] flex justify-center items-center absolute right-0">
+              <FontAwesomeIcon icon={faAngleDown} className="text-4xl text-white"/>
+          </motion.div>
       </section>
       <section className="min-h-screen bg-linear-to-b from-[#0f4805] dark:from-[#565656] dark:to-[#686868] items-center px-2 md:px-10 overflow-hidden">
         <motion.h1 className="text-[#F6F9E5] dark:text-white font-black-han-sans block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#CCFF00]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
