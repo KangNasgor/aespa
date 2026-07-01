@@ -68,6 +68,20 @@ function App() {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+  const scrollToNextSection = () => {
+    const sections = Array.from(document.querySelectorAll("section"));
+    const currentSection = sections.find((section) => {
+      const { top, bottom } = section.getBoundingClientRect();
+      
+      return top <= 0 && bottom > 0;
+    });
+
+    if (currentSection) {
+      const nextSection = sections[sections.indexOf(currentSection) + 1];
+      nextSection?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <main data-theme={theme}>
       {/** Hero Section */}
@@ -85,28 +99,37 @@ function App() {
         }}>
         <div className="relative h-[100vh] flex flex-col w-full px-3 pt-2 pb-3">
           <Navbar about="#about-section"/>
-          <motion.div initial={{ y : "200%" }} animate={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="max-w-full w-full mt-auto flex flex-row justify-between items-center">
-              <div className="bg-[#CCFF00]/30 dark:bg-white/30 col-1 w-fit justify-self-start px-5 py-2 rounded-2xl flex flex-row items-center gap-3">
-                <a className="text-[#CCFF00] dark:text-white font-semibold flex flex-row gap-3">Stream now on</a>
-                <div className="flex flex-row gap-1">
-                    <a href="https://open.spotify.com/album/2233LC6uuoi67lGcO2OaBm?si=2Tb94vnrQfW7jL2xDKKXuQ" target="_blank">
-                      <FontAwesomeIcon icon={faSpotify} className="text-[#CCFF00] dark:text-white"/>
-                    </a>
-                    <a href="https://youtu.be/83C3TZ4Zm_o?si=-OsBraudHtXdUbCV" target="_blank">
-                      <FontAwesomeIcon icon={faYoutube} className="text-[#CCFF00] dark:text-white"/>
-                    </a>
+          <motion.div initial={{ y : "200%" }} animate={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="max-w-full w-full mt-auto flex flex-row items-center">
+              <div className="flex flex-1 justify-start">
+                <div className="bg-[#CCFF00]/30 dark:bg-white/30 col-1 w-fit flex px-5 py-2 rounded-2xl flex-row items-center gap-3">
+                  <a className="text-[#CCFF00] dark:text-white font-semibold flex flex-row gap-3">Stream now on</a>
+                  <div className="flex flex-row gap-1">
+                      <a href="https://open.spotify.com/album/2233LC6uuoi67lGcO2OaBm?si=2Tb94vnrQfW7jL2xDKKXuQ" target="_blank">
+                        <FontAwesomeIcon icon={faSpotify} className="text-[#CCFF00] dark:text-white"/>
+                      </a>
+                      <a href="https://youtu.be/83C3TZ4Zm_o?si=-OsBraudHtXdUbCV" target="_blank">
+                        <FontAwesomeIcon icon={faYoutube} className="text-[#CCFF00] dark:text-white"/>
+                      </a>
+                  </div>
                 </div>
               </div>
-              <div className="col-2 flex flex-row w-fit  text-[#CCFF00] dark:text-white gap-2 justify-center bg-[#CCFF00]/30 dark:bg-white/30 backdrop-filter backdrop-blur-md rounded-2xl px-5 py-2">
-                <a href="https://www.instagram.com/aespa_official/" target="_blank">
-                  <FontAwesomeIcon icon={faInstagram} className="cursor-pointer"/>
-                </a>
-                <a href="https://www.youtube.com/@aespa" target="_blank">
-                  <FontAwesomeIcon icon={faYoutube} className="cursor-pointer"/>
-                </a>
-                <a href="https://x.com/aespa_official" target="_blank">
-                  <FontAwesomeIcon icon={faXTwitter} className="cursor-pointer"/>
-                </a>
+              <div className="justify-center items-end flex flex-1">
+                <div>
+                  <a className="text-white cursor-pointer" onClick={scrollToNextSection}>Scroll down to see more</a>
+                </div>
+              </div>
+              <div className="justify-end flex flex-1 col-3">
+                <div className="flex flex-row w-fit text-[#CCFF00] dark:text-white gap-2 justify-center bg-[#CCFF00]/30 dark:bg-white/30 backdrop-filter backdrop-blur-md rounded-2xl px-5 py-2">
+                  <a href="https://www.instagram.com/aespa_official/" target="_blank">
+                    <FontAwesomeIcon icon={faInstagram} className="cursor-pointer"/>
+                  </a>
+                  <a href="https://www.youtube.com/@aespa" target="_blank">
+                    <FontAwesomeIcon icon={faYoutube} className="cursor-pointer"/>
+                  </a>
+                  <a href="https://x.com/aespa_official" target="_blank">
+                    <FontAwesomeIcon icon={faXTwitter} className="cursor-pointer"/>
+                  </a>
+                </div>
               </div>
           </motion.div>
           {/** Background Video */}
@@ -144,9 +167,6 @@ function App() {
               className="block cursor-pointer relative w-full h-full"/>
             </motion.div>
           </div>
-          <motion.div initial={{ opacity : 0 }} animate={{ y: [0, 20, 0] }} whileInView={{ opacity: 1 }} transition={{ y: { repeat : Infinity }, opacity:{ delay : 3 }}} className="bg-white/30 w-fit rounded-full w-[50px] h-[50px] flex justify-center items-center absolute right-0">
-              <FontAwesomeIcon icon={faAngleDown} className="text-4xl text-white"/>
-          </motion.div>
       </section>
       <section className="min-h-screen bg-linear-to-b from-[#0f4805] dark:from-[#565656] dark:to-[#686868] items-center px-2 md:px-10 overflow-hidden">
         <motion.h1 className="text-[#F6F9E5] dark:text-white font-black-han-sans block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#CCFF00]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
