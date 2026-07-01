@@ -86,18 +86,18 @@ function App() {
         <div className="relative h-[100vh] flex flex-col w-full px-3 pt-2 pb-3">
           <Navbar about="#about-section"/>
           <motion.div initial={{ y : "200%" }} animate={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="max-w-full w-full mt-auto flex flex-row justify-between items-center">
-              <div className="bg-[#CCFF00]/30 dark:bg-white/30 col-1 w-fit justify-self-start px-5 py-3 rounded-2xl flex flex-row items-center gap-3">
+              <div className="bg-[#CCFF00]/30 dark:bg-white/30 col-1 w-fit justify-self-start px-5 py-2 rounded-2xl flex flex-row items-center gap-3">
                 <a className="text-[#CCFF00] dark:text-white font-semibold flex flex-row gap-3">Stream now on</a>
                 <div className="flex flex-row gap-1">
-                    <a>
+                    <a href="https://open.spotify.com/album/2233LC6uuoi67lGcO2OaBm?si=2Tb94vnrQfW7jL2xDKKXuQ" target="_blank">
                       <FontAwesomeIcon icon={faSpotify} className="text-[#CCFF00] dark:text-white"/>
                     </a>
-                    <a>
+                    <a href="https://youtu.be/83C3TZ4Zm_o?si=-OsBraudHtXdUbCV" target="_blank">
                       <FontAwesomeIcon icon={faYoutube} className="text-[#CCFF00] dark:text-white"/>
                     </a>
                 </div>
               </div>
-              <div className="col-2 flex flex-row w-fit  text-[#CCFF00] dark:text-white gap-2 justify-center bg-[#CCFF00]/30 dark:bg-white/30 backdrop-filter backdrop-blur-md rounded-2xl px-5 py-3">
+              <div className="col-2 flex flex-row w-fit  text-[#CCFF00] dark:text-white gap-2 justify-center bg-[#CCFF00]/30 dark:bg-white/30 backdrop-filter backdrop-blur-md rounded-2xl px-5 py-2">
                 <a href="https://www.instagram.com/aespa_official/" target="_blank">
                   <FontAwesomeIcon icon={faInstagram} className="cursor-pointer"/>
                 </a>

@@ -8,11 +8,11 @@ function Navbar({ about }: { about: string }) {
     const { theme, changeTheme } = useTheme();
     const [open, setOpen] = useState(false);
     return (
-        <motion.nav data-theme={theme} className="relative z-30" initial={{ y: "-100%" }} animate={{ y: 0 }} transition={{ type: "tween", delay: 1 }} viewport={{ once: true }}>
+        <motion.nav data-theme={theme} className="relative z-30" initial={{ y: "-200%" }} animate={{ y: 0 }} transition={{ type: "tween", delay: 1 }} viewport={{ once: true }}>
             <motion.div animate={{ color: theme === "dark" ? "white" : "#CCFF00" }} className="hidden lg:block font-semibold text-md text-[#CCFF00] dark:text-white bg-none">
                 <div className="w-full grid grid-cols-3 items-center mx-auto">
                     <div className="w-18">
-                        <img src="svg/loading.svg" />
+                        <img src={theme === "light" ? "svg/icon-light.svg" : "svg/loading.svg"} />
                     </div>
                     <div className="flex flex-row gap-10 justify-center">
                         <a className="cursor-pointer" href={about}>ABOUT</a>
