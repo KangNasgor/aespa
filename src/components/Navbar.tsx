@@ -10,7 +10,7 @@ function Navbar({ about }: { about: string }) {
     return (
         <motion.nav data-theme={theme} className="relative z-30" initial={{ y: "-100%" }} animate={{ y: 0 }} transition={{ type: "tween", delay: 1 }} viewport={{ once: true }}>
             <motion.div animate={{ color: theme === "dark" ? "white" : "#CCFF00" }} className="hidden lg:block font-semibold text-md text-[#CCFF00] dark:text-white bg-none">
-                <div className="w-full grid grid-cols-3 items-center bg-[#CCFF00]/30 dark:bg-white/30 backdrop-filter backdrop-blur-md shadow-md px-5 py-3 rounded-2xl mx-auto">
+                <div className="w-full grid grid-cols-3 items-center mx-auto">
                     <div className="w-18">
                         <img src="svg/loading.svg" />
                     </div>

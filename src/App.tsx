@@ -83,7 +83,7 @@ function App() {
             duration: 1,
           }
         }}>
-        <div className="relative h-[100vh] flex flex-col w-full px-7 pt-2 pb-3">
+        <div className="relative h-[100vh] flex flex-col w-full px-3 pt-2 pb-3">
           <Navbar about="#about-section"/>
           <motion.div initial={{ y : "200%" }} animate={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="max-w-full w-full mt-auto flex flex-row justify-between items-center">
               <div className="bg-[#CCFF00]/30 dark:bg-white/30 col-1 w-fit justify-self-start px-5 py-3 rounded-2xl flex flex-row items-center gap-3">
