@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useState, type Ref } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
-function Navbar({ about }: { about: string }) {
+type NavItem = {
+    label: string,
+    id: string,
+}
+
+function Navbar({ links } : { links : NavItem[] }) {
     const { theme, changeTheme } = useTheme();
     const [open, setOpen] = useState(false);
+
+    const scrollToSection = (section : string) => {
+        document.querySelector('#' + section)?.scrollIntoView({ behavior : "smooth" });
+    }
+
     return (
         <motion.nav data-theme={theme} className="relative z-30" initial={{ y: "-200%" }} animate={{ y: 0 }} transition={{ type: "tween", delay: 1 }} viewport={{ once: true }}>
             <motion.div animate={{ color: theme === "dark" ? "white" : "#CCFF00" }} className="hidden lg:block font-semibold text-md text-[#CCFF00] dark:text-white bg-none">
@@ -15,9 +25,9 @@ function Navbar({ about }: { about: string }) {
                         <img src={theme === "light" ? "svg/icon-light.svg" : "svg/loading.svg"} />
                     </div>
                     <div className="flex flex-row gap-10 justify-center">
-                        <a className="cursor-pointer" href={about}>ABOUT</a>
-                        <h1 className="cursor-pointer">MEMBERS</h1>
-                        <h1 className="cursor-pointer">STREAM</h1>
+                    {links.map((link, id) => (
+                        <a key={id} onClick={() => scrollToSection(link.id)} className="cursor-pointer">{link.label}</a>
+                    ))}
                     </div>
                     <motion.div layout animate={{ backgroundColor: theme === "dark" ? "color-mix(in oklab, #ffffff 40%, transparent)" : "color-mix(in oklab, #00D812 40%, transparent)" }} className={`cursor-pointer col-3 justify-self-end w-[50px] h-[24px] items-center px-1 rounded-full flex ${theme === "dark" ? "justify-end" : "justify-start"} cursor-pointer`} onClick={changeTheme}>
                         <motion.div layout animate={{ backgroundColor: theme === "dark" ? "black" : "#CCFF00" }} className="w-[18px] h-[18px] rounded-full"></motion.div>
