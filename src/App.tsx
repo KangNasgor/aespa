@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import Navbar from "./components/Navbar";
 import { useTheme } from "./context/ThemeContext";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faSpotify, faXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faAngleDown, faHeadphones } from "@fortawesome/free-solid-svg-icons";
@@ -68,8 +68,14 @@ function App() {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+  const sectionsRef = useRef<Element[]>([]);
+
+  useEffect(() => {
+    sectionsRef.current = Array.from(document.querySelectorAll("section"));
+  }, [])
+
   const scrollToNextSection = () => {
-    const sections = Array.from(document.querySelectorAll("section"));
+    const sections = sectionsRef.current;
     const currentSection = sections.find((section) => {
       const { top, bottom } = section.getBoundingClientRect();
       
