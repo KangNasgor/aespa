@@ -1,4 +1,4 @@
-import { useState, type Ref } from "react";
+import { useEffect, useState, type Ref } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,15 +11,31 @@ type NavItem = {
 
 function Navbar({ links } : { links : NavItem[] }) {
     const { theme, changeTheme } = useTheme();
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState<boolean>(false);
+    const [ scrolled, setScrolled ] = useState<boolean>(false);
 
     const scrollToSection = (section : string) => {
         document.querySelector('#' + section)?.scrollIntoView({ behavior : "smooth" });
     }
 
+    useEffect(() => {
+        const handleScrolled = () => {
+            setScrolled(window.scrollY > 0);
+        }
+        window.addEventListener("scroll", handleScrolled);
+
+        return () => window.removeEventListener("scroll", handleScrolled);
+    }, [])
+
     return (
-        <motion.nav data-theme={theme} className="relative z-30" initial={{ y: "-200%" }} animate={{ y: 0 }} transition={{ type: "tween", delay: 1 }} viewport={{ once: true }}>
-            <motion.div animate={{ color: theme === "dark" ? "white" : "#CCFF00" }} className="hidden lg:block font-semibold text-md text-[#CCFF00] dark:text-white bg-none">
+        <motion.nav data-theme={theme} className="fixed z-30 top-0 w-full pt-2 px-3" initial={{ y: "-200%" }} animate={{ y: 0 }} transition={{ type: "tween", delay: 1 }} viewport={{ once: true }}>
+            <motion.div layout animate={{ 
+                color: theme === "dark" ? "white" : "#CCFF00",
+                backgroundColor: scrolled ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0)",
+                backdropFilter: scrolled ? "blur(16px)" : "blur(0px)",
+                padding: scrolled ? "12px" : "0px",
+                borderRadius: scrolled ? "16px" : "0px"
+                }} className={`hidden lg:block font-semibold text-md text-[#CCFF00] dark:text-white bg-none`}>
                 <div className="w-full grid grid-cols-3 items-center mx-auto">
                     <div className="w-18">
                         <img src={theme === "light" ? "svg/icon-light.svg" : "svg/loading.svg"} />

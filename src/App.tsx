@@ -89,7 +89,12 @@ function App() {
   };
 
   return (
-    <main data-theme={theme}>
+    <main data-theme={theme} className="">
+      <Navbar links={[
+        { label: 'ABOUT', id: 'about-section' },
+        { label: 'ACHIEVEMENTS', id: 'achievement-section' },
+        { label: 'MEMBER', id: 'member-section' },
+      ]} />
       {/** Hero Section */}
       <motion.section id="hero-section" className="bg-black overflow-hidden w-full h-screen relative"
         initial={{
@@ -103,12 +108,7 @@ function App() {
             duration: 1,
           }
         }}>
-        <div className="relative h-[100vh] flex flex-col w-full px-3 pt-2 pb-3">
-          <Navbar links={[
-            {label : 'ABOUT', id : 'about-section'},
-            {label : 'ACHIEVEMENTS', id : 'achievement-section'},
-            {label : 'MEMBER', id : 'member-section'},
-          ]}/>
+        <div className="relative h-[100vh] flex flex-col w-full px-3 pb-3">
           <motion.div initial={{ y : "200%" }} animate={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="max-w-full w-full mt-auto flex flex-row items-center">
               <div className="flex flex-1 justify-start">
                 <div className="bg-[#CCFF00]/30 dark:bg-white/30 col-1 w-fit flex px-5 py-2 rounded-2xl flex-row items-center gap-3">
