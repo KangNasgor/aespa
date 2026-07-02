@@ -3,8 +3,7 @@ import Navbar from "./components/Navbar";
 import { useTheme } from "./context/ThemeContext";
 import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faSpotify, faXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faAngleDown, faHeadphones } from "@fortawesome/free-solid-svg-icons";
+import { faSpotify, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 const headingText = "æspa";
 
@@ -58,7 +57,7 @@ const members : Members[] = [
 ]
 
 function App() {
-  const { theme, changeTheme } = useTheme();
+  const { theme } = useTheme();
 
   const [imageClicked, setImageClicked] = useState<boolean>(false); // image is on the second section
 
