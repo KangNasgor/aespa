@@ -31,10 +31,10 @@ function Navbar({ links } : { links : NavItem[] }) {
         <motion.nav data-theme={theme} className="fixed z-30 top-0 w-full pt-2 px-3" initial={{ y: "-200%" }} animate={{ y: 0 }} transition={{ type: "tween", delay: 1 }} viewport={{ once: true }}>
             <motion.div layout animate={{ 
                 color: theme === "dark" ? "white" : "#CCFF00",
-                backgroundColor: scrolled ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0)",
+                backgroundColor: scrolled ? theme === 'dark' ? "rgba(255, 255, 255, 0.1)" : 'rgb(204, 255, 0, 0.1)' : "rgba(255, 255, 255, 0)",
                 backdropFilter: scrolled ? "blur(16px)" : "blur(0px)",
                 padding: scrolled ? "12px" : "0px",
-                borderRadius: scrolled ? "16px" : "0px"
+                borderRadius: scrolled ? "16px" : "0px",
                 }} className={`hidden lg:block font-semibold text-md text-[#CCFF00] dark:text-white bg-none`}>
                 <div className="w-full grid grid-cols-3 items-center mx-auto">
                     <div className="w-18">
