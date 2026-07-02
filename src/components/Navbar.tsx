@@ -35,14 +35,14 @@ function Navbar({ links } : { links : NavItem[] }) {
                 backdropFilter: scrolled ? "blur(16px)" : "blur(0px)",
                 padding: scrolled ? "12px" : "0px",
                 borderRadius: scrolled ? "16px" : "0px",
-                }} className={`hidden lg:block font-semibold text-md text-[#CCFF00] dark:text-white bg-none`}>
+                }} className={`hidden lg:block text-md text-[#CCFF00] dark:text-white bg-none`}>
                 <div className="w-full grid grid-cols-3 items-center mx-auto">
                     <div className="w-18">
                         <img src={theme === "light" ? "svg/icon-light.svg" : "svg/loading.svg"} />
                     </div>
                     <div className="flex flex-row gap-10 justify-center">
                     {links.map((link, id) => (
-                        <a key={id} onClick={() => scrollToSection(link.id)} className="cursor-pointer">{link.label}</a>
+                        <a key={id} onClick={() => scrollToSection(link.id)} className="cursor-pointer font-neue-montreal tracking-wide">{link.label}</a>
                     ))}
                     </div>
                     <motion.div layout animate={{ backgroundColor: theme === "dark" ? "color-mix(in oklab, #ffffff 40%, transparent)" : "color-mix(in oklab, #00D812 40%, transparent)" }} className={`cursor-pointer col-3 justify-self-end w-[50px] h-[24px] items-center px-1 rounded-full flex ${theme === "dark" ? "justify-end" : "justify-start"} cursor-pointer`} onClick={changeTheme}>

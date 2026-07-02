@@ -11,6 +11,7 @@
   --font-gothic-a1: "Gothic A1", sans-serif;
   --font-tenada: "Tenada", sans-serif;
   --font-revamped: "Revamped", sans-serif;
+  --font-neue-montreal: 'Neue Montreal', sans-serif;
 }
 
 @font-face {
@@ -23,16 +24,15 @@
   src: url('./assets/fonts/Revamped.otf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('./assets//fonts/NeueMontreal-Regular.otf') format('truetype');
+}
+
 html{
   scroll-behavior: smooth;
 }
 
 body{
   background-color: black;
-}
-
-.font-black-han-sans {
-  font-family: "Black Han Sans", sans-serif;
-  font-weight: 400;
-  font-style: normal;
 }
