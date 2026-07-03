@@ -31,7 +31,7 @@ function Navbar({ links } : { links : NavItem[] }) {
         <motion.nav data-theme={theme} className="fixed z-30 top-0 w-full pt-2 px-3" initial={{ y: "-200%" }} animate={{ y: 0 }} transition={{ type: "tween", delay: 1 }} viewport={{ once: true }}>
             <motion.div layout animate={{ 
                 color: theme === "dark" ? "white" : "#CCFF00",
-                backgroundColor: scrolled ? theme === 'dark' ? "rgba(255, 255, 255, 0.1)" : 'rgb(204, 255, 0, 0.1)' : "rgba(255, 255, 255, 0)",
+                backgroundColor: scrolled ? theme === 'dark' ? "rgba(255, 255, 255, 0.3)" : 'rgb(204, 255, 0, 0.3)' : "rgba(255, 255, 255, 0)",
                 backdropFilter: scrolled ? "blur(16px)" : "blur(0px)",
                 padding: scrolled ? "12px" : "0px",
                 borderRadius: scrolled ? "16px" : "0px",

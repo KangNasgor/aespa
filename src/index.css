@@ -12,6 +12,7 @@
   --font-tenada: "Tenada", sans-serif;
   --font-revamped: "Revamped", sans-serif;
   --font-neue-montreal: 'Neue Montreal', sans-serif;
+  --font-creato-display: 'Creato Display' sans-serif;
 }
 
 @font-face {
@@ -27,6 +28,11 @@
 @font-face {
   font-family: 'Neue Montreal';
   src: url('./assets//fonts/NeueMontreal-Regular.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Creato Display';
+  src: url('./assets/fonts/CreatoDisplay-Regular.otf') format('truetype');
 }
 
 html{

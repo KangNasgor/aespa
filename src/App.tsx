@@ -2,8 +2,6 @@ import { AnimatePresence, motion } from "motion/react";
 import Navbar from "./components/Navbar";
 import { useTheme } from "./context/ThemeContext";
 import { useEffect, useRef, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpotify, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 const headingText = "æspa";
 
@@ -59,18 +57,18 @@ const members : Members[] = [
 function App() {
   const { theme } = useTheme();
 
-  const [imageClicked, setImageClicked] = useState<boolean>(false); // image is on the second section
+  const [imageClicked, setImageClicked] = useState<boolean>(false); // image is on the about section
 
-  const [currentMemberIndex, setCurrentMemberIndex] = useState<number | null>(null); // keeping track on members section
+  const [currentMemberIndex, setCurrentMemberIndex] = useState<number | null>(null); // keeping track (index) on members section
 
   useEffect(() => {
-    localStorage.setItem('theme', theme);
+    localStorage.setItem('theme', theme); // Everytime the user changes theme, update it on localStorage
   }, [theme]);
 
-  const sectionsRef = useRef<Element[]>([]);
+  const sectionsRef = useRef<Element[]>([]); // Reference for section
 
   useEffect(() => {
-    sectionsRef.current = Array.from(document.querySelectorAll("section"));
+    sectionsRef.current = Array.from(document.querySelectorAll("section")); // all sections are stored in form of array into sectionsRef
   }, [])
 
   const scrollToNextSection = () => {
@@ -94,6 +92,7 @@ function App() {
         { label: 'ACHIEVEMENTS', id: 'achievement-section' },
         { label: 'MEMBER', id: 'member-section' },
       ]} />
+
       {/** Hero Section */}
       <motion.section id="hero-section" className="bg-black overflow-hidden w-full h-screen relative"
         initial={{
@@ -117,7 +116,7 @@ function App() {
               <div className="justify-center items-end flex flex-1">
               </div>
             <div className="justify-end flex flex-1 col-3">
-              <div onClick={scrollToNextSection} className="bg-[#CCFF00]/30 backdrop-filter backdrop-blur-2xl rounded-2xl px-5 py-1">
+              <div onClick={scrollToNextSection} className="bg-[#CCFF00]/30 dark:bg-white/30 backdrop-filter backdrop-blur-2xl rounded-2xl px-5 py-1">
                 <a className="text-[#CCFF00] dark:text-white cursor-pointer font-neue-montreal tracking-wide" >Scroll down to see more</a>
               </div>
             </div>
@@ -128,8 +127,10 @@ function App() {
           </video>
         </div>
       </motion.section>
+      
+      {/** About Section */}
       <section id="about-section">
-          <div className="min-h-screen h-[110vh] bg-linear-to-b from-[#39FF14] to-[#0f4805] dark:from-[#000000] dark:to-[#565656] flex items-center justify-center">
+          <div className="min-h-screen h-[110vh] bg-linear-to-b from-[#39FF14]/80 to-[#0f4805] dark:from-[#000000] dark:to-[#565656] flex items-center justify-center">
             <div className="w-full lg:w-7/12 mb-10">
               <AnimatePresence>
                 {imageClicked && (
@@ -160,14 +161,16 @@ function App() {
             </div>
         </div>
         <div className="min-h-screen bg-linear-to-b from-[#0f4805] dark:from-[#565656] dark:to-[#686868] items-center px-2 md:px-10 overflow-hidden">
-          <motion.h1 className="text-[#F6F9E5] dark:text-white font-black-han-sans block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#CCFF00]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
+          {/** Headline for mobile layout */}
+          <motion.h1 className="text-[#F6F9E5] dark:text-white font-creato-display block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#CCFF00]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
           <div className="flex flex-col justify-between items-center gap-5">
             <div className="lg:w-6/12 flex flex-col gap-20">
+              {/** Headline for desktop layout */}
               <motion.h1
               initial={{ x : "-30%", opacity : 0.5 }}
               whileInView={{ x : 0, opacity : 1 }}
               transition={{ type: "tween", duration: 0.6 }}
-              className="text-[#CCFF00] dark:text-white text-center font-revamped hidden lg:block text-xl md:text-5xl/15">The <span className="text-white">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
+              className="text-[#CCFF00] dark:text-white text-center font-creato-display hidden lg:block text-xl md:text-5xl/15">The <span className="text-white">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
               <motion.div className="px-3 md:px-0" initial={{ opacity : 0, y : "50%" }} whileInView={{ opacity : 1, y : 0 }} transition={{ type : "tween", duration : 0.6, delay : 0.1 }}>
                 <p className="text-[#CCFF00]/80 dark:text-white/85 font-semibold text-sm text-center md:text-xl">
                   {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
