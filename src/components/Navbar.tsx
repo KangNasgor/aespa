@@ -11,7 +11,7 @@ type NavItem = {
 
 function Navbar({ links } : { links : NavItem[] }) {
     const { theme, changeTheme } = useTheme();
-    const [open, setOpen] = useState<boolean>(false);
+    const [ open, setOpen ] = useState<boolean>(false);
     const [ scrolled, setScrolled ] = useState<boolean>(false);
 
     const scrollToSection = (section : string) => {

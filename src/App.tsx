@@ -110,39 +110,17 @@ function App() {
         <div className="relative h-[100vh] flex flex-col w-full px-3 pb-3">
           <motion.div initial={{ y : "200%" }} animate={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="max-w-full w-full mt-auto flex flex-row items-end">
               <div className="flex flex-1 justify-start">
-                <div className="w-[265px] text-start">
-                  <a className="text-[#CCFF00] dark:text-white cursor-pointer font-neue-montreal tracking-wide">aespa, a Korean girl group from SM Entertainment that consists of Karina, Giselle, Winter, and Ningning.</a>
+                <div className="w-[400px] text-start">
+                  <a className="text-[#CCFF00] dark:text-white font-neue-montreal tracking-wide">aespa, <br /> a Korean girl group from <br /> SM Entertainment that consists of <br />Karina, Giselle, Winter, and Ningning.<br/> They debuted on 17 November 2020 with Black Mamba.</a>
                 </div>
               </div>
               <div className="justify-center items-end flex flex-1">
-                <div onClick={scrollToNextSection} className="bg-[#CCFF00]/30 backdrop-filter backdrop-blur-2xl rounded-2xl px-5 py-1">
-                  <a className="text-[#CCFF00] dark:text-white cursor-pointer font-neue-montreal tracking-wide" >Scroll down to see more</a>
-                </div>
               </div>
             <div className="justify-end flex flex-1 col-3">
-              <div className="bg-[#CCFF00]/30 dark:bg-white/30 col-1 w-fit flex px-5 py-2 rounded-2xl flex-row items-center gap-3">
-                <a className="text-[#CCFF00] dark:text-white flex flex-row gap-3 tracking-wide text-sm font-neue-montreal">Stream now on</a>
-                <div className="flex flex-row gap-1">
-                  <a href="https://open.spotify.com/album/2233LC6uuoi67lGcO2OaBm?si=2Tb94vnrQfW7jL2xDKKXuQ" target="_blank">
-                    <FontAwesomeIcon icon={faSpotify} className="text-[#CCFF00] dark:text-white" />
-                  </a>
-                  <a href="https://youtu.be/83C3TZ4Zm_o?si=-OsBraudHtXdUbCV" target="_blank">
-                    <FontAwesomeIcon icon={faYoutube} className="text-[#CCFF00] dark:text-white" />
-                  </a>
-                </div>
+              <div onClick={scrollToNextSection} className="bg-[#CCFF00]/30 backdrop-filter backdrop-blur-2xl rounded-2xl px-5 py-1">
+                <a className="text-[#CCFF00] dark:text-white cursor-pointer font-neue-montreal tracking-wide" >Scroll down to see more</a>
               </div>
-                {/* <div className="flex flex-row w-fit text-[#CCFF00] dark:text-white gap-2 justify-center bg-[#CCFF00]/30 dark:bg-white/30 backdrop-filter backdrop-blur-md rounded-2xl px-5 py-2">
-                  <a href="https://www.instagram.com/aespa_official/" target="_blank">
-                    <FontAwesomeIcon icon={faInstagram} className="cursor-pointer"/>
-                  </a>
-                  <a href="https://www.youtube.com/@aespa" target="_blank">
-                    <FontAwesomeIcon icon={faYoutube} className="cursor-pointer"/>
-                  </a>
-                  <a href="https://x.com/aespa_official" target="_blank">
-                    <FontAwesomeIcon icon={faXTwitter} className="cursor-pointer"/>
-                  </a>
-                </div> */}
-              </div>
+            </div>
           </motion.div>
           {/** Background Video */}
           <video autoPlay muted loop playsInline className="absolute scale-120 inset-0 object-center object-cover w-full h-full -z-50 opacity-60 select-none">
