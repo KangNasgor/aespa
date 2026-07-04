@@ -130,7 +130,7 @@ function App() {
       
       {/** About Section */}
       <section id="about-section">
-          <div className="min-h-screen h-[110vh] bg-linear-to-b from-[#39FF14]/80 to-[#0f4805] dark:from-[#000000] dark:to-[#565656] flex items-center justify-center">
+          <div className="min-h-screen h-[110vh] bg-linear-to-b from-[#39FF14]/80 to-[#CCFF00]/80 dark:from-[#000000] dark:to-[#565656] flex items-center justify-center">
             <div className="w-full lg:w-7/12 mb-10">
               <AnimatePresence>
                 {imageClicked && (
@@ -160,7 +160,7 @@ function App() {
               </motion.div>
             </div>
         </div>
-        <div className="min-h-screen bg-linear-to-b from-[#0f4805] dark:from-[#565656] dark:to-[#686868] items-center px-2 md:px-10 overflow-hidden">
+        <div className="min-h-screen bg-linear-to-b from-[#CCFF00]/80 to-[#CCFF00] dark:from-[#565656] dark:to-[#686868] items-center px-2 md:px-10 overflow-hidden">
           {/** Headline for mobile layout */}
           <motion.h1 className="text-[#F6F9E5] dark:text-white font-creato-display block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#CCFF00]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
           <div className="flex flex-col justify-between items-center gap-5">
@@ -182,7 +182,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="min-h-screen bg-linear-to-b dark:from-[#686868] dark:to-[#8e8e8e] py-20" id="member-section">
+      <section className="min-h-screen bg-linear-to-b from-[#CCFF00] to-[#CCFF00]/80 dark:from-[#686868] dark:to-[#8e8e8e] py-20" id="member-section">
             <h1 className="font-bold text-5xl text-white mb-24 text-center">The <span className="text-[#CCFF00]">Members</span></h1>
             <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-10 w-9/12 mx-auto">
                 <AnimatePresence>
