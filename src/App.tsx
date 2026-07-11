@@ -130,7 +130,7 @@ function App() {
       
       {/** About Section */}
       <section id="about-section">
-          <div className="min-h-screen h-[110vh] bg-linear-to-b from-[#39FF14]/60 to-[#CCFF00]/70 dark:from-[#000000] dark:to-[#565656] flex items-center justify-center">
+          <div className="bg-linear-to-b from-[#CCFF00]/65 to-[#CCFF00]/70 dark:from-[#565656] dark:to-[#686868] flex items-center justify-center px-2 md:px-10 pt-[120px]">
             <div className="w-full lg:w-7/12 mb-10">
               <AnimatePresence>
                 {imageClicked && (
@@ -160,25 +160,23 @@ function App() {
               </motion.div>
             </div>
         </div>
-        <div className="min-h-screen bg-linear-to-b from-[#CCFF00]/70 to-[#CCFF00]/80 dark:from-[#565656] dark:to-[#686868] items-center px-2 md:px-10 overflow-hidden">
+        <div className="bg-linear-to-b from-[#CCFF00]/70 to-[#CCFF00]/80 dark:from-[#000000] dark:to-[#565656] items-center px-2 md:px-10 overflow-hidden">
           {/** Headline for mobile layout */}
           <motion.h1 className="text-[#F6F9E5] dark:text-white font-creato-display block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#CCFF00]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
-          <div className="flex flex-col justify-between items-center gap-5">
-            <div className="lg:w-6/12 flex flex-col gap-20">
-              {/** Headline for desktop layout */}
-              <motion.h1
-              initial={{ x : "-30%", opacity : 0.5 }}
-              whileInView={{ x : 0, opacity : 1 }}
+          <div className="lg:w-7/12 flex flex-col gap-5 text-start mx-auto">
+            {/** Headline for desktop layout */}
+            <motion.h1
+              initial={{ x: "-30%", opacity: 0.5 }}
+              whileInView={{ x: 0, opacity: 1 }}
               transition={{ type: "tween", duration: 0.6 }}
-              className="text-[#CCFF00] dark:text-white text-center font-creato-display font-bold hidden lg:block text-xl md:text-5xl/15">The <span className="text-white">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
-              <motion.div className="px-3 md:px-0" initial={{ opacity : 0, y : "50%" }} whileInView={{ opacity : 1, y : 0 }} transition={{ type : "tween", duration : 0.6, delay : 0.1 }}>
-                <p className="text-[#CCFF00] dark:text-white/85 font-semibold text-sm text-center md:text-xl">
-                  {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
-                  The group name is a combination of "ae" (Avatar X Experience) and "aspect",
-                  symbolizing the concept of a new experience by meeting a new world through another version of yourself.
-                </p>
-              </motion.div>
-            </div>
+              className="text-[#CCFF00] dark:text-white font-creato-display font-bold hidden lg:block text-xl md:text-5xl/15">The <span className="text-white">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
+            <motion.div className="px-3 md:px-0" initial={{ opacity: 0, x: "-30%" }} whileInView={{ opacity: 1, x: 0 }} transition={{ type: "tween", duration: 0.6, delay: 0.1 }}>
+              <p className="text-[#CCFF00] dark:text-white/85 font-semibold text-sm md:text-xl">
+                {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
+                The group name is a combination of "ae" (Avatar X Experience) and "aspect",
+                symbolizing the concept of a new experience by meeting a new world through another version of yourself.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -192,7 +190,7 @@ function App() {
                         animate={{ opacity : 1 }}
                         exit={{ opacity : 0, transition : { duration : 0.5 } }}
                         onClick={() => setCurrentMemberIndex(null)}
-                        className="fixed inset-0 z-20 bg-black/70">
+                        className="fixed inset-0 z-40 bg-black/70">
                       </motion.div>
                     )}
                 </AnimatePresence>
