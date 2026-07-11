@@ -37,7 +37,7 @@ function Navbar({ links } : { links : NavItem[] }) {
                 borderRadius: scrolled ? "16px" : "0px",
                 }} className={`hidden lg:block text-md text-[#CCFF00] dark:text-white bg-none`}>
                 <div className="w-full grid grid-cols-3 items-center mx-auto">
-                    <div className="w-18">
+                    <div className="w-[78px]">
                         <img src={theme === "light" ? "svg/icon-light.svg" : "svg/loading.svg"} />
                     </div>
                     <div className="flex flex-row gap-10 justify-center">

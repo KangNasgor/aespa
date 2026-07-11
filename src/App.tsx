@@ -130,7 +130,7 @@ function App() {
       
       {/** About Section */}
       <section id="about-section">
-          <div className="min-h-screen h-[110vh] bg-linear-to-b from-[#39FF14]/80 to-[#CCFF00]/80 dark:from-[#000000] dark:to-[#565656] flex items-center justify-center">
+          <div className="min-h-screen h-[110vh] bg-linear-to-b from-[#39FF14]/60 to-[#CCFF00]/70 dark:from-[#000000] dark:to-[#565656] flex items-center justify-center">
             <div className="w-full lg:w-7/12 mb-10">
               <AnimatePresence>
                 {imageClicked && (
@@ -160,7 +160,7 @@ function App() {
               </motion.div>
             </div>
         </div>
-        <div className="min-h-screen bg-linear-to-b from-[#CCFF00]/80 to-[#CCFF00] dark:from-[#565656] dark:to-[#686868] items-center px-2 md:px-10 overflow-hidden">
+        <div className="min-h-screen bg-linear-to-b from-[#CCFF00]/70 to-[#CCFF00]/80 dark:from-[#565656] dark:to-[#686868] items-center px-2 md:px-10 overflow-hidden">
           {/** Headline for mobile layout */}
           <motion.h1 className="text-[#F6F9E5] dark:text-white font-creato-display block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#CCFF00]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
           <div className="flex flex-col justify-between items-center gap-5">
@@ -170,9 +170,9 @@ function App() {
               initial={{ x : "-30%", opacity : 0.5 }}
               whileInView={{ x : 0, opacity : 1 }}
               transition={{ type: "tween", duration: 0.6 }}
-              className="text-[#CCFF00] dark:text-white text-center font-creato-display hidden lg:block text-xl md:text-5xl/15">The <span className="text-white">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
+              className="text-[#CCFF00] dark:text-white text-center font-creato-display font-bold hidden lg:block text-xl md:text-5xl/15">The <span className="text-white">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
               <motion.div className="px-3 md:px-0" initial={{ opacity : 0, y : "50%" }} whileInView={{ opacity : 1, y : 0 }} transition={{ type : "tween", duration : 0.6, delay : 0.1 }}>
-                <p className="text-[#CCFF00]/80 dark:text-white/85 font-semibold text-sm text-center md:text-xl">
+                <p className="text-[#CCFF00] dark:text-white/85 font-semibold text-sm text-center md:text-xl">
                   {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
                   The group name is a combination of "ae" (Avatar X Experience) and "aspect",
                   symbolizing the concept of a new experience by meeting a new world through another version of yourself.
@@ -182,7 +182,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="min-h-screen bg-linear-to-b from-[#CCFF00] to-[#CCFF00]/80 dark:from-[#686868] dark:to-[#8e8e8e] py-20" id="member-section">
+      <section className="min-h-screen bg-linear-to-b from-[#CCFF00]/80 from-70% to-[#CCFF00]/70 dark:from-[#686868] dark:to-[#8e8e8e] py-20" id="member-section">
             <h1 className="font-bold text-5xl text-white mb-24 text-center">The <span className="text-[#CCFF00]">Members</span></h1>
             <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-10 w-9/12 mx-auto">
                 <AnimatePresence>
