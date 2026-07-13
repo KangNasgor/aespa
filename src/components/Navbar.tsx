@@ -13,22 +13,32 @@ function Navbar({ links } : { links : NavItem[] }) {
     const { theme, changeTheme } = useTheme();
     const [ open, setOpen ] = useState<boolean>(false);
     const [ scrolled, setScrolled ] = useState<boolean>(false);
+    const [ scrolledTop, setScrolledTop ] = useState<boolean>(true); 
 
     const scrollToSection = (section : string) => {
         document.querySelector('#' + section)?.scrollIntoView({ behavior : "smooth" });
     }
 
     useEffect(() => {
+        let lastScroll = window.scrollY
         const handleScrolled = () => {
             setScrolled(window.scrollY > 0);
         }
+        const scrollTop = () => {
+            setScrolledTop(lastScroll > window.scrollY);
+            lastScroll = window.scrollY;
+        }
         window.addEventListener("scroll", handleScrolled);
+        window.addEventListener("scroll", scrollTop);
 
-        return () => window.removeEventListener("scroll", handleScrolled);
+        return () => {
+            window.removeEventListener("scroll", handleScrolled);
+            window.removeEventListener("scroll", scrollTop);
+        }
     }, [])
 
     return (
-        <motion.nav data-theme={theme} className="fixed z-30 top-0 w-full pt-2 px-3" initial={{ y: "-200%" }} animate={{ y: 0 }} transition={{ type: "tween", delay: 1 }} viewport={{ once: true }}>
+        <motion.nav data-theme={theme} className={`fixed transform ${scrolledTop ? 'translate-y-0' : '-translate-y-[100%]'} z-30 top-0 w-full pt-2 px-3`} initial={{ y: "-200%" }} animate={{ y: 0 }} transition={{ type: "tween", delay: 1 }} viewport={{ once: true }}>
             <motion.div layout animate={{ 
                 color: theme === "dark" ? "white" : "#CCFF00",
                 backgroundColor: scrolled ? theme === 'dark' ? "rgba(255, 255, 255, 0.3)" : 'rgb(204, 255, 0, 0.3)' : "rgba(255, 255, 255, 0)",
