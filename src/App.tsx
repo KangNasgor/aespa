@@ -129,7 +129,7 @@ function App() {
       </motion.section>
       
       {/** About Section */}
-      <section id="about-section" className="bg-linear-to-b dark:from-[#565656] dark:to-[#686868] pt-[100px]">
+      <section id="about-section" className="pt-[100px] h-[130vh]">
           <div className="flex items-center justify-center px-2 md:px-10">
             <div className="w-full lg:w-7/12 mb-10">
               <AnimatePresence>
@@ -160,20 +160,18 @@ function App() {
               </motion.div>
             </div>
         </div>
-      </section>
-      <section className="bg-linear-to-b  dark:from-[#000000] dark:to-[#565656] h-[100vh]">
         <div className="items-center px-2 md:px-10 overflow-hidden">
           {/** Headline for mobile layout */}
           <motion.h1 className="text-[#F6F9E5] dark:text-white font-creato-display block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#CCFF00]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
-          <div className="lg:w-7/12 flex flex-col gap-5 text-start mx-auto">
+          <div className="lg:w-7/12 text-start mx-auto">
             {/** Headline for desktop layout */}
             <motion.h1
               initial={{ x: "-30%", opacity: 0.5 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ type: "tween", duration: 0.6 }}
-              className="text-[#CCFF00] dark:text-white font-creato-display font-bold hidden lg:block text-xl md:text-4xl/15">The <span className="text-white">æ</span> concept that changed everything</motion.h1>
+              className="text-[#CCFF00] dark:text-white font-creato-display font-semibold tracking-tight hidden lg:block text-xl md:text-4xl/15">The <span className="text-white">æ</span> concept that changed everything</motion.h1>
             <motion.div className="px-3 md:px-0" initial={{ opacity: 0, x: "-30%" }} whileInView={{ opacity: 1, x: 0 }} transition={{ type: "tween", duration: 0.6, delay: 0.1 }}>
-              <p className="text-[#CCFF00] dark:text-white/85 font-semibold text-sm md:text-lg">
+              <p className="text-[#CCFF00] dark:text-white/85 text-sm md:text-lg font-neue-montreal">
                 {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
                 The group name is a combination of "ae" (Avatar X Experience) and "aspect",
                 symbolizing the concept of a new experience by meeting a new world through another version of yourself.
@@ -183,8 +181,8 @@ function App() {
         </div>
       </section>
       {/** Members Section */}
-      <section className="min-h-screen bg-linear-to-b  dark:from-[#686868] dark:to-[#8e8e8e] py-20" id="member-section">
-            <h1 className="font-bold text-5xl text-white mb-24 text-center">The <span className="text-[#CCFF00]">Members</span></h1>
+      <section className="min-h-screen py-20" id="member-section">
+            <h1 className="font-bold text-5xl font-creato-display text-white mb-24 text-center">The <span className="text-[#CCFF00]">Members</span></h1>
             <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-10 w-9/12 mx-auto">
                 <AnimatePresence>
                     {currentMemberIndex && (
@@ -266,7 +264,7 @@ function App() {
           <p className="text-white text-center font-semibold"> Released on November 17, 2020. Black Mamba is the debut and first digital single by South Korean girl group aespa. The music video reached 100 million views on January 8, 2021 and 200 million views on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
         </div>
       </section>
-      <section className="min-h-screen h-fit  relative pt-0.5" id="discography-section">
+      <section className="min-h-screen h-fit relative pt-0.5" id="discography-section">
               <h1 className="font-bold text-white text-5xl text-center"><span className="text-[#f4f015]">Disco</span>graphy</h1>
               <div className="flex flex-col gap-36 mt-32">
                 <div className="bg-[#4b3621] absolute w-5 h-[280vh] -translate-x-6/12 left-1/2 rounded-4xl"></div>
