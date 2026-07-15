@@ -86,7 +86,7 @@ function App() {
   };
 
   return (
-    <main data-theme={theme} className="bg-[linear-gradient(to_bottom,rgba(149,255,0,0.7)_0%,rgba(204,255,0,0.75)_25%,rgba(214,255,48,0.8)_50%,rgba(177,222,0,0.8)_75%,rgba(204,255,0,0.8)_100%)]">
+    <main data-theme={theme} className="bg-[linear-gradient(to_bottom,rgba(149,255,0,0.7)_0%,rgba(204,255,0,0.75)_20%,rgba(214,255,48,0.8)_40%,rgba(177,222,0,0.8)_60%,rgba(130,217,0,0.8)_80%,rgba(204,255,0,0.8)_100%)]">
       <Navbar links={[
         { label: 'ABOUT', id: 'about-section' },
         { label: 'ACHIEVEMENTS', id: 'achievement-section' },
@@ -110,7 +110,7 @@ function App() {
           <motion.div initial={{ y : "200%" }} animate={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="max-w-full w-full mt-auto flex flex-row items-end">
               <div className="flex flex-1 justify-start">
                 <div className="w-[400px] text-start">
-                  <a className="text-[#CCFF00] dark:text-white font-neue-montreal tracking-wide">aespa, <br /> a Korean girl group from <br /> SM Entertainment that consists of <br />Karina, Giselle, Winter, and Ningning.<br/> They debuted on 17 November 2020 with Black Mamba.</a>
+                  <a className="text-[#CCFF00] dark:text-white font-neue-montreal tracking-wide">aespa, <br /> a korean girl group from <br /> SM Entertainment that consists of <br />Karina, Giselle, Winter, and Ningning.<br/> They debuted on 17 November 2020 with Black Mamba.</a>
                 </div>
               </div>
               <div className="justify-center items-end flex flex-1">
@@ -139,6 +139,7 @@ function App() {
                     animate={{ opacity : 1 }}
                     exit={{ opacity : 0, transition : { duration : 0.7 } }}
                     onClick={() => setImageClicked(false)}
+                    viewport={{ once : true }}
                     className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm">
                       <div className="absolute top-5 right-5">
                         <div className="w-6 h-0.5 transform translate-y-6/12 rotate-45 bg-white"></div>
@@ -169,7 +170,7 @@ function App() {
               initial={{ x: "-30%", opacity: 0.5 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ type: "tween", duration: 0.6 }}
-              className="text-[#CCFF00] dark:text-white font-creato-display font-semibold tracking-tight hidden lg:block text-xl md:text-4xl/15">The <span className="text-white">æ</span> concept that changed everything</motion.h1>
+              className="text-[#CCFF00] dark:text-white font-neue-montreal font-semibold tracking-wide hidden lg:block text-xl md:text-4xl/15">The <span className="text-white">æ</span> concept that changed everything</motion.h1>
             <motion.div className="px-3 md:px-0" initial={{ opacity: 0, x: "-30%" }} whileInView={{ opacity: 1, x: 0 }} transition={{ type: "tween", duration: 0.6, delay: 0.1 }}>
               <p className="text-[#CCFF00] dark:text-white/85 text-sm md:text-lg font-neue-montreal">
                 {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
@@ -182,7 +183,7 @@ function App() {
       </section>
       {/** Members Section */}
       <section className="min-h-screen py-20" id="member-section">
-            <h1 className="font-bold text-5xl font-creato-display text-white mb-24 text-center">The <span className="text-[#CCFF00]">Members</span></h1>
+            <motion.h1 initial={{ y: "100%" }} whileInView={{ y: 0 }} transition={{ type: 'tween', duration : 0.5 }} className="font-bold text-5xl font-creato-display text-white mb-24 text-center">The <span className="text-[#CCFF00]">Members</span></motion.h1>
             <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-10 w-9/12 mx-auto">
                 <AnimatePresence>
                     {currentMemberIndex && (
@@ -191,12 +192,13 @@ function App() {
                         animate={{ opacity : 1 }}
                         exit={{ opacity : 0, transition : { duration : 0.5 } }}
                         onClick={() => setCurrentMemberIndex(null)}
+                        key={currentMemberIndex}
                         className="fixed inset-0 z-40 bg-black/70">
                       </motion.div>
                     )}
                 </AnimatePresence>
               {members.map((member, index) => (
-                <motion.div key={member.name} className="w-full relative" initial={{  }} whileInView={{  }} transition={{ type: "tween", delay : 0.1 }}>
+                <motion.div key={member.name} className="w-full relative" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ type: "spring", delay : 0.4 + index/10 * 2 }}>
                   <motion.div layoutId={member.name} className={`group cursor-pointer relative h-full w-full ${member.id % 2 === 0 ? 'md:translate-y-10' : 'md:translate-y-0'}`} onClick={() => setCurrentMemberIndex(member.id)}>
                     <motion.span layout className={`absolute -top-15 -left-5  text-8xl font-black dark:text-white opacity-10 select-none ${currentMemberIndex === member.id ? 'hidden' : 'block'}`}>
                       0{index + 1}
@@ -204,13 +206,13 @@ function App() {
                     <div className={`relative flex justify-center rounded-lg overflow-hidden after:absolute after:bg-linear-to-t after:from-black after:to-transparent after:w-full after:h-6/12 ${currentMemberIndex === member.id ? 'after:opacity-80 after:z-30' : 'after:opacity-0 group-hover:after:opacity-75'} after:bottom-0 after:left-0 after:transition after:overflow-hidden`} >
                       <motion.img layoutId={member.image} src={member.image} className={`rounded-lg`} alt={member.name} />
                       <div className={`absolute bottom-5 left-5 z-40 text-white ${currentMemberIndex === member.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
-                        <motion.h1 layout className="font-bold text-2xl">{member.name}</motion.h1>
+                        <motion.h1 layout className="font-semibold text-2xl">{member.name}</motion.h1>
                       </div>
                     </div>
                   </motion.div>
                   <AnimatePresence>
                     {currentMemberIndex === member.id && (
-                        <motion.div layoutId={member.name} className="fixed left-6/12 w-11/12 lg:w-8/12 h-[500px] top-1/2 -translate-y-1/2 transform -translate-x-6/12 overflow-hidden z-50">
+                        <motion.div layoutId={member.name} className="fixed left-6/12 w-11/12 lg:w-8/12 h-[450px] top-1/2 -translate-y-1/2 transform -translate-x-6/12 overflow-hidden z-50">
                           <div style={{ backgroundColor: currentMemberIndex === member.id ? member.color + '80' : 'transparent' }} className={`relative flex justify-between rounded-lg overflow-hidden after:absolute after:bg-linear-to-t after:from-black after:to-transparent after:w-full after:h-6/12 ${currentMemberIndex === member.id ? 'after:opacity-80 after:z-30' : 'after:opacity-0 group-hover:after:opacity-75'} after:bottom-0 after:left-0 after:transition after:overflow-hidden`} >
                             <motion.img layoutId={member.image} src={member.image} className="w-75 rounded-lg" alt={member.name} />
                             <div className="grid grid-cols-3 gap-2 h-[400px] my-auto px-3">
@@ -221,10 +223,10 @@ function App() {
                               ))}
                             </div>
                             <div className={`absolute bottom-5 md:left-5 px-3 z-40 text-white ${currentMemberIndex === member.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
-                              <motion.h1 layout className="font-bold text-2xl">{member.name}</motion.h1>
+                              <motion.h1 layout className="font-semibold text-2xl">{member.name}</motion.h1>
                               <AnimatePresence>
                                 <motion.h3
-                                  className={`${currentMemberIndex === member.id ? 'block' : 'hidden'} font-semibold`}
+                                  className={`${currentMemberIndex === member.id ? 'block' : 'hidden'} font-neue-montreal`}
                                   layout
                                   initial={{ opacity: 0 }}
                                   animate={{ opacity: 0.8 }}
@@ -241,27 +243,19 @@ function App() {
             </div>
       </section>
       <section className="min-h-screen py-20 px-5 md:px-10 relative overflow-hidden" id="debut-section">
-        <div className="w-full">
-          <h1 className="text-white text-center font-bold text-3xl md:text-4xl">THE DEBUT : <span className="text-[#f4f015]">BLACK MAMBA</span></h1>
-        </div>
-        <div className="w-full my-10">
-          <div className="w-full flex flex-col md:flex-row justify-center gap-10">
-            <div className="relative w-full lg:w-4/12 h-[300px] group">
+        <div className="w-full flex flex-row my-10 items-start gap-10">
+          <div className="w-6/12 flex flex-col items-end gap-10">
+            <div className="relative w-full h-[350px] group">
               <img src="/images/blackmamba-2.webp" className="w-full h-full object-cover" />
-              <div className="overflow-hidden px-5 flex items-center absolute bottom-0 h-0 group-hover:h-[300px] content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full left-0 transform transition-all">
-                <p className="text-white text-start font-semibold select-none">Upon its release, the music video for "Black Mamba" shattered records for K-pop debut visibility. Within just 24 hours, it garnered 21.4 million views, setting a new benchmark for the most-viewed debut music video by a K-pop group in a single day. Furthermore, it became the fastest K-pop debut music video to reach 100 million views, achieving the milestone in only 51 days and 12 hours—surpassing the previous record of 57 days.</p>
-              </div>
-            </div>
-            <div className="relative w-full lg:w-4/12 h-[300px] group">
-              <img src="/images/blackmamba-1.webp" className="w-full h-full object-cover" />
-              <div className="overflow-hidden px-5 flex items-center absolute bottom-0 h-0 group-hover:h-[300px] content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full left-0 transform transition-all">
-                <p className="text-white text-start font-semibold select-none">The song serves as the foundational narrative for the SM Culture Universe (SMCU). The "Black Mamba" is not just a title; it is the name of the central villain—a massive, serpentine entity that resides in the virtual world known as the FLAT. Its primary objective is to interfere with the "SYNK" connection between the real-life members (Karina, Giselle, Winter, and Ningning) and their digital counterparts (æ-aespa), preventing them from coexisting and communicating effectively</p>
+              <div className="overflow-hidden px-5 flex items-center absolute bottom-0 h-0 group-hover:h-[350px] content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full left-0 transform transition-all">
+                <p className="text-white font-neue-montreal text-start select-none">Upon its release, the music video for "Black Mamba" shattered records for K-pop debut visibility. Within just 24 hours, it garnered 21.4 million views, setting a new benchmark for the most-viewed debut music video by a K-pop group in a single day. Furthermore, it became the fastest K-pop debut music video to reach 100 million views, achieving the milestone in only 51 days and 12 hours—surpassing the previous record of 57 days.</p>
               </div>
             </div>
           </div>
-        </div>
-        <div className="lg:w-6/12 mx-auto">
-          <p className="text-white text-center font-semibold"> Released on November 17, 2020. Black Mamba is the debut and first digital single by South Korean girl group aespa. The music video reached 100 million views on January 8, 2021 and 200 million views on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
+          <div className="lg:w-6/12">
+            <h1 className="text-white text-start font-bold text-3xl md:text-4xl">THE DEBUT : <span className="text-[#CCFF00]">BLACK MAMBA</span></h1>
+            <p className="text-[#CCFF00] text-start font-neue-montreal text-2xl mt-8"> Released on November 17, 2020. Black Mamba is the debut and first digital single by South Korean girl group aespa. The music video reached 100 million views on January 8, 2021 and 200 million views on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
+          </div>
         </div>
       </section>
       <section className="min-h-screen h-fit relative pt-0.5" id="discography-section">
