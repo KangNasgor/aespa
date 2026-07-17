@@ -59,6 +59,6 @@ export const Discography : DiscographyInterface[] =
     {
         title : 'LEMONADE (2nd Full Album)',
         release_date : '29 May 2026',
-        img : 'images/lemonade-2.webp',
+        img : 'images/lemonade-3.webp',
     }
 ]

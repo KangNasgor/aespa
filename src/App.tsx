@@ -256,9 +256,9 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="min-h-screen h-fit relative pt-0.5 px-48" id="discography-section">
+      <section className="min-h-screen relative pt-0.5 px-48" id="discography-section">
         <h1 className="font-neue-montreal text-[#F6FF00] text-5xl text-start">Discography</h1>
-        <div className="flex flex-col mt-18">
+        <div className="flex flex-col mt-18 relative">
           <div className="bg-[#CCFF00] absolute w-[5px] h-full -translate-x-6/12 left-6/12 rounded-4xl opacity-50"></div> {/** Timeline Bar */}
           {
             Discography.map(item => (
