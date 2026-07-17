@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Navbar from "./components/Navbar";
 import { useTheme } from "./context/ThemeContext";
 import { useEffect, useRef, useState } from "react";
+import { Discography } from './data/discography';
 
 const headingText = "æspa";
 
@@ -162,19 +163,16 @@ function App() {
             </div>
         </div>
         <div className="items-center px-2 md:px-10 overflow-hidden">
-          {/** Headline for mobile layout */}
-          <motion.h1 className="text-[#F6F9E5] dark:text-white font-creato-display block lg:hidden font-bold text-center md:text-start text-xl mb-10 md:text-5xl/15">The <span className="text-[#CCFF00]">æ</span> concept <br className="hidden md:block"></br>that changed everything</motion.h1>
           <div className="lg:w-7/12 text-start mx-auto">
-            {/** Headline for desktop layout */}
             <motion.h1
               initial={{ x: "-30%", opacity: 0.5 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ type: "tween", duration: 0.6 }}
-              className="text-[#CCFF00] dark:text-white font-neue-montreal font-semibold tracking-wide hidden lg:block text-xl md:text-4xl/15">The <span className="text-white">æ</span> concept that changed everything</motion.h1>
+              className="text-[#CCFF00] dark:text-white font-neue-montreal font-semibold tracking-wide hidden lg:block text-xl md:text-4xl/15">The <span className="text-[#F6FF00]">æ</span> concept that changed everything</motion.h1>
             <motion.div className="px-3 md:px-0" initial={{ opacity: 0, x: "-30%" }} whileInView={{ opacity: 1, x: 0 }} transition={{ type: "tween", duration: 0.6, delay: 0.1 }}>
               <p className="text-[#CCFF00] dark:text-white/85 text-sm md:text-lg font-neue-montreal">
-                {headingText} is a pioneering 4th generation kpop girl group under SM Entertainment.
-                The group name is a combination of "ae" (Avatar X Experience) and "aspect",
+                <span className="text-[#F6FF00]">{headingText}</span> is a pioneering 4th generation kpop girl group under SM Entertainment.
+                The group name is a combination of <span className="text-[#F6FF00]">"ae"</span> (Avatar X Experience) and "aspect",
                 symbolizing the concept of a new experience by meeting a new world through another version of yourself.
               </p>
             </motion.div>
@@ -183,7 +181,7 @@ function App() {
       </section>
       {/** Members Section */}
       <section className="min-h-screen py-20" id="member-section">
-            <motion.h1 initial={{ y: "100%" }} whileInView={{ y: 0 }} transition={{ type: 'tween', duration : 0.5 }} className="font-bold text-5xl font-creato-display text-white mb-24 text-center">The <span className="text-[#CCFF00]">Members</span></motion.h1>
+            <motion.h1 initial={{ y: "100%" }} whileInView={{ y: 0 }} transition={{ type: 'tween', duration : 0.5 }} className="font-bold text-5xl font-creato-display text-[#CCFF00] mb-24 text-center">The <span className="text-[#F6FF00]">Members</span></motion.h1>
             <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-10 w-9/12 mx-auto">
                 <AnimatePresence>
                     {currentMemberIndex && (
@@ -253,55 +251,27 @@ function App() {
             </div>
           </div>
           <div className="lg:w-6/12">
-            <h1 className="text-white text-start font-bold text-3xl md:text-4xl">THE DEBUT : <span className="text-[#CCFF00]">BLACK MAMBA</span></h1>
-            <p className="text-[#CCFF00] text-start font-neue-montreal text-2xl mt-8"> Released on November 17, 2020. Black Mamba is the debut and first digital single by South Korean girl group aespa. The music video reached 100 million views on January 8, 2021 and 200 million views on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
+            <h1 className="text-[#CCFF00] text-start font-bold text-3xl md:text-4xl">THE DEBUT : <span className="text-[#F6FF00]">BLACK MAMBA</span></h1>
+            <p className="text-[#CCFF00] text-start font-neue-montreal text-2xl mt-8"> Released on November 17, 2020. <span className="text-[#F6FF00]">Black Mamba</span> is the debut and first digital single by South Korean girl group <span className="text-[#F6FF00]">aespa</span>. The music video reached <span className="text-[#F6FF00]">100 million views</span> on January 8, 2021 and <span className="text-[#F6FF00]">200 million views</span> on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
           </div>
         </div>
       </section>
-      <section className="min-h-screen h-fit relative pt-0.5" id="discography-section">
-              <h1 className="font-bold text-white text-5xl text-center"><span className="text-[#f4f015]">Disco</span>graphy</h1>
-              <div className="flex flex-col gap-36 mt-32">
-                <div className="bg-[#4b3621] absolute w-5 h-[280vh] -translate-x-6/12 left-1/2 rounded-4xl"></div>
-                <div className="w-full ml-auto relative mt-10 flex flex-row justify-around items-center px-10">
-                    <img src="/images/aespa-blackmamba-img-6.webp" className="w-5/12 bg-white h-[300px] object-cover object-top"/>
-                    <div className="rounded-full bottom-6/12 w-10 h-10 bg-[#f4f015]"></div>
-                    <div className="w-5/12 h-fit flex flex-col gap-5">
-                      <h1 className="text-[#f4f015] font-bold md:text-4xl">17 November 2020</h1>
-                      <h1 className="text-[#f4f015] font-bold md:text-3xl">BLACK MAMBA (Digital Single)</h1>
-                    </div>
+      <section className="min-h-screen h-fit relative pt-0.5 px-48" id="discography-section">
+        <h1 className="font-neue-montreal text-[#F6FF00] text-5xl text-start">Discography</h1>
+        <div className="flex flex-col mt-18">
+          <div className="bg-[#CCFF00] absolute w-[5px] h-full -translate-x-6/12 left-6/12 rounded-4xl opacity-50"></div> {/** Timeline Bar */}
+          {
+            Discography.map(item => (
+              <div className="w-full ml-auto relative mt-10 flex flex-row items-center justify-between">
+                <img src={item.img} className="w-5/12 bg-white w-[500px] h-[300px] object-cover bg-center" />
+                <div className="absolute rounded-full w-[20px] h-[20px] bg-[#f4f015] left-6/12 -translate-x-6/12"></div>
+                <div className="w-5/12 h-fit flex flex-col gap-5">
+                  <h1 className="text-[#CCFF00] md:text-4xl font-neue-montreal">{item.release_date}</h1>
+                  <h1 className="text-[#f4f015] font-semibold tracking-wider md:text-3xl font-neue-montreal">{item.title}</h1>
                 </div>
-                <div className="w-full ml-auto relative flex flex-row justify-around items-center px-10">
-                    <div className="w-5/12 h-fit flex flex-col items-end gap-5">
-                      <h1 className="text-[#f4f015] font-bold md:text-4xl">17 May 2021</h1>
-                      <h1 className="text-[#f4f015] font-bold md:text-3xl">Next Level (2nd Mini Album)</h1>
-                    </div>
-                    <div className="rounded-full bottom-6/12 w-10 h-10 bg-[#f4f015]"></div>
-                    <img src="/images/nextlevel-1.webp" className="w-5/12 bg-white h-[300px] object-cover object-center"/>
-                </div>
-                <div className="w-full ml-auto relative flex flex-row justify-around items-center px-10">
-                    <img src="/images/armageddon-2.webp" className="w-5/12 bg-white h-[300px] object-cover object-center"/>
-                    <div className="rounded-full bottom-6/12 w-10 h-10 bg-[#f4f015]"></div>
-                    <div className="w-5/12 h-fit flex flex-col gap-5">
-                      <h1 className="text-[#f4f015] font-bold md:text-4xl">27 May 2024</h1>
-                      <h1 className="text-[#f4f015] font-bold md:text-3xl">Armageddon (1st Album)</h1>
-                    </div>
-                </div>
-                <div className="w-full ml-auto relative flex flex-row justify-around items-center px-10">
-                    <div className="w-5/12 h-fit flex flex-col items-end gap-5">
-                      <h1 className="text-[#f4f015] font-bold md:text-4xl">21 October 2024</h1>
-                      <h1 className="text-[#f4f015] font-bold md:text-3xl">Whiplash (5th Mini Album)</h1>
-                    </div>
-                    <div className="rounded-full bottom-6/12 w-10 h-10 bg-[#f4f015]"></div>
-                    <img src="/images/whiplash-1.webp" className="w-5/12 bg-white h-[300px] object-cover object-center"/>
-                </div>
-                <div className="w-full ml-auto relative flex flex-row justify-around items-center px-10">
-                    <img src="/images/lemonade-2.webp" className="w-5/12 bg-white h-[300px] object-cover object-center"/>
-                    <div className="rounded-full bottom-6/12 w-10 h-10 bg-[#f4f015]"></div>
-                    <div className="w-5/12 h-fit flex flex-col gap-5">
-                      <h1 className="text-[#f4f015] font-bold md:text-4xl">29 May 2026</h1>
-                      <h1 className="text-[#f4f015] font-bold md:text-3xl">LEMONADE (2nd Album)</h1>
-                    </div>
-                </div>
+              </div>
+            ))
+          }
               </div>
       </section>
       <section className="min-h-[100vh]"></section>
