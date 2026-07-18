@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import { useTheme } from "./context/ThemeContext";
 import { useEffect, useRef, useState } from "react";
 import { Discography } from './data/discography';
+import { Achievement } from "./data/achievements";
 
 const headingText = "æspa";
 
@@ -279,61 +280,21 @@ function App() {
           <h1 className="text-[#F6FF00] font-semibold text-4xl text-end">Achievements</h1>
         </div>
         <div className="w-full h-[500px] bg-[#EAEAEA] mt-[18px] px-[50px] pt-[20px] grid grid-flow-col auto-cols-max overflow-x-auto gap-[50px]">
-          <div className="w-[450px]">
-            <img src="/achievements/wda.webp" className=""/>
-            <div className="mt-3">
-              <h1 className="font-neue-montreal text-2xl">
-                "LEMONADE" — Billboard 200 Top 10
-              </h1>
-              <p className="font-neue-montreal text-sm opacity-70 mt-2">
-                Aespa's second studio album LEMONADE debuted at No. 9 on the Billboard 200, giving the group its third top-10 entry on that chart, following "Girls" (No. 3 in 2022) and "MY WORLD" (No. 9 in 2023). 
-              </p>
-            </div>
-          </div>
-          <div className="w-[450px]">
-            <img src="/achievements/music-bank.webp"/>
-            <div className="mt-3">
-              <h1 className="font-neue-montreal text-2xl">
-                aespa Takes 1st Win For "WDA (Whole Different Animal)" On "Music Bank"
-              </h1>
-              <p className="font-neue-montreal text-sm opacity-70 mt-2">
-                aespa have earned their first music show win for “WDA (Whole Different Animal) (feat. G-DRAGON)”on KBS Music Bank
-              </p>
-            </div>
-          </div>
-          <div className="w-[450px]">
-            <img src="/achievements/billboard.webp"/>
-            <div className="mt-3">
-              <h1 className="font-neue-montreal text-2xl">
-                Billboard Women in Music 2025 — Group of the Year
-              </h1>
-              <p className="font-neue-montreal text-sm opacity-70 mt-2">
-                On September 8, aespa made history by securing the night's highest honor, the "Daesang Award," becoming the first-ever female artist to receive this recognition at the ceremony.
-              </p>
-            </div>
-          </div>
-          <div className="w-[450px]">
-            <img src="/achievements/wda.webp"/>
-            <div className="mt-3">
-              <h1 className="font-neue-montreal text-2xl">
-                "LEMONADE" — Billboard 200 Top 10
-              </h1>
-              <p className="font-neue-montreal text-sm opacity-70 mt-2">
-                Aespa's second studio album LEMONADE debuted at No. 9 on the Billboard 200, giving the group its third top-10 entry on that chart, following "Girls" (No. 3 in 2022) and "MY WORLD" (No. 9 in 2023). 
-              </p>
-            </div>
-          </div>
-          <div className="w-[450px]">
-            <img src="/achievements/wda.webp"/>
-            <div className="mt-3">
-              <h1 className="font-neue-montreal text-2xl">
-                "LEMONADE" — Billboard 200 Top 10
-              </h1>
-              <p className="font-neue-montreal text-sm opacity-70 mt-2">
-                Aespa's second studio album LEMONADE debuted at No. 9 on the Billboard 200, giving the group its third top-10 entry on that chart, following "Girls" (No. 3 in 2022) and "MY WORLD" (No. 9 in 2023). 
-              </p>
-            </div>
-          </div>
+          {
+            Achievement.map(item => (
+              <div className="w-[450px] p-3 hover:bg-[#D1D0D0] transition-all">
+                <img src={item.img}/>
+                <div className="mt-3">
+                  <h1 className="font-neue-montreal text-2xl">
+                    {item.title}
+                  </h1>
+                  <p className="font-neue-montreal text-sm opacity-70 mt-2">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
         </div>
       </section>
     </main>
