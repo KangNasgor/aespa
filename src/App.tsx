@@ -108,7 +108,7 @@ function App() {
             duration: 1,
           }
         }}>
-        <div className="relative h-[100vh] flex flex-col w-full px-3 pb-3">
+        <div className="relative h-[100vh] flex flex-col w-full p-[10px]">
           <motion.div initial={{ y : "200%" }} animate={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="max-w-full w-full mt-auto flex flex-row items-end">
               <div className="flex flex-1 justify-start">
                 <div className="w-[400px] text-start">
@@ -169,9 +169,9 @@ function App() {
               initial={{ x: "-30%", opacity: 0.5 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ type: "tween", duration: 0.6 }}
-              className="text-[#CCFF00] dark:text-white font-neue-montreal font-semibold tracking-wide hidden lg:block text-xl md:text-4xl/15">The <span className="text-[#F6FF00]">æ</span> concept that changed everything</motion.h1>
+              className="text-[#CCFF00] dark:text-white font-creato-display font-bold hidden lg:block text-xl md:text-4xl/15">The <span className="text-[#F6FF00]">æ</span> concept that changed everything</motion.h1>
             <motion.div className="px-3 md:px-0" initial={{ opacity: 0, x: "-30%" }} whileInView={{ opacity: 1, x: 0 }} transition={{ type: "tween", duration: 0.6, delay: 0.1 }}>
-              <p className="text-[#CCFF00] dark:text-white/85 text-sm md:text-lg font-neue-montreal">
+              <p className="text-[#CCFF00]/90 dark:text-white/85 text-sm md:text-lg font-neue-montreal">
                 <span className="text-[#F6FF00]">{headingText}</span> is a pioneering 4th generation kpop girl group under SM Entertainment.
                 The group name is a combination of <span className="text-[#F6FF00]">"ae"</span> (Avatar X Experience) and "aspect",
                 symbolizing the concept of a new experience by meeting a new world through another version of yourself.
@@ -275,15 +275,15 @@ function App() {
           }
               </div>
       </section>
-      <section className="min-h-[100vh] mt-32">
+      <section className="min-h-[100vh] flex flex-col justify-center" id="achievement-section">
         <div className="px-[54px]">
-          <h1 className="text-[#F6FF00] font-semibold text-4xl text-end">Achievements</h1>
+          <h1 className="text-[#F6FF00] font-semibold text-4xl text-start">Achievements</h1>
         </div>
         <div className="w-full h-[500px] bg-[#EAEAEA] mt-[18px] px-[50px] pt-[20px] grid grid-flow-col auto-cols-max overflow-x-auto gap-[50px]">
           {
             Achievement.map(item => (
               <div className="w-[450px] p-3 hover:bg-[#D1D0D0] transition-all">
-                <img src={item.img}/>
+                <img src={item.img} className="h-[283px] object-cover"/>
                 <div className="mt-3">
                   <h1 className="font-neue-montreal text-2xl">
                     {item.title}
