@@ -88,7 +88,7 @@ function App() {
   };
 
   return (
-    <main data-theme={theme} className="bg-[linear-gradient(to_bottom,rgba(149,255,0,0.7)_0%,rgba(204,255,0,0.75)_20%,rgba(214,255,48,0.8)_40%,rgba(177,222,0,0.8)_60%,rgba(130,217,0,0.8)_80%,rgba(204,255,0,0.8)_100%)]">
+    <main data-theme={theme} className="">
       <Navbar links={[
         { label: 'ABOUT', id: 'about-section' },
         { label: 'ACHIEVEMENTS', id: 'achievement-section' },
@@ -96,7 +96,7 @@ function App() {
       ]} />
 
       {/** Hero Section */}
-      <motion.section id="hero-section" className="bg-black overflow-hidden w-full h-screen relative"
+      <motion.section id="hero-section" className="overflow-hidden w-full h-screen relative flex flex-col p-[10px]"
         initial={{
           filter: "blur(10px)",
         }}
@@ -108,7 +108,6 @@ function App() {
             duration: 1,
           }
         }}>
-        <div className="relative h-[100vh] flex flex-col w-full p-[10px]">
           <motion.div initial={{ y : "200%" }} animate={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="max-w-full w-full mt-auto flex flex-row items-end">
               <div className="flex flex-1 justify-start">
                 <div className="w-[400px] text-start">
@@ -127,11 +126,12 @@ function App() {
           <video autoPlay muted loop playsInline className="absolute scale-120 inset-0 object-center object-cover w-full h-full -z-50 opacity-60 select-none">
             <source src="video/Lemonade.webm"></source>
           </video>
-        </div>
       </motion.section>
-      
+
+      <div className="bg-[linear-gradient(to_bottom,rgba(149,255,0,0.7)_0%,rgba(204,255,0,0.75)_20%,rgba(214,255,48,0.8)_40%,rgba(177,222,0,0.8)_60%,rgba(130,217,0,0.8)_80%,rgba(204,255,0,0.8)_100%)]">
       {/** About Section */}
       <section id="about-section" className="pt-[100px] h-[130vh]">
+          {/** Image */}
           <div className="flex items-center justify-center px-2 md:px-10">
             <div className="w-full lg:w-7/12 mb-10">
               <AnimatePresence>
@@ -163,6 +163,7 @@ function App() {
               </motion.div>
             </div>
         </div>
+        {/** Text */}
         <div className="items-center px-2 md:px-10 overflow-hidden">
           <div className="lg:w-7/12 text-start mx-auto">
             <motion.h1
@@ -180,10 +181,12 @@ function App() {
           </div>
         </div>
       </section>
+
       {/** Members Section */}
       <section className="min-h-screen py-20" id="member-section">
             <motion.h1 initial={{ y: "100%" }} whileInView={{ y: 0 }} transition={{ type: 'tween', duration : 0.5 }} className="font-bold text-5xl font-creato-display text-[#CCFF00] mb-24 text-center">The <span className="text-[#F6FF00]">Members</span></motion.h1>
             <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-10 w-9/12 mx-auto">
+                {/** Dark Overlay When Clicked */}
                 <AnimatePresence>
                     {currentMemberIndex && (
                       <motion.div
@@ -196,6 +199,7 @@ function App() {
                       </motion.div>
                     )}
                 </AnimatePresence>
+              
               {members.map((member, index) => (
                 <motion.div key={member.name} className="w-full relative" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ type: "spring", delay : 0.4 + index/10 * 2 }}>
                   <motion.div layoutId={member.name} className={`group cursor-pointer relative h-full w-full ${member.id % 2 === 0 ? 'md:translate-y-10' : 'md:translate-y-0'}`} onClick={() => setCurrentMemberIndex(member.id)}>
@@ -209,6 +213,8 @@ function App() {
                       </div>
                     </div>
                   </motion.div>
+
+                  {/** When Clicked */}
                   <AnimatePresence>
                     {currentMemberIndex === member.id && (
                         <motion.div layoutId={member.name} className="fixed left-6/12 w-11/12 lg:w-8/12 h-[450px] top-1/2 -translate-y-1/2 transform -translate-x-6/12 overflow-hidden z-50">
@@ -241,6 +247,8 @@ function App() {
               ))}
             </div>
       </section>
+
+      {/** Debut Section */}
       <section className="min-h-screen py-20 px-5 md:px-10 relative overflow-hidden" id="debut-section">
         <div className="w-full flex flex-row my-10 items-start gap-10">
           <div className="w-6/12 flex flex-col items-end gap-10">
@@ -257,6 +265,8 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/** Discography Section */}
       <section className="min-h-screen relative pt-0.5 px-48" id="discography-section">
         <h1 className="font-neue-montreal text-[#F6FF00] text-5xl text-start">Discography</h1>
         <div className="flex flex-col mt-18 relative">
@@ -275,6 +285,8 @@ function App() {
           }
               </div>
       </section>
+
+      {/** Achievement Section */}
       <section className="min-h-[100vh] flex flex-col justify-center" id="achievement-section">
         <div className="px-[54px]">
           <h1 className="text-[#F6FF00] font-semibold text-4xl text-start">Achievements</h1>
@@ -297,6 +309,7 @@ function App() {
           }
         </div>
       </section>
+      </div>
     </main>
   );
 }
