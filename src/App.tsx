@@ -4,6 +4,7 @@ import { useTheme } from "./context/ThemeContext";
 import { useEffect, useRef, useState } from "react";
 import { Discography } from './data/discography';
 import { Achievement } from "./data/achievements";
+import handleScreenSize from "./functions/handleResize";
 
 const headingText = "æspa";
 
@@ -62,6 +63,8 @@ function App() {
   const [imageClicked, setImageClicked] = useState<boolean>(false); // image is on the about section
 
   const [currentMemberIndex, setCurrentMemberIndex] = useState<number | null>(null); // keeping track (index) on members section
+
+  const width = handleScreenSize();
 
   useEffect(() => {
     localStorage.setItem('theme', theme); // Everytime the user changes theme, update it on localStorage
@@ -133,10 +136,10 @@ function App() {
 
       <div className="bg-[linear-gradient(to_bottom,rgba(149,255,0,0.7)_0%,rgba(204,255,0,0.75)_20%,rgba(214,255,48,0.8)_40%,rgba(177,222,0,0.8)_60%,rgba(130,217,0,0.8)_80%,rgba(204,255,0,0.8)_100%)]">
       {/** About Section */}
-      <section id="about-section" className="pt-[100px] h-[130vh]">
+      <section id="about-section" className="pt-[100px] min-h-[100vh] md:h-[130vh]">
           {/** Image */}
           <div className="flex items-center justify-center px-2 md:px-10">
-            <div className="w-full lg:w-7/12 mb-10">
+            <div className="w-full lg:w-7/12">
               <AnimatePresence>
                 {imageClicked && (
                   <motion.div
@@ -167,15 +170,15 @@ function App() {
             </div>
         </div>
         {/** Text */}
-        <div className="items-center px-2 md:px-10 overflow-hidden">
+        <div className="items-center px-2 md:px-10 mt-5 md:mt-10 overflow-hidden">
           <div className="lg:w-7/12 text-start mx-auto">
             <motion.h1
               initial={{ x: "-30%", opacity: 0.5 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ type: "tween", duration: 0.6 }}
-              className="text-[#CCFF00] dark:text-white font-creato-display font-bold hidden lg:block text-xl md:text-4xl/15">The <span className="text-[#F6FF00]">æ</span> concept that changed everything</motion.h1>
-            <motion.div className="px-3 md:px-0" initial={{ opacity: 0, x: "-30%" }} whileInView={{ opacity: 1, x: 0 }} transition={{ type: "tween", duration: 0.6, delay: 0.1 }}>
-              <p className="text-[#CCFF00]/90 dark:text-white/85 text-sm md:text-lg font-neue-montreal">
+              className="text-[#CCFF00] dark:text-white font-creato-display font-bold text-2xl text-start md:text-start md:text-4xl/15">The <span className="text-[#F6FF00]">æ</span> <br className="block md:hidden"></br> concept that<br className="block md:hidden"></br> changed everything</motion.h1>
+            <motion.div className="mt-1" initial={{ opacity: 0, x: "-30%" }} whileInView={{ opacity: 1, x: 0 }} transition={{ type: "tween", duration: 0.6, delay: 0.1 }}>
+              <p className="text-[#CCFF00]/90 dark:text-white/85 text-sm md:text-lg text-start md:text-start font-neue-montreal">
                 <span className="text-[#F6FF00]">{headingText}</span> is a pioneering 4th generation kpop girl group under SM Entertainment.
                 The group name is a combination of <span className="text-[#F6FF00]">"ae"</span> (Avatar X Experience) and "aspect",
                 symbolizing the concept of a new experience by meeting a new world through another version of yourself.
@@ -187,7 +190,7 @@ function App() {
 
       {/** Members Section */}
       <section className="min-h-screen py-20" id="member-section">
-            <motion.h1 initial={{ y: "100%" }} whileInView={{ y: 0 }} transition={{ type: 'tween', duration : 0.5 }} className="font-bold text-5xl font-creato-display text-[#CCFF00] mb-24 text-center">The <span className="text-[#F6FF00]">Members</span></motion.h1>
+            <motion.h1 initial={{ y: "100%" }} whileInView={{ y: 0 }} transition={{ type: 'tween', duration : 0.5 }} className="font-bold text-4xl md:text-5xl font-creato-display text-[#CCFF00] mb-24 text-center">The <span className="text-[#F6FF00]">Members</span></motion.h1>
             <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-10 w-9/12 mx-auto">
                 {/** Dark Overlay When Clicked */}
                 <AnimatePresence>
@@ -252,10 +255,10 @@ function App() {
       </section>
 
       {/** Debut Section */}
-      <section className="min-h-screen py-20 px-5 md:px-10 relative overflow-hidden" id="debut-section">
-        <div className="w-full flex flex-row my-10 items-start gap-10">
-          <div className="w-6/12 flex flex-col items-end gap-10">
-            <div className="relative w-full h-[350px] group">
+      <section className="min-h-screen py-20 px-3 md:px-10 relative overflow-hidden" id="debut-section">
+        <div className="w-full flex flex-col md:flex-row my-10 items-start gap-10">
+          <div className="md:w-6/12 w-full flex flex-col md:items-end gap-10">
+            <div className="relative w-full h-[200px] md:h-[350px] group">
               <motion.div className="w-full h-full" initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }}>
                 <motion.img
                   transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }}
@@ -270,24 +273,24 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="lg:w-6/12">
-            <h1 className="text-[#CCFF00] text-start font-bold text-3xl md:text-4xl">THE DEBUT : <span className="text-[#F6FF00]">BLACK MAMBA</span></h1>
-            <p className="text-[#CCFF00] text-start font-neue-montreal text-2xl mt-8"> Released on November 17, 2020. <span className="text-[#F6FF00]">Black Mamba</span> is the debut and first digital single by South Korean girl group <span className="text-[#F6FF00]">aespa</span>. The music video reached <span className="text-[#F6FF00]">100 million views</span> on January 8, 2021 and <span className="text-[#F6FF00]">200 million views</span> on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
-          </div>
+          <motion.div className="lg:w-6/12" initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }}>
+            <h1 className="text-[#CCFF00] text-start font-bold text-[30px] md:text-4xl">THE DEBUT : <br className="block md:hidden"></br><span className="text-[#F6FF00]">BLACK MAMBA</span></h1>
+            <p className="text-[#CCFF00] text-start font-neue-montreal text-2xl mt-3 md:mt-8"> Released on November 17, 2020. <span className="text-[#F6FF00]">Black Mamba</span> is the debut and first digital single by South Korean girl group <span className="text-[#F6FF00]">aespa</span>. The music video reached <span className="text-[#F6FF00]">100 million views</span> on January 8, 2021 and <span className="text-[#F6FF00]">200 million views</span> on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
+          </motion.div>
         </div>
       </section>
 
       {/** Discography Section */}
-      <section className="min-h-screen relative pt-0.5 lg:px-48" id="discography-section">
+      <section className="min-h-screen relative px-3 lg:px-48" id="discography-section">
         <motion.h1 initial={{ opacity : 0, x : '-100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.7 }} className="font-neue-montreal text-[#F6FF00] text-5xl text-start">Discography</motion.h1>
-        <div className="flex flex-col mt-18 relative">
-          <div className="bg-[#CCFF00] absolute w-[5px] h-full -translate-x-6/12 left-6/12 rounded-4xl opacity-50"></div> {/** Timeline Bar */}
+        <div className="flex flex-col mt-10 md:mt-18 relative">
+          <div className="bg-[#CCFF00] absolute w-[5px] h-full left-2 md:-translate-x-6/12 md:left-6/12 rounded-4xl opacity-50"></div> {/** Timeline Bar */}
           {
-            Discography.map(item => (
-              <div className="w-full ml-auto relative mt-10 flex flex-row items-center justify-between overflow-hidden">
-                <motion.img initial={{ opacity : 0, x : '-100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.5 }} src={item.img} className="w-5/12 bg-white w-[500px] h-[300px] object-cover bg-center" />
-                <div className="absolute rounded-full w-[20px] h-[20px] bg-[#f4f015] left-6/12 -translate-x-6/12"></div>
-                <motion.div initial={{ opacity : 0, x : '100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.5 }} className="w-5/12 h-fit flex flex-col gap-5">
+            Discography.map((item, index) => (
+              <div key={index} className="w-full ml-auto relative mt-12 md:mt-10 flex flex-col md:flex-row items-end md:items-center justify-between overflow-hidden">
+                <motion.img className="bg-white w-[250px] h-[150px] md:w-[500px] md:h-[300px] object-cover bg-center" initial={{ opacity : 0, x : '-100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.5 }} src={item.img} />
+                <div className="absolute rounded-full w-[20px] h-[20px] bg-[#f4f015] left-0 top-6/12 -translate-y-6/12 md:left-6/12 md:-translate-x-6/12"></div> {/** Center Dot */}
+                <motion.div initial={{ opacity : 0, x : width <= 768 ? '-100%' : '100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.5 }} className="w-[250px] md:w-5/12 h-fit mt-3 md:mt-0 items-start flex flex-col md:gap-5">
                   <h1 className="text-[#CCFF00] md:text-4xl font-neue-montreal">{item.release_date}</h1>
                   <h1 className="text-[#f4f015] font-semibold tracking-wider md:text-3xl font-neue-montreal">{item.title}</h1>
                 </motion.div>
@@ -304,8 +307,8 @@ function App() {
         </div>
         <div className="w-full h-[500px] bg-[#EAEAEA] mt-[18px] px-[50px] pt-[20px] grid grid-flow-col auto-cols-max overflow-x-auto gap-[50px]">
           {
-            Achievement.map(item => (
-              <div className="w-[450px] p-3 hover:bg-[#D1D0D0] transition-all">
+            Achievement.map((item, index) => (
+              <div key={index} className="w-[450px] p-3 hover:bg-[#D1D0D0] transition-all">
                 <img src={item.img} className="h-[283px] object-cover"/>
                 <div className="mt-3">
                   <h1 className="font-neue-montreal text-2xl">
