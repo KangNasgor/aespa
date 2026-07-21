@@ -108,17 +108,20 @@ function App() {
             duration: 1,
           }
         }}>
-          <motion.div initial={{ y : "200%" }} animate={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="max-w-full w-full mt-auto flex flex-row items-end">
-              <div className="flex flex-1 justify-start">
+          <motion.div initial={{ y : "200%" }} animate={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="max-w-full w-full mt-auto md:flex flex-row items-end">
+              <div className="md:hidden absolute top-1/2 -translate-y-1/2 w-[300px]">
+                  <img src="/svg/icon-light.svg"/>
+              </div>
+              <div className="flex-1 justify-start hidden md:flex">
                 <div className="w-[400px] text-start">
-                  <a className="text-[#CCFF00] dark:text-white font-neue-montreal tracking-wide">aespa, <br /> a korean girl group from <br /> SM Entertainment that consists of <br />Karina, Giselle, Winter, and Ningning.<br/> They debuted on 17 November 2020 with Black Mamba.</a>
+                  <a className="text-[#CCFF00] dark:text-white font-neue-montreal text-[12px] lg:text-[15px] tracking-wide">aespa, <br /> a korean girl group from <br /> SM Entertainment that consists of <br />Karina, Giselle, Winter, and Ningning.<br/> They debuted on 17 November 2020 with Black Mamba.</a>
                 </div>
               </div>
               <div className="justify-center items-end flex flex-1">
               </div>
-            <div className="justify-end flex flex-1 col-3">
+            <div className="justify-center md:justify-end flex md:flex-1 md:col-3">
               <div onClick={scrollToNextSection} className="bg-[#CCFF00]/30 dark:bg-white/30 backdrop-filter backdrop-blur-2xl rounded-2xl px-5 py-1">
-                <a className="text-[#CCFF00] dark:text-white cursor-pointer font-neue-montreal tracking-wide" >See more</a>
+                <a className="text-[#CCFF00] dark:text-white cursor-pointer text-sm md:text-[15px] font-neue-montreal tracking-wide" >See more</a>
               </div>
             </div>
           </motion.div>
@@ -253,7 +256,15 @@ function App() {
         <div className="w-full flex flex-row my-10 items-start gap-10">
           <div className="w-6/12 flex flex-col items-end gap-10">
             <div className="relative w-full h-[350px] group">
-              <img src="/images/blackmamba-2.webp" className="w-full h-full object-cover" />
+              <motion.div className="w-full h-full" initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }}>
+                <motion.img
+                  transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }}
+                  initial={{ scale : 1.2, filter : "blur(10px)"}}
+                  whileInView={{ scale : 1, filter : "blur(0px)" }}
+                  src="/images/blackmamba-2.webp" 
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
               <div className="overflow-hidden px-5 flex items-center absolute bottom-0 h-0 group-hover:h-[350px] content-[''] bg-linear-to-t from-black/80 via-black/80 to-black/75 w-full left-0 transform transition-all">
                 <p className="text-white font-neue-montreal text-start select-none">Upon its release, the music video for "Black Mamba" shattered records for K-pop debut visibility. Within just 24 hours, it garnered 21.4 million views, setting a new benchmark for the most-viewed debut music video by a K-pop group in a single day. Furthermore, it became the fastest K-pop debut music video to reach 100 million views, achieving the milestone in only 51 days and 12 hours—surpassing the previous record of 57 days.</p>
               </div>
@@ -267,19 +278,19 @@ function App() {
       </section>
 
       {/** Discography Section */}
-      <section className="min-h-screen relative pt-0.5 px-48" id="discography-section">
-        <h1 className="font-neue-montreal text-[#F6FF00] text-5xl text-start">Discography</h1>
+      <section className="min-h-screen relative pt-0.5 lg:px-48" id="discography-section">
+        <motion.h1 initial={{ opacity : 0, x : '-100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.7 }} className="font-neue-montreal text-[#F6FF00] text-5xl text-start">Discography</motion.h1>
         <div className="flex flex-col mt-18 relative">
           <div className="bg-[#CCFF00] absolute w-[5px] h-full -translate-x-6/12 left-6/12 rounded-4xl opacity-50"></div> {/** Timeline Bar */}
           {
             Discography.map(item => (
-              <div className="w-full ml-auto relative mt-10 flex flex-row items-center justify-between">
-                <img src={item.img} className="w-5/12 bg-white w-[500px] h-[300px] object-cover bg-center" />
+              <div className="w-full ml-auto relative mt-10 flex flex-row items-center justify-between overflow-hidden">
+                <motion.img initial={{ opacity : 0, x : '-100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.5 }} src={item.img} className="w-5/12 bg-white w-[500px] h-[300px] object-cover bg-center" />
                 <div className="absolute rounded-full w-[20px] h-[20px] bg-[#f4f015] left-6/12 -translate-x-6/12"></div>
-                <div className="w-5/12 h-fit flex flex-col gap-5">
+                <motion.div initial={{ opacity : 0, x : '100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.5 }} className="w-5/12 h-fit flex flex-col gap-5">
                   <h1 className="text-[#CCFF00] md:text-4xl font-neue-montreal">{item.release_date}</h1>
                   <h1 className="text-[#f4f015] font-semibold tracking-wider md:text-3xl font-neue-montreal">{item.title}</h1>
-                </div>
+                </motion.div>
               </div>
             ))
           }

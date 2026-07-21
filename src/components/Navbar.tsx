@@ -39,6 +39,7 @@ function Navbar({ links } : { links : NavItem[] }) {
 
     return (
         <motion.nav data-theme={theme} className={`fixed transform ${scrolledTop ? 'translate-y-0' : '-translate-y-[100%]'} z-30 top-0 w-full p-[10px]`} initial={{ y: "-200%" }} animate={{ y: 0 }} transition={{ type: "tween", delay: 1 }} viewport={{ once: true }}>
+            {/** Desktop Navbar */}
             <motion.div layout animate={{ 
                 color: theme === "dark" ? "white" : "#CCFF00",
                 backgroundColor: scrolled ? theme === 'dark' ? "rgba(255, 255, 255, 0.3)" : 'rgb(204, 255, 0, 0.3)' : "rgba(255, 255, 255, 0)",
@@ -60,7 +61,9 @@ function Navbar({ links } : { links : NavItem[] }) {
                     </motion.div>
                 </div>
             </motion.div>
-            <div className="flex flex-col gap-1 lg:hidden pt-3 pl-3 relative z-40" onClick={() => setOpen(prev => !prev)}>
+
+            {/** Mobile Navbar */}
+            <div className="flex flex-col gap-1 lg:hidden pl-3 relative z-40" onClick={() => setOpen(prev => !prev)}>
                 <motion.div animate={{ rotate: open ? 45 : 0, y: open ? 8 : 0 }} className="bg-white w-6 h-1 rounded-full"></motion.div>
                 <motion.div animate={{ opacity: open ? 0 : 1 }} className="bg-white w-6 h-1 rounded-full"></motion.div>
                 <motion.div animate={{ rotate: open ? -45 : 0, y: open ? -8 : 0 }} className="bg-white w-6 h-1 rounded-full"></motion.div>
