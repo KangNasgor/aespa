@@ -111,10 +111,10 @@ function App() {
             duration: 1,
           }
         }}>
+          <motion.div initial={{ opacity : 0 }} whileInView={{ opacity : 1 }} transition={{ type : "tween", delay: 1, duration : 0.5 }} viewport={{ once: true }} className="md:hidden absolute top-1/2 -translate-y-1/2 w-[300px]">
+            <img src="/svg/icon-light.svg" />
+          </motion.div>
           <motion.div initial={{ y : "200%" }} animate={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="max-w-full w-full mt-auto md:flex flex-row items-end">
-              <div className="md:hidden absolute top-1/2 -translate-y-1/2 w-[300px]">
-                  <img src="/svg/icon-light.svg"/>
-              </div>
               <div className="flex-1 justify-start hidden md:flex">
                 <div className="w-[400px] text-start">
                   <a className="text-[#CCFF00] dark:text-white font-neue-montreal text-[12px] lg:text-[15px] tracking-wide">aespa, <br /> a korean girl group from <br /> SM Entertainment that consists of <br />Karina, Giselle, Winter, and Ningning.<br/> They debuted on 17 November 2020 with Black Mamba.</a>
@@ -323,6 +323,42 @@ function App() {
           }
         </div>
       </section>
+      <footer className="h-[400px] bg-black px-[80px] pb-[20px] pt-[100px] text-[#CCFF00]">
+          <div className="flex flex-row justify-between items-center h-full">
+            <div className="flex flex-col justify-between h-full">
+              <img src="/svg/icon-light.svg" className="w-[350px]"/>
+              <p className="font-neue-montreal text-[12px]">© 2026 aespa (SM Entertainment). All Rights Reserved</p>
+            </div>
+            <div className="flex flex-row gap-24 font-neue-montreal">
+              <div>
+                <h1 className="opacity-80">Navigation</h1>
+                <div className="mt-10">
+                  <p className="mt-3">Home</p>
+                  <p className="mt-3">About</p>
+                  <p className="mt-3">Members</p>
+                </div>
+              </div>
+              <div>
+                <h1 className="opacity-80">Social Media</h1>
+                <div className="mt-10">
+                  <p className="mt-3">Instagram</p>
+                  <p className="mt-3">X</p>
+                  <p className="mt-3">Facebook</p>
+                  <p className="mt-3">Youtube</p>
+                </div>
+              </div>
+              <div>
+                <h1 className="opacity-80">Stream On</h1>
+                <div className="mt-10">
+                  <p className="mt-3">Spotify</p>
+                  <p className="mt-3">Youtube Music</p>
+                  <p className="mt-3">Melon</p>
+                  <p className="mt-3">Apple Music</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </footer>
       </div>
     </main>
   );
