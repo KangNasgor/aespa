@@ -323,37 +323,40 @@ function App() {
           }
         </div>
       </section>
-      <footer className="h-[400px] bg-black px-[80px] pb-[20px] pt-[100px] text-[#CCFF00]">
-          <div className="flex flex-row justify-between items-center h-full">
-            <div className="flex flex-col justify-between h-full">
-              <img src="/svg/icon-light.svg" className="w-[350px]"/>
-              <p className="font-neue-montreal text-[12px]">© 2026 aespa (SM Entertainment). All Rights Reserved</p>
+      <footer className="min-h-screen h-fit md:min-h-0 md:h-[400px] bg-black px-[10px] md:px-[80px] pb-[20px] pt-[20px] md:pt-[100px] text-[#CCFF00]">
+          <div className="flex flex-col md:flex-row justify-between md:items-center h-full">
+            <div className="flex flex-col items-center md:justify-between h-full">
+              <img src="/svg/icon-light.svg" className="w-[250px] md:w-[350px]"/>
+              <p className="font-neue-montreal text-[10px] mt-[35px] md:mt-0 md:text-[12px]">© 2026 aespa (SM Entertainment). All Rights Reserved</p>
             </div>
-            <div className="flex flex-row gap-24 font-neue-montreal">
+            <div className="flex flex-col md:flex-row gap-5 md:gap-24 font-neue-montreal mt-[40px] md:mt-0">
               <div>
-                <h1 className="opacity-80">Navigation</h1>
-                <div className="mt-10">
-                  <p className="mt-3">Home</p>
-                  <p className="mt-3">About</p>
-                  <p className="mt-3">Members</p>
+                <div className="bg-[#CCFF00] w-full h-[1px] opacity-50 mb-5"></div>
+                <h1 className="opacity-80 text-[18px]">Navigation</h1>
+                <div className="mt-2 md:mt-10">
+                  <p className="mt-1 md:mt-3">Home</p>
+                  <p className="mt-1 md:mt-3">About</p>
+                  <p className="mt-1 md:mt-3">Members</p>
                 </div>
               </div>
               <div>
-                <h1 className="opacity-80">Social Media</h1>
-                <div className="mt-10">
-                  <p className="mt-3">Instagram</p>
-                  <p className="mt-3">X</p>
-                  <p className="mt-3">Facebook</p>
-                  <p className="mt-3">Youtube</p>
+                <div className="bg-[#CCFF00] w-full h-[1px] opacity-50 mb-5"></div>
+                <h1 className="opacity-80 text-[18px]">Social Media</h1>
+                <div className="mt-2 md:mt-10">
+                  <p className="mt-1 md:mt-3">Instagram</p>
+                  <p className="mt-1 md:mt-3">X</p>
+                  <p className="mt-1 md:mt-3">Facebook</p>
+                  <p className="mt-1 md:mt-3">Youtube</p>
                 </div>
               </div>
               <div>
-                <h1 className="opacity-80">Stream On</h1>
-                <div className="mt-10">
-                  <p className="mt-3">Spotify</p>
-                  <p className="mt-3">Youtube Music</p>
-                  <p className="mt-3">Melon</p>
-                  <p className="mt-3">Apple Music</p>
+                <div className="bg-[#CCFF00] w-full h-[1px] opacity-50 mb-5"></div>
+                <h1 className="opacity-80 text-[18px]">Stream On</h1>
+                <div className="mt-2 md:mt-10">
+                  <p className="mt-1 md:mt-3">Spotify</p>
+                  <p className="mt-1 md:mt-3">Youtube Music</p>
+                  <p className="mt-1 md:mt-3">Melon</p>
+                  <p className="mt-1 md:mt-3">Apple Music</p>
                 </div>
               </div>
             </div>
