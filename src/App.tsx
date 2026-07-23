@@ -303,18 +303,18 @@ function App() {
       {/** Achievement Section */}
       <section className="min-h-[100vh] flex flex-col justify-center" id="achievement-section">
         <div className="px-[54px]">
-          <h1 className="text-[#F6FF00] font-semibold text-4xl text-start">Achievements</h1>
+          <motion.h1 initial={{ x : '-100%' }} whileInView={{ x : 0 }} transition={{ type : 'tween', duration : 0.5 }} className="text-[#F6FF00] font-semibold text-4xl text-start">Achievements</motion.h1>
         </div>
-        <div className="w-full h-[500px] bg-[#EAEAEA] mt-[18px] px-[50px] pt-[20px] grid grid-flow-col auto-cols-max overflow-x-auto gap-[50px]">
+        <div className="w-full h-[400px] md:h-[500px] bg-[#EAEAEA] mt-[18px] px-[10px] md:px-[50px] pt-[20px] grid grid-flow-col auto-cols-max overflow-x-auto md:gap-[50px]">
           {
             Achievement.map((item, index) => (
-              <div key={index} className="w-[450px] p-3 hover:bg-[#D1D0D0] transition-all">
-                <img src={item.img} className="h-[283px] object-cover"/>
+              <div key={index} className="w-[300px] md:w-[450px] p-3 hover:bg-[#D1D0D0] transition-all">
+                <img src={item.img} className="h-[183px] md:h-[283px] object-cover"/>
                 <div className="mt-3">
-                  <h1 className="font-neue-montreal text-2xl">
+                  <h1 className="font-neue-montreal md:text-2xl">
                     {item.title}
                   </h1>
-                  <p className="font-neue-montreal text-sm opacity-70 mt-2">
+                  <p className="font-neue-montreal text-[11px] md:text-sm opacity-70 mt-2">
                     {item.description}
                   </p>
                 </div>
