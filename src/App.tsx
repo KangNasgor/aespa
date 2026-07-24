@@ -134,7 +134,7 @@ function App() {
           </video>
       </motion.section>
 
-      <div className="bg-[linear-gradient(to_bottom,rgba(149,255,0,0.7)_0%,rgba(204,255,0,0.75)_20%,rgba(214,255,48,0.8)_40%,rgba(177,222,0,0.8)_60%,rgba(130,217,0,0.8)_80%,rgba(204,255,0,0.8)_100%)]">
+      <div className="bg-[linear-gradient(to_bottom,rgba(149,255,0,0.7)_0%,rgba(204,255,0,0.75)_20%,rgba(214,255,48,0.8)_40%,rgba(177,222,0,0.8)_60%,rgba(130,217,0,0.8)_80%,rgba(204,255,0,0.8)_100%)] dark:bg-[linear-gradient(180deg,rgba(0,0,0,1),rgba(86,86,86,1),rgba(104,104,104,1),rgba(142,142,142,1))]">
       {/** About Section */}
       <section id="about-section" className="pt-[100px] min-h-[100vh] md:h-[130vh]">
           {/** Image */}
@@ -176,11 +176,11 @@ function App() {
               initial={{ x: "-30%", opacity: 0.5 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ type: "tween", duration: 0.6 }}
-              className="text-[#CCFF00] dark:text-white font-creato-display font-bold text-2xl text-start md:text-start md:text-4xl/15">The <span className="text-[#F6FF00]">æ</span> <br className="block md:hidden"></br> concept that<br className="block md:hidden"></br> changed everything</motion.h1>
+              className="text-[#CCFF00] dark:text-white/75 font-creato-display font-bold text-2xl text-start md:text-start md:text-4xl/15">The <span className="text-[#F6FF00] dark:text-white">æ</span> <br className="block md:hidden"></br> concept that<br className="block md:hidden"></br> changed everything</motion.h1>
             <motion.div className="mt-1" initial={{ opacity: 0, x: "-30%" }} whileInView={{ opacity: 1, x: 0 }} transition={{ type: "tween", duration: 0.6, delay: 0.1 }}>
-              <p className="text-[#CCFF00]/90 dark:text-white/85 text-sm md:text-lg text-start md:text-start font-neue-montreal">
-                <span className="text-[#F6FF00]">{headingText}</span> is a pioneering 4th generation kpop girl group under SM Entertainment.
-                The group name is a combination of <span className="text-[#F6FF00]">"ae"</span> (Avatar X Experience) and "aspect",
+              <p className="text-[#CCFF00]/90 dark:text-white/75 text-sm md:text-lg text-start md:text-start font-neue-montreal">
+                <span className="text-[#F6FF00] dark:text-white">{headingText}</span> is a pioneering 4th generation kpop girl group under SM Entertainment.
+                The group name is a combination of <span className="text-[#F6FF00] dark:text-white">"ae"</span> (Avatar X Experience) and "aspect",
                 symbolizing the concept of a new experience by meeting a new world through another version of yourself.
               </p>
             </motion.div>
@@ -190,7 +190,7 @@ function App() {
 
       {/** Members Section */}
       <section className="min-h-screen py-20" id="member-section">
-            <motion.h1 initial={{ y: "100%" }} whileInView={{ y: 0 }} transition={{ type: 'tween', duration : 0.5 }} className="font-bold text-4xl md:text-5xl font-creato-display text-[#CCFF00] mb-24 text-center">The <span className="text-[#F6FF00]">Members</span></motion.h1>
+            <motion.h1 initial={{ y: "100%" }} whileInView={{ y: 0 }} transition={{ type: 'tween', duration : 0.5 }} className="font-bold text-4xl md:text-5xl font-creato-display text-[#CCFF00] dark:text-white/75 mb-24 text-center">The <span className="text-[#F6FF00] dark:text-white">Members</span></motion.h1>
             <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-10 w-9/12 mx-auto">
                 {/** Dark Overlay When Clicked */}
                 <AnimatePresence>
@@ -274,25 +274,25 @@ function App() {
             </div>
           </div>
           <motion.div className="lg:w-6/12" initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }}>
-            <h1 className="text-[#CCFF00] text-start font-bold text-[30px] md:text-4xl">THE DEBUT : <br className="block md:hidden"></br><span className="text-[#F6FF00]">BLACK MAMBA</span></h1>
-            <p className="text-[#CCFF00] text-start font-neue-montreal text-2xl mt-3 md:mt-8"> Released on November 17, 2020. <span className="text-[#F6FF00]">Black Mamba</span> is the debut and first digital single by South Korean girl group <span className="text-[#F6FF00]">aespa</span>. The music video reached <span className="text-[#F6FF00]">100 million views</span> on January 8, 2021 and <span className="text-[#F6FF00]">200 million views</span> on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
+            <h1 className="text-[#CCFF00] dark:text-white/75 text-start font-bold text-[30px] md:text-4xl">THE DEBUT : <br className="block md:hidden"></br><span className="text-[#F6FF00] dark:text-white">BLACK MAMBA</span></h1>
+            <p className="text-[#CCFF00] dark:text-white/75 text-start font-neue-montreal text-2xl mt-3 md:mt-8"> Released on November 17, 2020. <span className="text-[#F6FF00]">Black Mamba</span> is the debut and first digital single by South Korean girl group <span className="text-[#F6FF00]">aespa</span>. The music video reached <span className="text-[#F6FF00]">100 million views</span> on January 8, 2021 and <span className="text-[#F6FF00]">200 million views</span> on January 15, 2022. It was featured on their second mini album Girls as a digital bonus track on July 8, 2022.</p>
           </motion.div>
         </div>
       </section>
 
       {/** Discography Section */}
       <section className="min-h-screen relative px-3 lg:px-48" id="discography-section">
-        <motion.h1 initial={{ opacity : 0, x : '-100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.7 }} className="font-neue-montreal text-[#F6FF00] text-5xl text-start">Discography</motion.h1>
+        <motion.h1 initial={{ opacity : 0, x : '-100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.7 }} className="font-neue-montreal text-[#F6FF00] dark:text-white/75 text-5xl text-start">Discography</motion.h1>
         <div className="flex flex-col mt-10 md:mt-18 relative">
-          <div className="bg-[#CCFF00] absolute w-[5px] h-full left-2 md:-translate-x-6/12 md:left-6/12 rounded-4xl opacity-50"></div> {/** Timeline Bar */}
+          <div className="bg-[#CCFF00] dark:bg-white/50 absolute w-[5px] h-full left-2 md:-translate-x-6/12 md:left-6/12 rounded-4xl opacity-50"></div> {/** Timeline Bar */}
           {
             Discography.map((item, index) => (
               <div key={index} className="w-full ml-auto relative mt-12 md:mt-10 flex flex-col md:flex-row items-end md:items-center justify-between overflow-hidden">
                 <motion.img className="bg-white w-[250px] h-[150px] md:w-[500px] md:h-[300px] object-cover bg-center" initial={{ opacity : 0, x : '-100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.5 }} src={item.img} />
-                <div className="absolute rounded-full w-[20px] h-[20px] bg-[#f4f015] left-0 top-6/12 -translate-y-6/12 md:left-6/12 md:-translate-x-6/12"></div> {/** Center Dot */}
+                <div className="absolute rounded-full w-[20px] h-[20px] bg-[#f4f015] dark:bg-white left-0 top-6/12 -translate-y-6/12 md:left-6/12 md:-translate-x-6/12"></div> {/** Center Dot */}
                 <motion.div initial={{ opacity : 0, x : width <= 768 ? '-100%' : '100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.5 }} className="w-[250px] md:w-5/12 h-fit mt-3 md:mt-0 items-start flex flex-col md:gap-5">
-                  <h1 className="text-[#CCFF00] md:text-4xl font-neue-montreal">{item.release_date}</h1>
-                  <h1 className="text-[#f4f015] font-semibold tracking-wider md:text-3xl font-neue-montreal">{item.title}</h1>
+                  <h1 className="text-[#CCFF00] dark:text-white/75 md:text-4xl font-neue-montreal">{item.release_date}</h1>
+                  <h1 className="text-[#f4f015] dark:text-white font-semibold tracking-wider md:text-3xl font-neue-montreal">{item.title}</h1>
                 </motion.div>
               </div>
             ))
@@ -303,7 +303,7 @@ function App() {
       {/** Achievement Section */}
       <section className="min-h-[100vh] flex flex-col justify-center" id="achievement-section">
         <div className="px-[54px]">
-          <motion.h1 initial={{ x : '-100%' }} whileInView={{ x : 0 }} transition={{ type : 'tween', duration : 0.5 }} className="text-[#F6FF00] font-semibold text-4xl text-start">Achievements</motion.h1>
+          <motion.h1 initial={{ x : '-100%' }} whileInView={{ x : 0 }} transition={{ type : 'tween', duration : 0.5 }} className="text-[#F6FF00] dark:text-white/75 font-semibold text-4xl text-start">Achievements</motion.h1>
         </div>
         <div className="w-full h-[400px] md:h-[500px] bg-[#EAEAEA] mt-[18px] px-[10px] md:px-[50px] pt-[20px] grid grid-flow-col auto-cols-max overflow-x-auto md:gap-[50px]">
           {
@@ -323,10 +323,10 @@ function App() {
           }
         </div>
       </section>
-      <footer className="min-h-screen h-fit md:min-h-0 md:h-[400px] bg-black px-[10px] md:px-[80px] pb-[20px] pt-[20px] md:pt-[100px] text-[#CCFF00]">
+      <footer className="min-h-screen h-fit md:min-h-0 md:h-[400px] bg-black dark:bg-white px-[10px] md:px-[80px] pb-[20px] pt-[20px] md:pt-[100px] text-[#CCFF00] dark:text-black">
           <div className="flex flex-col md:flex-row justify-between md:items-center h-full">
             <div className="flex flex-col items-center md:justify-between h-full">
-              <img src="/svg/icon-light.svg" className="w-[250px] md:w-[350px]"/>
+              <img src={theme === "light" ? "/svg/icon-light.svg" : "/svg/icon-dark.svg"} className="w-[250px] md:w-[350px]"/>
               <p className="font-neue-montreal text-[10px] mt-[35px] md:mt-0 md:text-[12px]">© 2026 aespa (SM Entertainment). All Rights Reserved</p>
             </div>
             <div className="flex flex-col md:flex-row gap-5 md:gap-24 font-neue-montreal mt-[40px] md:mt-0">
