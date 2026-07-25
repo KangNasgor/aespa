@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Discography } from './data/discography';
 import { Achievement } from "./data/achievements";
 import handleScreenSize from "./functions/handleResize";
+import scrollToSection from "./functions/scrollToSection";
 
 const headingText = "æspa";
 
@@ -336,9 +337,9 @@ function App() {
                 <div className="bg-[#CCFF00] dark:bg-black w-full h-[1px] opacity-50 mb-5"></div>
                 <h1 className="opacity-80 text-[18px]">Navigation</h1>
                 <div className="mt-2 md:mt-10">
-                  <p className="mt-1 md:mt-3">Home</p>
-                  <p className="mt-1 md:mt-3">About</p>
-                  <p className="mt-1 md:mt-3">Members</p>
+                  <p className="mt-1 md:mt-3 cursor-pointer" onClick={() => scrollToSection('hero-section')}>Home</p>
+                  <p className="mt-1 md:mt-3 cursor-pointer" onClick={() => scrollToSection('about-section')}>About</p>
+                  <p className="mt-1 md:mt-3 cursor-pointer" onClick={() => scrollToSection('member-section')}>Members</p>
                 </div>
               </div>
               <div>

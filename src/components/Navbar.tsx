@@ -3,6 +3,7 @@ import { useTheme } from "../context/ThemeContext";
 import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import scrollToSection from "../functions/scrollToSection";
 
 type NavItem = {
     label: string,
@@ -14,10 +15,6 @@ function Navbar({ links } : { links : NavItem[] }) {
     const [ open, setOpen ] = useState<boolean>(false);
     const [ scrolled, setScrolled ] = useState<boolean>(false);
     const [ scrolledTop, setScrolledTop ] = useState<boolean>(true); 
-
-    const scrollToSection = (section : string) => {
-        document.querySelector('#' + section)?.scrollIntoView({ behavior : "smooth" });
-    }
 
     useEffect(() => {
         let lastScroll = window.scrollY
