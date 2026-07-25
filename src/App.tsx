@@ -111,9 +111,11 @@ function App() {
             duration: 1,
           }
         }}>
+          {/** aespa icon on mobile layout */}
           <motion.div initial={{ opacity : 0 }} whileInView={{ opacity : 1 }} transition={{ type : "tween", delay: 1, duration : 0.5 }} viewport={{ once: true }} className="md:hidden absolute top-1/2 -translate-y-1/2 w-[300px]">
-            <img src="/svg/icon-light.svg" />
+            <img src={theme === "light" ? "/svg/icon-light.svg" : "/svg/loading.svg"} />
           </motion.div>
+
           <motion.div initial={{ y : "200%" }} animate={{ y : 0 }} transition={{ type : "tween", delay: 1 }} viewport={{ once: true }} className="max-w-full w-full mt-auto md:flex flex-row items-end">
               <div className="flex-1 justify-start hidden md:flex">
                 <div className="w-[400px] text-start">
@@ -256,9 +258,9 @@ function App() {
 
       {/** Debut Section */}
       <section className="min-h-screen py-20 px-3 md:px-10 relative overflow-hidden" id="debut-section">
-        <div className="w-full flex flex-col md:flex-row my-10 items-start gap-10">
-          <div className="md:w-6/12 w-full flex flex-col md:items-end gap-10">
-            <div className="relative w-full h-[200px] md:h-[350px] group">
+        <div className="w-full flex flex-col lg:flex-row my-10 items-start gap-10">
+          <div className="lg:w-6/12 w-full flex flex-col md:items-end gap-10">
+            <div className="relative w-full h-[200px] md:h-[300px] lg:h-[350px] group">
               <motion.div className="w-full h-full" initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }}>
                 <motion.img
                   transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }}
@@ -281,17 +283,17 @@ function App() {
       </section>
 
       {/** Discography Section */}
-      <section className="min-h-screen relative px-3 lg:px-48" id="discography-section">
+      <section className="min-h-screen relative px-3 xl:px-48" id="discography-section">
         <motion.h1 initial={{ opacity : 0, x : '-100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.7 }} className="font-neue-montreal text-[#F6FF00] dark:text-white/75 text-5xl text-start">Discography</motion.h1>
-        <div className="flex flex-col mt-10 md:mt-18 relative">
-          <div className="bg-[#CCFF00] dark:bg-white/50 absolute w-[5px] h-full left-2 md:-translate-x-6/12 md:left-6/12 rounded-4xl opacity-50"></div> {/** Timeline Bar */}
+        <div className="flex flex-col mt-10 lg:mt-18 relative">
+          <div className="bg-[#CCFF00] dark:bg-white/50 absolute w-[5px] h-full left-2 md:left-[96px] lg:-translate-x-6/12 lg:left-6/12 rounded-4xl opacity-50"></div> {/** Timeline Bar */}
           {
             Discography.map((item, index) => (
-              <div key={index} className="w-full ml-auto relative mt-12 md:mt-10 flex flex-col md:flex-row items-end md:items-center justify-between overflow-hidden">
-                <motion.img className="bg-white w-[250px] h-[150px] md:w-[500px] md:h-[300px] object-cover bg-center" initial={{ opacity : 0, x : '-100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.5 }} src={item.img} />
-                <div className="absolute rounded-full w-[20px] h-[20px] bg-[#f4f015] dark:bg-white left-0 top-6/12 -translate-y-6/12 md:left-6/12 md:-translate-x-6/12"></div> {/** Center Dot */}
+              <div key={index} className="w-full ml-auto relative mt-12 lg:mt-10 flex flex-col lg:flex-row items-end md:items-center lg:items-center justify-between overflow-hidden">
+                <motion.img className="bg-white w-[250px] h-[150px] md:w-[350px] md:h-[250px] lg:w-[450px] lg:h-[250px] xl:w-[500px] xl:h-[300px] object-cover bg-center" initial={{ opacity : 0, x : '-100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.5 }} src={item.img} />
+                <div className="absolute rounded-full w-[20px] h-[20px] bg-[#f4f015] dark:bg-white left-0 md:left-[88px] top-6/12 -translate-y-6/12 lg:left-6/12 lg:-translate-x-6/12"></div> {/** Center Dot */}
                 <motion.div initial={{ opacity : 0, x : width <= 768 ? '-100%' : '100%' }} whileInView={{ opacity : 1, x : 0 }} transition={{ type : 'tween', duration : 0.5 }} className="w-[250px] md:w-5/12 h-fit mt-3 md:mt-0 items-start flex flex-col md:gap-5">
-                  <h1 className="text-[#CCFF00] dark:text-white/75 md:text-4xl font-neue-montreal">{item.release_date}</h1>
+                  <h1 className="text-[#CCFF00] dark:text-white/75 lg:text-4xl font-neue-montreal">{item.release_date}</h1>
                   <h1 className="text-[#f4f015] dark:text-white font-semibold tracking-wider md:text-3xl font-neue-montreal">{item.title}</h1>
                 </motion.div>
               </div>
@@ -303,7 +305,7 @@ function App() {
       {/** Achievement Section */}
       <section className="min-h-[100vh] flex flex-col justify-center" id="achievement-section">
         <div className="px-[54px]">
-          <motion.h1 initial={{ x : '-100%' }} whileInView={{ x : 0 }} transition={{ type : 'tween', duration : 0.5 }} className="text-[#F6FF00] dark:text-white/75 font-semibold text-4xl text-start">Achievements</motion.h1>
+          <motion.h1 initial={{ x : '-100%' }} whileInView={{ x : 0 }} transition={{ type : 'tween', duration : 0.5 }} className="text-[#F6FF00] dark:text-white/75 font-semibold text-4xl text-center md:text-start">Achievements</motion.h1>
         </div>
         <div className="w-full h-[400px] md:h-[500px] bg-[#EAEAEA] mt-[18px] px-[10px] md:px-[50px] pt-[20px] grid grid-flow-col auto-cols-max overflow-x-auto md:gap-[50px]">
           {
@@ -323,15 +325,15 @@ function App() {
           }
         </div>
       </section>
-      <footer className="min-h-screen h-fit md:min-h-0 md:h-[400px] bg-black dark:bg-white px-[10px] md:px-[80px] pb-[20px] pt-[20px] md:pt-[100px] text-[#CCFF00] dark:text-black">
-          <div className="flex flex-col md:flex-row justify-between md:items-center h-full">
+      <footer className="min-h-screen h-fit md:min-h-0 md:h-[400px] bg-black dark:bg-white px-[10px] md:pt-[20px] lg:px-[80px] pb-[20px] pt-[20px] lg:pt-[100px] text-[#CCFF00] dark:text-black">
+          <div className="flex flex-col md:flex-row justify-between lg:items-center h-full">
             <div className="flex flex-col items-center md:justify-between h-full">
-              <img src={theme === "light" ? "/svg/icon-light.svg" : "/svg/icon-dark.svg"} className="w-[250px] md:w-[350px]"/>
+              <img src={theme === "light" ? "/svg/icon-light.svg" : "/svg/icon-dark.svg"} className="w-[250px] md:w-[300px] lg:w-[350px]"/>
               <p className="font-neue-montreal text-[10px] mt-[35px] md:mt-0 md:text-[12px]">© 2026 aespa (SM Entertainment). All Rights Reserved</p>
             </div>
-            <div className="flex flex-col md:flex-row gap-5 md:gap-24 font-neue-montreal mt-[40px] md:mt-0">
+            <div className="flex flex-col md:flex-row gap-5 lg:gap-24 font-neue-montreal mt-[40px] md:mt-0">
               <div>
-                <div className="bg-[#CCFF00] w-full h-[1px] opacity-50 mb-5"></div>
+                <div className="bg-[#CCFF00] dark:bg-black w-full h-[1px] opacity-50 mb-5"></div>
                 <h1 className="opacity-80 text-[18px]">Navigation</h1>
                 <div className="mt-2 md:mt-10">
                   <p className="mt-1 md:mt-3">Home</p>
@@ -340,7 +342,7 @@ function App() {
                 </div>
               </div>
               <div>
-                <div className="bg-[#CCFF00] w-full h-[1px] opacity-50 mb-5"></div>
+                <div className="bg-[#CCFF00] dark:bg-black w-full h-[1px] opacity-50 mb-5"></div>
                 <h1 className="opacity-80 text-[18px]">Social Media</h1>
                 <div className="mt-2 md:mt-10">
                   <p className="mt-1 md:mt-3">Instagram</p>
@@ -350,7 +352,7 @@ function App() {
                 </div>
               </div>
               <div>
-                <div className="bg-[#CCFF00] w-full h-[1px] opacity-50 mb-5"></div>
+                <div className="bg-[#CCFF00] dark:bg-black w-full h-[1px] opacity-50 mb-5"></div>
                 <h1 className="opacity-80 text-[18px]">Stream On</h1>
                 <div className="mt-2 md:mt-10">
                   <p className="mt-1 md:mt-3">Spotify</p>

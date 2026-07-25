@@ -46,14 +46,14 @@ function Navbar({ links } : { links : NavItem[] }) {
                 backdropFilter: scrolled ? "blur(16px)" : "blur(0px)",
                 padding: scrolled ? "12px" : "0px",
                 borderRadius: scrolled ? "16px" : "0px",
-                }} className={`hidden lg:block text-md text-[#CCFF00] dark:text-white bg-none`}>
+                }} className={`hidden md:block text-md text-[#CCFF00] dark:text-white bg-none`}>
                 <div className="w-full grid grid-cols-3 items-center mx-auto">
                     <div className="w-[78px]">
                         <img src={theme === "light" ? "svg/icon-light.svg" : "svg/loading.svg"} />
                     </div>
                     <div className="flex flex-row gap-10 justify-center">
                     {links.map((link, id) => (
-                        <a key={id} onClick={() => scrollToSection(link.id)} className="cursor-pointer font-neue-montreal tracking-wide">{link.label}</a>
+                        <a key={id} onClick={() => scrollToSection(link.id)} className="cursor-pointer text-[14px] lg:text-[16px] font-neue-montreal tracking-wide">{link.label}</a>
                     ))}
                     </div>
                     <motion.div layout animate={{ backgroundColor: theme === "dark" ? "color-mix(in oklab, #ffffff 40%, transparent)" : "color-mix(in oklab, #00D812 40%, transparent)" }} className={`cursor-pointer col-3 justify-self-end w-[50px] h-[24px] items-center px-1 rounded-full flex ${theme === "dark" ? "justify-end" : "justify-start"} cursor-pointer`} onClick={changeTheme}>
@@ -63,19 +63,19 @@ function Navbar({ links } : { links : NavItem[] }) {
             </motion.div>
 
             {/** Mobile Navbar */}
-            <div className="flex flex-col gap-1 lg:hidden pl-3 relative z-40" onClick={() => setOpen(prev => !prev)}>
-                <motion.div animate={{ rotate: open ? 45 : 0, y: open ? 8 : 0 }} className="bg-white w-6 h-1 rounded-full"></motion.div>
-                <motion.div animate={{ opacity: open ? 0 : 1 }} className="bg-white w-6 h-1 rounded-full"></motion.div>
-                <motion.div animate={{ rotate: open ? -45 : 0, y: open ? -8 : 0 }} className="bg-white w-6 h-1 rounded-full"></motion.div>
+            <div className="flex flex-col gap-1 md:hidden relative z-40" onClick={() => setOpen(prev => !prev)}>
+                <motion.div animate={{ rotate: open ? 45 : 0, y: open ? 8 : 0 }} transition={{ type : "tween" }} className="bg-white w-6 h-1 rounded-full"></motion.div>
+                <motion.div animate={{ opacity: open ? 0 : 1 }} transition={{ type : "tween" }} className="bg-white w-6 h-1 rounded-full"></motion.div>
+                <motion.div animate={{ rotate: open ? -45 : 0, y: open ? -8 : 0 }} transition={{ type : "tween" }} className="bg-white w-6 h-1 rounded-full"></motion.div>
             </div>
             <motion.div
                 initial={{ x: "-100%" }}
                 animate={{ x: open ? 0 : "-100%" }}
                 transition={{ type: "tween", ease: "easeInOut", duration: 0.3 }}
-                className="fixed flex flex-col gap-5 lg:hidden top-0 left-0 w-7/12 md:w-5/12 px-3 pt-14 text-start bg-black h-screen font-bold text-xl text-[#f4f015]">
-                <h1 className="cursor-pointer">ABOUT</h1>
-                <h1 className="cursor-pointer">MEMBERS</h1>
-                <h1 className="cursor-pointer">STREAM</h1>
+                className="fixed flex flex-col gap-5 lg:hidden top-0 left-0 w-7/12 md:w-5/12 px-3 pt-14 text-start bg-[#5E5E5E]/30 backdrop-blur-xl h-screen font-semibold font-creato-display text-xl text-[#f4f015] dark:text-white">
+                    {links.map((link, id) => (
+                        <a key={id} onClick={() => scrollToSection(link.id)} className="cursor-pointer">{link.label}</a>
+                    ))}
                 <div className="absolute bottom-3 flex left-1/2 -translate-x-1/2 justify-around flex-row gap-2">
                     <a href="https://www.instagram.com/aespa_official/" target="_blank">
                         <FontAwesomeIcon icon={faInstagram} className="cursor-pointer" />
