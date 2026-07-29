@@ -6,6 +6,9 @@ import { Discography } from './data/discography';
 import { Achievement } from "./data/achievements";
 import handleScreenSize from "./functions/handleResize";
 import scrollToSection from "./functions/scrollToSection";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArchLinux } from "@fortawesome/free-brands-svg-icons";
+import { faArrowAltCircleDown, faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';  
 
 const headingText = "æspa";
 
@@ -259,8 +262,28 @@ function App() {
                 </motion.div>
               ))}
             </div>
-          <div className="w-full flex justify-center">
-            <a href="/member" className="text-[#CCFF00] font-neue-montreal text-2xl cursor-pointer">See More</a>
+          <div className="w-full flex items-center flex-col">
+            <motion.a 
+              initial='rest'
+              whileHover='hover'
+              variants={{
+                rest: { width : '360px' },
+                hover: { width : '380px' }
+              }}
+              transition={{ duration: 0.2 }}
+              href="/member"
+              className="overflow-hidden whitespace-nowrap flex flex-row text-[#CCFF00] px-5 py-2 active:scale-80 rounded-full font-neue-montreal text-2xl cursor-pointer hover:bg-[#CCFF00]/50 hover:text-white transform transition-all">
+              Get to know more about them
+              <motion.span
+                variants={{
+                  rest : { x: '-20px', opacity : 0, pointerEvents : 'none' },
+                  hover : { x: 0, opacity : 1, pointerEvents : 'auto' }
+                }}
+                transition={{ duration: 0.2 }}
+                className="ml-3">
+                <FontAwesomeIcon icon={faArrowAltCircleRight} />
+              </motion.span>
+            </motion.a>
           </div>
       </section>
 
