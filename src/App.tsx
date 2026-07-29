@@ -17,6 +17,7 @@ interface Members {
   color : string,
   gallery : Array<string>,
   instagram : string,
+  page : string,
 }
 
 const members : Members[] = [
@@ -28,6 +29,7 @@ const members : Members[] = [
     color : '#0d02fe',
     gallery : ['members/Karina-richman-1.webp', 'members/Karina-dirtywork-1.webp', 'members/Karina-richman-3.webp', 'members/Karina-richman-2.webp'],
     instagram : "https://www.instagram.com/katarinabluu/",
+    page : 'member/karina',
   },
   {
     id: 2,
@@ -36,7 +38,8 @@ const members : Members[] = [
     description : 'Giselle (지젤 jijel) was born on October 30, 2000 in Seoul, South Korea. She is a rapper and vocalist of the group aespa and ZOO unit.',
     color : '#fc261a',
     gallery : ['members/Giselle-richman-1.webp', 'members/Giselle-richman-2.webp', 'members/Giselle-dirtywork-1.webp', 'members/Giselle-dirtywork-2.webp'],
-    instagram : "http://instagram.com/aerichandesu/"
+    instagram : "http://instagram.com/aerichandesu/",
+    page : 'member/giselle'
   },
   {
     id: 3,
@@ -45,7 +48,8 @@ const members : Members[] = [
     description : 'Winter (윈터 winteo) was born on January 1, 2001 in Busan, South Korea. She is a vocalist, dancer, and visual of the girl group aespa and also a vocalist and the maknae of the unit GOT the beat.',
     color : '#01fe00',
     gallery : ['members/Winter-richman-1.webp', 'members/Winter-dirtywork-1.webp', 'members/Winter-richman-3.webp', 'members/Winter-richman-2.webp'],
-    instagram : "https://www.instagram.com/imwinter/"
+    instagram : "https://www.instagram.com/imwinter/",
+    page : 'member/winter'
   },
   {
     id: 4,
@@ -54,7 +58,8 @@ const members : Members[] = [
     description : 'Ningning (닝닝 ningning) was born on October 23, 2002 in Heilongjiang, China. She is a vocalist and the maknae of the group aespa.',
     color : '#fcff00',
     gallery : ['members/Ningning-richman-1.webp', 'members/Ningning-dirtywork-1.webp', 'members/Ningning-dirtywork-2.webp', 'members/Ningning-dirtywork-3.webp'],
-    instagram : "https://www.instagram.com/imnotningning/"
+    instagram : "https://www.instagram.com/imnotningning/",
+    page : 'member/ningning'
   }
 ]
 
@@ -192,9 +197,9 @@ function App() {
       </section>
 
       {/** Members Section */}
-      <section className="min-h-screen py-20" id="member-section">
+      <section className="min-h-screen relative py-20" id="member-section">
             <motion.h1 initial={{ y: "100%" }} whileInView={{ y: 0 }} transition={{ type: 'tween', duration : 0.5 }} className="font-bold text-4xl md:text-5xl font-creato-display text-[#CCFF00] dark:text-white/75 mb-24 text-center">The <span className="text-[#F6FF00] dark:text-white">Members</span></motion.h1>
-            <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-10 w-9/12 mx-auto">
+            <div className="flex flex-col lg:h-[500px] md:grid md:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-10 w-9/12 mx-auto">
                 {/** Dark Overlay When Clicked */}
                 <AnimatePresence>
                     {currentMemberIndex && (
@@ -211,7 +216,7 @@ function App() {
               
               {members.map((member, index) => (
                 <motion.div key={member.name} className="w-full relative" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ type: "spring", delay : 0.4 + index/10 * 2 }}>
-                  <motion.div layoutId={member.name} className={`group cursor-pointer relative h-full w-full ${member.id % 2 === 0 ? 'md:translate-y-10' : 'md:translate-y-0'}`} onClick={() => setCurrentMemberIndex(member.id)}>
+                  <motion.div layoutId={member.name} className={`group relative h-fit w-full cursor-pointer ${member.id % 2 === 0 ? 'md:translate-y-10' : 'md:translate-y-0'}`} onClick={() => setCurrentMemberIndex(member.id)}>
                     <motion.span layout className={`absolute -top-15 -left-5  text-8xl font-black dark:text-white opacity-10 select-none ${currentMemberIndex === member.id ? 'hidden' : 'block'}`}>
                       0{index + 1}
                     </motion.span>
@@ -240,7 +245,6 @@ function App() {
                               <motion.h1 layout className="font-semibold text-2xl">{member.name}</motion.h1>
                               <AnimatePresence>
                                 <motion.h3
-                                  className={`${currentMemberIndex === member.id ? 'block' : 'hidden'} font-neue-montreal`}
                                   layout
                                   initial={{ opacity: 0 }}
                                   animate={{ opacity: 0.8 }}
@@ -255,6 +259,9 @@ function App() {
                 </motion.div>
               ))}
             </div>
+          <div className="w-full flex justify-center">
+            <a href="/member" className="text-[#CCFF00] font-neue-montreal text-2xl cursor-pointer">See More</a>
+          </div>
       </section>
 
       {/** Debut Section */}
