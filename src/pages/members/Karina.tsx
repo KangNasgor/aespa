@@ -57,6 +57,32 @@ export default function Karina(){
                         />
                 </motion.div>
             </section>
+            <section className="min-h-[220vh] h-fit pt-[100px] pb-[50px]">
+                <h1 className="text-black font-bold text-center font-neue-montreal text-[60px]">Media</h1>
+                <div className="w-8/12 grid grid-cols-6 gap-5 justify-center h-[700px] mx-auto">
+                    <div className="bg-gray-900 w-full h-full row-span-3 col-span-2 overflow-hidden">
+                        <img src="/members/Karina-lemonade-4.jpg" className="w-full h-full object-cover"/>
+                    </div>
+                    <div className="bg-gray-800 w-full h-full col-span-4">
+                        <img src="/members/Karina-lemonade-9.jpg" className="w-full h-full object-cover"/>
+                    </div>
+                    <div className="bg-gray-700 w-full h-full col-span-1 row-span-3">
+                        <img src="/members/Karina-lemonade-2.jpg" className="w-full h-full object-cover"/>
+                    </div>
+                    <div className="bg-gray-600 w-full h-full col-span-3">
+                        <img src="/members/Karina-lemonade-6.jpg" className="w-full h-full object-cover"/>
+                    </div>
+                    <div className="bg-gray-500 w-full h-full col-span-3 row-span-4">
+                        <img src="/members/Karina-lemonade-1.jpg" className="w-full h-full object-cover"/>
+                    </div>
+                    <div className="bg-gray-400 w-full h-full col-span-2">
+                        <img src="/members/Karina-lemonade-5.jpg" className="w-full h-full object-cover"/>
+                    </div>
+                    <div className="bg-gray-400 w-full h-full col-span-3">
+                        <img src="/members/Karina-lemonade-10.jpg" className="w-full h-full object-cover"/>
+                    </div>
+                </div>
+            </section>
             </div>
         </main>
     );
