@@ -239,7 +239,7 @@ function App() {
                         }}
                         transition={{ duration: 0.1 }}
                         href={member.page}
-                        className="overflow-hidden whitespace-nowrap flex flex-row items-center text-[#CCFF00] px-5 py-2 active:scale-80 rounded-full font-neue-montreal text-xl cursor-pointer hover:bg-[#CCFF00]/50 hover:text-white transform transition-all">
+                        className="overflow-hidden whitespace-nowrap flex flex-row items-center text-[#CCFF00] dark:text-white px-5 py-2 active:scale-80 rounded-full font-neue-montreal text-xl cursor-pointer hover:bg-[#CCFF00]/50 dark:hover:bg-white hover:text-white dark:hover:text-black transform transition-all">
                         More
                         <motion.span
                           variants={{
