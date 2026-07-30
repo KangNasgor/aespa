@@ -7,8 +7,7 @@ import { Achievement } from "./data/achievements";
 import handleScreenSize from "./functions/handleResize";
 import scrollToSection from "./functions/scrollToSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArchLinux } from "@fortawesome/free-brands-svg-icons";
-import { faArrowAltCircleDown, faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';  
+import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';  
 
 const headingText = "æspa";
 
@@ -219,17 +218,40 @@ function App() {
               
               {members.map((member, index) => (
                 <motion.div key={member.name} className="w-full relative" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ type: "spring", delay : 0.4 + index/10 * 2 }}>
-                  <motion.div layoutId={member.name} className={`group relative h-fit w-full cursor-pointer ${member.id % 2 === 0 ? 'md:translate-y-10' : 'md:translate-y-0'}`} onClick={() => setCurrentMemberIndex(member.id)}>
+                  <motion.div layoutId={member.name} className={`group relative h-fit w-full ${member.id % 2 === 0 ? 'md:translate-y-10' : 'md:translate-y-0'}`}>
                     <motion.span layout className={`absolute -top-15 -left-5  text-8xl font-black dark:text-white opacity-10 select-none ${currentMemberIndex === member.id ? 'hidden' : 'block'}`}>
                       0{index + 1}
                     </motion.span>
-                    <div className={`relative flex justify-center rounded-lg overflow-hidden after:absolute after:bg-linear-to-t after:from-black after:to-transparent after:w-full after:h-6/12 ${currentMemberIndex === member.id ? 'after:opacity-80 after:z-30' : 'after:opacity-0 group-hover:after:opacity-75'} after:bottom-0 after:left-0 after:transition after:overflow-hidden`} >
+                    <div onClick={() => setCurrentMemberIndex(member.id)} className={`relative flex justify-center rounded-lg overflow-hidden cursor-pointer after:absolute after:bg-linear-to-t after:from-black after:to-transparent after:w-full after:h-6/12 ${currentMemberIndex === member.id ? 'after:opacity-80 after:z-30' : 'after:opacity-0 group-hover:after:opacity-75'} after:bottom-0 after:left-0 after:transition after:overflow-hidden`} >
                       <motion.img layoutId={member.image} src={member.image} className={`rounded-lg`} alt={member.name} />
                       <div className={`absolute bottom-5 left-5 z-40 text-white ${currentMemberIndex === member.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
                         <motion.h1 layout className="font-semibold text-2xl">{member.name}</motion.h1>
                       </div>
                     </div>
                   </motion.div>
+                    <div className={`w-full flex justify-center mt-[10px] ${member.id % 2 === 0 ? 'md:translate-y-10' : 'md:translate-y-0'}`}>
+                      <motion.a
+                        initial='rest'
+                        whileHover='hover'
+                        variants={{
+                          rest: { width: '80px' },
+                          hover: { width: '110px' }
+                        }}
+                        transition={{ duration: 0.1 }}
+                        href={member.page}
+                        className="overflow-hidden whitespace-nowrap flex flex-row items-center text-[#CCFF00] px-5 py-2 active:scale-80 rounded-full font-neue-montreal text-xl cursor-pointer hover:bg-[#CCFF00]/50 hover:text-white transform transition-all">
+                        More
+                        <motion.span
+                          variants={{
+                            rest: { x: '-10px', opacity: 0, pointerEvents: 'none' },
+                            hover: { x: 0, opacity: 1, pointerEvents: 'auto' }
+                          }}
+                          transition={{ duration: 0.5 }}
+                          className="ml-3">
+                          <FontAwesomeIcon icon={faArrowAltCircleRight} />
+                        </motion.span>
+                      </motion.a>
+                    </div>
 
                   {/** When Clicked */}
                   <AnimatePresence>
@@ -262,29 +284,6 @@ function App() {
                 </motion.div>
               ))}
             </div>
-          <div className="w-full flex items-center flex-col">
-            <motion.a 
-              initial='rest'
-              whileHover='hover'
-              variants={{
-                rest: { width : '360px' },
-                hover: { width : '380px' }
-              }}
-              transition={{ duration: 0.2 }}
-              href="/member"
-              className="overflow-hidden whitespace-nowrap flex flex-row text-[#CCFF00] px-5 py-2 active:scale-80 rounded-full font-neue-montreal text-2xl cursor-pointer hover:bg-[#CCFF00]/50 hover:text-white transform transition-all">
-              Get to know more about them
-              <motion.span
-                variants={{
-                  rest : { x: '-20px', opacity : 0, pointerEvents : 'none' },
-                  hover : { x: 0, opacity : 1, pointerEvents : 'auto' }
-                }}
-                transition={{ duration: 0.2 }}
-                className="ml-3">
-                <FontAwesomeIcon icon={faArrowAltCircleRight} />
-              </motion.span>
-            </motion.a>
-          </div>
       </section>
 
       {/** Debut Section */}
