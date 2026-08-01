@@ -46,7 +46,7 @@ function Navbar({ links } : { links : NavItem[] }) {
                 }} className={`hidden md:block text-md text-[#CCFF00] dark:text-white bg-none`}>
                 <div className="w-full grid grid-cols-3 items-center mx-auto">
                     <a href="/" className="w-[78px]">
-                        <img src={theme === "light" ? "svg/icon-light.svg" : "svg/loading.svg"} />
+                        <img src={theme === "light" ? "/svg/icon-light.svg" : "/svg/loading.svg"} />
                     </a>
                     <div className="flex flex-row gap-10 justify-center">
                     {links.map((link, id) => (

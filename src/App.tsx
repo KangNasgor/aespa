@@ -7,7 +7,9 @@ import { Achievement } from "./data/achievements";
 import handleScreenSize from "./functions/handleResize";
 import scrollToSection from "./functions/scrollToSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';  
+import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
+import { faAngleRight, faMusic } from '@fortawesome/free-solid-svg-icons';
+
 
 const headingText = "æspa";
 
