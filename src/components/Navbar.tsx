@@ -8,6 +8,7 @@ import scrollToSection from "../functions/scrollToSection";
 type NavItem = {
     label: string,
     id: string,
+    link? : string,
 }
 
 function Navbar({ links } : { links : NavItem[] }) {
@@ -38,19 +39,19 @@ function Navbar({ links } : { links : NavItem[] }) {
         <motion.nav data-theme={theme} className={`fixed transform ${scrolledTop ? 'translate-y-0' : '-translate-y-[100%]'} z-30 top-0 w-full p-[10px]`} initial={{ y: "-200%" }} animate={{ y: 0 }} transition={{ type: "tween", delay: 1 }} viewport={{ once: true }}>
             {/** Desktop Navbar */}
             <motion.div layout animate={{ 
-                color: theme === "dark" ? "white" : "#CCFF00",
+                color: theme === "dark" ? "white" : scrolled ? "black" : "#CCFF00",
                 backgroundColor: scrolled ? theme === 'dark' ? "rgba(255, 255, 255, 0.3)" : 'rgb(204, 255, 0, 0.3)' : "rgba(255, 255, 255, 0)",
                 backdropFilter: scrolled ? "blur(16px)" : "blur(0px)",
                 padding: scrolled ? "12px" : "0px",
                 borderRadius: scrolled ? "16px" : "0px",
-                }} className={`hidden md:block text-md text-[#CCFF00] dark:text-white bg-none`}>
+                }} className={`hidden md:block text-md bg-none`}>
                 <div className="w-full grid grid-cols-3 items-center mx-auto">
                     <a href="/" className="w-[78px]">
                         <img src={theme === "light" ? "/svg/icon-light.svg" : "/svg/loading.svg"} />
                     </a>
                     <div className="flex flex-row gap-10 justify-center">
                     {links.map((link, id) => (
-                        <a key={id} onClick={() => scrollToSection(link.id)} className="cursor-pointer text-[14px] lg:text-[16px] font-neue-montreal tracking-wide">{link.label}</a>
+                        <a key={id} href={link.link ?? undefined} onClick={() => scrollToSection(link.id)} className="cursor-pointer text-[14px] lg:text-[16px] font-neue-montreal tracking-wide">{link.label}</a>
                     ))}
                     </div>
                     <motion.div layout animate={{ backgroundColor: theme === "dark" ? "color-mix(in oklab, #ffffff 40%, transparent)" : "color-mix(in oklab, #00D812 40%, transparent)" }} className={`cursor-pointer col-3 justify-self-end w-[50px] h-[24px] items-center px-1 rounded-full flex ${theme === "dark" ? "justify-end" : "justify-start"} cursor-pointer`} onClick={changeTheme}>

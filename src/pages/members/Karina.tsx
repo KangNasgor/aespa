@@ -5,8 +5,6 @@ import { faSpotify, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
 import { useTheme } from "../../context/ThemeContext";
 import scrollToSection from "../../functions/scrollToSection";
-import Navbar from "../../components/Navbar";
-
 
 const title = 'KARINA (유 지민)'
 const description = 'Yu Ji-min (Korean: 유지민; born April 11, 2000), known professionally as Karina (카리나), is a South Korean singer, rapper and dancer. She is a member and leader of the South Korean girl group Aespa, formed by SM Entertainment in November 2020. She is also a member of the supergroup Got the Beat, which debuted in January 2022.'
@@ -31,7 +29,7 @@ export default function Karina(){
     return (
         <main>
             {/** Hero Section */}
-            <section className="min-h-screen relative flex justify-center items-center bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/members/Karina-lemonade-1.jpg')] bg-cover bg-center bg-fixed">
+            <section id="hero-section" className="min-h-screen relative flex justify-center items-center bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/members/Karina-lemonade-1.jpg')] bg-cover bg-center bg-fixed">
                 <div className="flex flex-col items-center text-center relative text-[#CCFF00] font-neue-montreal text-[100px] font-bold">
                     <h1>{title}</h1>
                 </div>
@@ -39,13 +37,13 @@ export default function Karina(){
             </section>
 
             {/** Biography Section */}
-            <div className="bg-[#B9E01B]">
+            <div id="biography-section" className="bg-[#B9E01B]">
             <section className="min-h-screen flex justify-center items-center">
                 <Paragraph text={biography} className={biographyClassName}/>
             </section>
 
             {/** Profile Section */}
-            <section className="min-h-screen flex flex-row justify-between items-center gap-10 px-[200px]">
+            <section id="profile-section" className="min-h-screen flex flex-row justify-between items-center gap-10 px-[200px]">
                 <div className="flex flex-col gap-20 justify-end">
                     <motion.h1 initial={{ x : '-30%', opacity : 0 }} whileInView={{ x : 0, opacity : 1 }} transition={{ duration : 0.3, type : 'tween' }} className="font-semibold font-neue-montreal text-5xl">Profile</motion.h1>
                     <ul>
@@ -68,7 +66,7 @@ export default function Karina(){
             </section>
 
             {/** Media Section */}
-            <section className="min-h-[220vh] h-fit pt-[100px] pb-[50px]">
+            <section id="media-section" className="min-h-[220vh] h-fit pt-[100px] pb-[50px]">
                 <h1 className="text-black font-bold text-center font-neue-montreal text-[60px]">Media</h1>
                 <div className="w-8/12 grid grid-cols-6 gap-5 justify-center h-[700px] mx-auto">
                     <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} className="w-full h-full row-span-3 col-span-2 overflow-hidden">
@@ -96,7 +94,7 @@ export default function Karina(){
             </section>
 
             {/** Solo Projects Section */}
-            <section className="min-h-screen h-screen flex flex-col justify-center items-center">
+            <section id="solo-section" className="min-h-screen h-screen flex flex-col justify-center items-center">
                     <div className="flex flex-col w-6/12 gap-5">
                         <h1 className="font-neue-montreal font-bold text-[40px] text-start mb-5">Solo Projects</h1>
                         <div className="bg-[#CCFF00] flex flex-row items-center justify-start gap-10 px-[14px] py-[14px] rounded-xl">
@@ -157,7 +155,7 @@ export default function Karina(){
             </section>
 
             {/** Personal Section */}
-            <section className="min-h-screen h-screen flex items-center">
+            <section id="personal-section" className="min-h-screen h-screen flex items-center">
                 <div className="bg-black w-11/12 h-[700px] mx-auto relative flex flex-col items-center justify-center">
                     <h1 className="z-20 relative text-white font-neue-montreal text-3xl font-semibold opacity-90">"I'm already a rich man because I trust and love myself."</h1>
                     <a className="z-20 relative text-white font-neue-montreal text-3xl font-semibold opacity-90 cursor-pointer" href="https://www.instagram.com/katarinabluu/" target="_blank">- @katarinabluu</a>
@@ -165,45 +163,6 @@ export default function Karina(){
                 </div>
             </section>
             </div>
-                  <footer className="min-h-screen h-fit md:min-h-0 md:h-[400px] bg-black dark:bg-white px-[10px] md:pt-[20px] lg:px-[80px] pb-[20px] pt-[20px] lg:pt-[100px] text-[#CCFF00] dark:text-black">
-          <div className="flex flex-col md:flex-row justify-between lg:items-center h-full">
-            <div className="flex flex-col items-center md:justify-between h-full">
-              <img src={theme === "light" ? "/svg/icon-light.svg" : "/svg/icon-dark.svg"} className="w-[250px] md:w-[300px] lg:w-[350px]"/>
-              <p className="font-neue-montreal text-[10px] mt-[35px] md:mt-0 md:text-[12px]">© 2026 aespa (SM Entertainment). All Rights Reserved</p>
-            </div>
-            <div className="flex flex-col md:flex-row gap-5 lg:gap-24 font-neue-montreal mt-[40px] md:mt-0">
-              <div>
-                <div className="bg-[#CCFF00] dark:bg-black w-full h-[1px] opacity-50 mb-5"></div>
-                <h1 className="opacity-80 text-[18px]">Navigation</h1>
-                <div className="mt-2 md:mt-10">
-                  <p className="mt-1 md:mt-3 cursor-pointer" onClick={() => scrollToSection('hero-section')}>Home</p>
-                  <p className="mt-1 md:mt-3 cursor-pointer" onClick={() => scrollToSection('about-section')}>About</p>
-                  <p className="mt-1 md:mt-3 cursor-pointer" onClick={() => scrollToSection('member-section')}>Members</p>
-                </div>
-              </div>
-              <div>
-                <div className="bg-[#CCFF00] dark:bg-black w-full h-[1px] opacity-50 mb-5"></div>
-                <h1 className="opacity-80 text-[18px]">Social Media</h1>
-                <div className="mt-2 md:mt-10">
-                  <p className="mt-1 md:mt-3">Instagram</p>
-                  <p className="mt-1 md:mt-3">X</p>
-                  <p className="mt-1 md:mt-3">Facebook</p>
-                  <p className="mt-1 md:mt-3">Youtube</p>
-                </div>
-              </div>
-              <div>
-                <div className="bg-[#CCFF00] dark:bg-black w-full h-[1px] opacity-50 mb-5"></div>
-                <h1 className="opacity-80 text-[18px]">Stream On</h1>
-                <div className="mt-2 md:mt-10">
-                  <p className="mt-1 md:mt-3">Spotify</p>
-                  <p className="mt-1 md:mt-3">Youtube Music</p>
-                  <p className="mt-1 md:mt-3">Melon</p>
-                  <p className="mt-1 md:mt-3">Apple Music</p>
-                </div>
-              </div>
-            </div>
-          </div>
-      </footer>
         </main>
     );
 }
