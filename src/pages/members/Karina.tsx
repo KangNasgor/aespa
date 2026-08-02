@@ -3,8 +3,6 @@ import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
-import { useTheme } from "../../context/ThemeContext";
-import scrollToSection from "../../functions/scrollToSection";
 
 const title = 'KARINA (유 지민)'
 const description = 'Yu Ji-min (Korean: 유지민; born April 11, 2000), known professionally as Karina (카리나), is a South Korean singer, rapper and dancer. She is a member and leader of the South Korean girl group Aespa, formed by SM Entertainment in November 2020. She is also a member of the supergroup Got the Beat, which debuted in January 2022.'
@@ -24,27 +22,26 @@ const profile = [
 ]
 
 export default function Karina(){
-    const { theme } = useTheme();
 
     return (
         <main>
             {/** Hero Section */}
             <section id="hero-section" className="min-h-screen relative flex justify-center items-center bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/members/Karina-lemonade-1.jpg')] bg-cover bg-center bg-fixed">
-                <div className="flex flex-col items-center text-center relative text-[#CCFF00] font-neue-montreal text-[100px] font-bold">
+                <div className="flex flex-col items-center text-center relative text-[#CCFF00] font-neue-montreal text-[70px] lg:text-[100px] font-bold">
                     <h1>{title}</h1>
                 </div>
-                <p className="text-[#CCFF00] text-center font-neue-montreal text-[18px] absolute bottom-10 font-[800] w-8/12">{description}</p>
+                <p className="text-[#CCFF00] text-center font-neue-montreal text-[10px] lg:text-[18px] absolute bottom-10 lg:font-[800] lg:w-8/12">{description}</p>
             </section>
 
             {/** Biography Section */}
-            <div id="biography-section" className="bg-[#B9E01B]">
-            <section className="min-h-screen flex justify-center items-center">
+            <div className="bg-[#B9E01B]/95">
+            <section id="biography-section" className="min-h-screen pt-[50px] px-[20px] lg:p-0 lg:flex items-center">
                 <Paragraph text={biography} className={biographyClassName}/>
             </section>
 
             {/** Profile Section */}
-            <section id="profile-section" className="min-h-screen flex flex-row justify-between items-center gap-10 px-[200px]">
-                <div className="flex flex-col gap-20 justify-end">
+            <section id="profile-section" className="min-h-screen flex flex-col-reverse lg:flex-row justify-between items-center gap-10 pt-[100px] px-[10px] lg:pt-0 lg:px-[200px]">
+                <div className="flex flex-col gap-10 lg:gap-20 justify-end">
                     <motion.h1 initial={{ x : '-30%', opacity : 0 }} whileInView={{ x : 0, opacity : 1 }} transition={{ duration : 0.3, type : 'tween' }} className="font-semibold font-neue-montreal text-5xl">Profile</motion.h1>
                     <ul>
                         {
@@ -59,16 +56,16 @@ export default function Karina(){
                             transition={{ scale: { duration: 0.5, delay: 0.3 }, filter: { duration: 0.5, delay: 0.1 } }}
                             initial={{ scale: 1.2, filter: "blur(10px)" }}
                             whileInView={{ scale: 1, filter: "blur(0px)" }}
-                            src="/members/Karina-lemonade-2.jpg"
-                            className="h-[600px] w-[400px] object-cover" 
+                            src="/members/Karina-lemonade-4.jpg"
+                            className="h-[400px] w-full  lg:h-[600px] lg:w-[400px] object-cover" 
                         />
                 </motion.div>
             </section>
 
             {/** Media Section */}
-            <section id="media-section" className="min-h-[220vh] h-fit pt-[100px] pb-[50px]">
+            <section id="media-section" className="min-h-[180vh] lg:min-h-[220vh] h-fit pt-[100px] pb-[50px]">
                 <h1 className="text-black font-bold text-center font-neue-montreal text-[60px]">Media</h1>
-                <div className="w-8/12 grid grid-cols-6 gap-5 justify-center h-[700px] mx-auto">
+                <div className="    lg:w-8/12 grid grid-cols-6 gap-1 lg:gap-5 justify-center h-[700px] mx-auto">
                     <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} className="w-full h-full row-span-3 col-span-2 overflow-hidden">
                         <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Karina-lemonade-4.jpg" className="w-full h-full object-cover"/>
                     </motion.div>
@@ -95,14 +92,14 @@ export default function Karina(){
 
             {/** Solo Projects Section */}
             <section id="solo-section" className="min-h-screen h-screen flex flex-col justify-center items-center">
-                    <div className="flex flex-col w-6/12 gap-5">
+                    <div className="flex flex-col lg:w-6/12 gap-5 px-2">
                         <h1 className="font-neue-montreal font-bold text-[40px] text-start mb-5">Solo Projects</h1>
-                        <div className="bg-[#CCFF00] flex flex-row items-center justify-start gap-10 px-[14px] py-[14px] rounded-xl">
+                        <div className="bg-[#CCFF00] flex flex-row items-center justify-start gap-3 lg:gap-10 p-[5px] lg:px-[14px] lg:py-[14px] rounded-lg lg:rounded-xl">
                             <div className="rounded-md overflow-hidden">
-                                <img src="/solo/menagerie.jpg" className="w-[150px] h-[150px] object-cover"/>
+                                <img src="/solo/menagerie.jpg" className="w-[100px] h-[100px] lg:w-[150px] lg:h-[150px] object-cover"/>
                             </div>
                             <div className="flex flex-col font-neue-montreal font-semibold">
-                                <h1 className="text-[32px] ">Menagerie (Unreleased)</h1>
+                                <h1 className="text-[16px] lg:text-[32px]">Menagerie (Unreleased)</h1>
                                 <p className="opacity-75">25 February 2023</p>
                                 <div className="flex flex-row gap-1 mt-5">
                                     <a href="https://youtu.be/4xrvKjVZIeA?si=SsZmzxwmg2HHUnKM" target="_blank">
@@ -111,12 +108,12 @@ export default function Karina(){
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-[#CCFF00] flex flex-row items-center justify-start gap-10 px-[14px] py-[14px] rounded-xl">
+                        <div className="bg-[#CCFF00] flex flex-row items-center justify-start gap-3 lg:gap-10 p-[5px] lg:px-[14px] lg:py-[14px] rounded-xl">
                             <div className="rounded-md overflow-hidden">
-                                <img src="/solo/up.jpg" className="w-[150px] h-[150px] object-cover"/>
+                                <img src="/solo/up.jpg" className="w-[100px] h-[100px] lg:w-[150px] lg:h-[150px] object-cover"/>
                             </div>
                             <div className="flex flex-col font-neue-montreal font-semibold">
-                                <h1 className="text-[32px] ">UP (KARINA Solo)</h1>
+                                <h1 className="text-[16px] lg:text-[32px] ">UP (KARINA Solo)</h1>
                                 <p className="opacity-75">9 October 2024</p>
                                 <div className="flex flex-row gap-1 mt-5">
                                     <a href="https://youtu.be/acZ7A5w_kSE?si=IXD5hvv4xm7c5JdO" target="_blank">
@@ -131,12 +128,12 @@ export default function Karina(){
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-[#CCFF00] flex flex-row items-center justify-start gap-10 px-[14px] py-[14px] rounded-xl">
+                        <div className="bg-[#CCFF00] flex flex-row items-center justify-start gap-3 lg:gap-10 p-[5px] lg:px-[14px] lg:py-[14px] rounded-xl">
                             <div className="rounded-md overflow-hidden">
-                                <img src="/solo/good-stuff.jpg" className="w-[150px] h-[150px] object-cover"/>
+                                <img src="/solo/good-stuff.jpg" className="w-[100px] h-[100px] lg:w-[150px] lg:h-[150px] object-cover"/>
                             </div>
                             <div className="flex flex-col font-neue-montreal font-semibold">
-                                <h1 className="text-[32px] ">GOOD STUFF (KARINA Solo)</h1>
+                                <h1 className="text-[16px] lg:text-[32px]">GOOD STUFF (KARINA Solo)</h1>
                                 <p className="opacity-75">17 November 2025</p>
                                 <div className="flex flex-row gap-1 mt-5">
                                     <a href="https://youtu.be/hfO7veqkHns?si=52EZFd6UBh4i6TLC" target="_blank">
@@ -156,10 +153,10 @@ export default function Karina(){
 
             {/** Personal Section */}
             <section id="personal-section" className="min-h-screen h-screen flex items-center">
-                <div className="bg-black w-11/12 h-[700px] mx-auto relative flex flex-col items-center justify-center">
-                    <h1 className="z-20 relative text-white font-neue-montreal text-3xl font-semibold opacity-90">"I'm already a rich man because I trust and love myself."</h1>
+                <div className="bg-black lg:w-11/12 h-full lg:h-[700px] mx-auto relative flex flex-col items-center justify-center">
+                    <h1 className="z-20 relative text-center lg:text-start text-white font-neue-montreal text-3xl font-semibold opacity-90">"I'm already a rich man because I trust and love myself."</h1>
                     <a className="z-20 relative text-white font-neue-montreal text-3xl font-semibold opacity-90 cursor-pointer" href="https://www.instagram.com/katarinabluu/" target="_blank">- @katarinabluu</a>
-                    <img src="/members/Karina-lemonade-2.jpg" className="w-full h-full absolute inset-0 opacity-70 object-top z-0 object-cover"/>
+                    <img src="/members/Karina-lemonade-2.jpg" className="w-full h-full absolute inset-0 opacity-70 object-top object-cover"/>
                 </div>
             </section>
             </div>

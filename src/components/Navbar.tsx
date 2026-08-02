@@ -39,7 +39,7 @@ function Navbar({ links } : { links : NavItem[] }) {
         <motion.nav data-theme={theme} className={`fixed transform ${scrolledTop ? 'translate-y-0' : '-translate-y-[100%]'} z-30 top-0 w-full p-[10px]`} initial={{ y: "-200%" }} animate={{ y: 0 }} transition={{ type: "tween", delay: 1 }} viewport={{ once: true }}>
             {/** Desktop Navbar */}
             <motion.div layout animate={{ 
-                color: theme === "dark" ? "white" : scrolled ? "black" : "#CCFF00",
+                color: theme === "dark" ? "white" : "#CCFF00",
                 backgroundColor: scrolled ? theme === 'dark' ? "rgba(255, 255, 255, 0.3)" : 'rgb(204, 255, 0, 0.3)' : "rgba(255, 255, 255, 0)",
                 backdropFilter: scrolled ? "blur(16px)" : "blur(0px)",
                 padding: scrolled ? "12px" : "0px",
