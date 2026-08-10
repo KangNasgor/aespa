@@ -44,8 +44,8 @@ function Navbar({ links } : { links : NavItem[] }) {
                 backdropFilter: scrolled ? "blur(16px)" : "blur(0px)",
                 padding: scrolled ? "12px" : "0px",
                 borderRadius: scrolled ? "16px" : "0px",
-                }} className={`hidden md:block text-md bg-none`}>
-                <div className="w-full grid grid-cols-3 items-center mx-auto">
+                }} className={`hidden md:block text-md bg-none min-w-0`}>
+                <div className="w-full grid grid-cols-3 items-center mx-auto min-w-0">
                     <a href="/" className="w-[78px]">
                         <img src={theme === "light" ? "/svg/icon-light.svg" : "/svg/loading.svg"} />
                     </a>

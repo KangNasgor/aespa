@@ -24,7 +24,7 @@ const profile = [
 export default function Karina(){
 
     return (
-        <main>
+        <main className="overflow-hidden">
             {/** Hero Section */}
             <section id="hero-section" className="min-h-screen relative flex justify-center items-center bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/members/Karina-lemonade-1.jpg')] bg-cover bg-center bg-fixed">
                 <div className="flex flex-col items-center text-center relative text-[#CCFF00] font-neue-montreal text-[70px] lg:text-[100px] font-bold">
@@ -35,12 +35,12 @@ export default function Karina(){
 
             {/** Biography Section */}
             <div className="bg-[#B9E01B]/95">
-            <section id="biography-section" className="min-h-screen pt-[50px] px-[20px] lg:p-0 lg:flex items-center">
+            <section id="biography-section" className="min-h-screen pt-[50px] px-[20px] lg:p-0 lg:flex lg:justify-center items-center">
                 <Paragraph text={biography} className={biographyClassName}/>
             </section>
 
             {/** Profile Section */}
-            <section id="profile-section" className="min-h-screen flex flex-col-reverse lg:flex-row justify-between items-center gap-10 pt-[100px] px-[10px] lg:pt-0 lg:px-[200px]">
+            <section id="profile-section" className="min-h-screen flex flex-col-reverse md:flex-row justify-between items-center gap-10 pt-[100px] px-[10px] lg:pt-0 lg:px-[200px]">
                 <div className="flex flex-col gap-10 lg:gap-20 justify-end">
                     <motion.h1 initial={{ x : '-30%', opacity : 0 }} whileInView={{ x : 0, opacity : 1 }} transition={{ duration : 0.3, type : 'tween' }} className="font-semibold font-neue-montreal text-5xl">Profile</motion.h1>
                     <ul>
@@ -57,7 +57,7 @@ export default function Karina(){
                             initial={{ scale: 1.2, filter: "blur(10px)" }}
                             whileInView={{ scale: 1, filter: "blur(0px)" }}
                             src="/members/Karina-lemonade-4.jpg"
-                            className="h-[400px] w-full  lg:h-[600px] lg:w-[400px] object-cover" 
+                            className="h-[400px] w-full lg:h-[600px] lg:w-[400px] object-cover" 
                         />
                 </motion.div>
             </section>
@@ -70,7 +70,7 @@ export default function Karina(){
                         <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Karina-lemonade-4.jpg" className="w-full h-full object-cover"/>
                     </motion.div>
                     <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} className="w-full h-full col-span-4">
-                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Karina-lemonade-9.jpg" className="w-full h-full object-cover"/>
+                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Karina-lemonade-7.jpg" className="w-full h-full object-cover"/>
                     </motion.div>
                     <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} className="w-full h-full col-span-1 row-span-3">
                         <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Karina-lemonade-2.jpg" className="w-full h-full object-cover"/>
@@ -85,7 +85,7 @@ export default function Karina(){
                         <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Karina-lemonade-5.jpg" className="w-full h-full object-cover"/>
                     </motion.div>
                     <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} className="w-full h-full col-span-3">
-                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Karina-lemonade-10.jpg" className="w-full h-full object-cover"/>
+                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Karina-lemonade-3.jpg" className="w-full h-full object-cover"/>
                     </motion.div>
                 </div>
             </section>

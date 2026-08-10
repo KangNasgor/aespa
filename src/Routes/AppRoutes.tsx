@@ -15,10 +15,10 @@ function AppRoutes(){
             </Route>
 
             <Route path="/member" element={<MemberLayout />}>
-                <Route path=":karina" element={<Karina />} />
-                <Route path=":winter" element={<Winter />} />
-                <Route path=":giselle" element={<Giselle />} />
-                <Route path=":ningning" element={<Ningning />} />
+                <Route path="karina" element={<Karina />} />
+                <Route path="winter" element={<Winter />} />
+                <Route path="giselle" element={<Giselle />} />
+                <Route path="ningning" element={<Ningning />} />
             </Route>
         </Routes>
     );
