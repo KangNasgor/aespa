@@ -65,27 +65,27 @@ export default function Giselle(){
             {/** Media Section */}
             <section id="media-section" className="min-h-[180vh] lg:min-h-[220vh] h-fit pt-[100px] pb-[50px]">
                 <h1 className="text-black font-bold text-center font-neue-montreal text-[60px]">Media</h1>
-                <div className="    lg:w-8/12 grid grid-cols-6 gap-1 lg:gap-5 justify-center h-[700px] mx-auto">
-                    <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} className="w-full h-full row-span-3 col-span-2 overflow-hidden">
-                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Giselle-lemonade-7.jpg" className="w-full h-full object-cover"/>
+                <div className="lg:w-8/12 grid grid-cols-6 gap-1 lg:gap-5 justify-center mx-auto">
+                    <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} viewport={{ once : true }} className="w-full h-full row-span-3 col-span-2 overflow-hidden">
+                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Giselle-lemonade-7.jpg" viewport={{ once : true }} className="w-full h-full object-cover"/>
                     </motion.div>
-                    <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} className="w-full h-full col-span-4">
-                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Giselle-lemonade-6.jpg" className="w-full h-full object-cover"/>
+                    <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} viewport={{ once : true }} className="w-full h-full col-span-4">
+                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Giselle-lemonade-6.jpg" viewport={{ once : true }} className="w-full h-full object-cover"/>
                     </motion.div>
-                    <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} className="w-full h-full col-span-1 row-span-3">
-                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Giselle-lemonade-2.jpg" className="w-full h-full object-cover"/>
+                    <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} viewport={{ once : true }} className="w-full h-full col-span-1 row-span-3">
+                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Giselle-lemonade-2.jpg" viewport={{ once : true }} className="w-full h-full object-cover"/>
                     </motion.div>
-                    <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} className="w-full h-full col-span-3">
-                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Giselle-lemonade-4.jpg" className="w-full h-full object-cover"/>
+                    <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} viewport={{ once : true }} className="w-full h-full col-span-3">
+                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Giselle-lemonade-4.jpg" viewport={{ once : true }} className="w-full h-full object-cover"/>
                     </motion.div>
-                    <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} className="w-full h-full col-span-3 row-span-4">
-                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Giselle-lemonade-1.jpg" className="w-full h-full object-cover"/>
+                    <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} viewport={{ once : true }} className="w-full h-full col-span-3 row-span-4">
+                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Giselle-lemonade-1.jpg" viewport={{ once : true }} className="w-full h-full object-cover"/>
                     </motion.div>
-                    <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} className="w-full h-full col-span-2">
-                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Giselle-lemonade-5.jpg" className="w-full h-full object-cover"/>
+                    <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} viewport={{ once : true }} className="w-full h-full col-span-2">
+                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Giselle-lemonade-5.jpg" viewport={{ once : true }} className="w-full h-full object-cover"/>
                     </motion.div>
-                    <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} className="w-full h-full col-span-3">
-                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Giselle-lemonade-3.jpg" className="w-full h-full object-cover"/>
+                    <motion.div initial={{ clipPath: "inset(0% 0% 100% 0%)" }} whileInView={{ clipPath : "inset(0% 0% 0% 0%)" }} transition={{ clipPath: { type: "tween", ease: [0.1, 0.3, 0.87, -0.16], duration: 0.5, delay : 0.1 }, }} viewport={{ once : true }} className="w-full h-full col-span-3">
+                        <motion.img transition={{ scale : { duration : 0.5, delay : 0.3 }, filter : { duration : 0.5, delay : 0.1 } }} initial={{ scale : 1.2, filter : "blur(10px)"}} whileInView={{ scale : 1, filter : "blur(0px)" }} src="/members/Giselle-lemonade-3.jpg" viewport={{ once : true }} className="w-full h-full object-cover"/>
                     </motion.div>
                 </div>
             </section>
@@ -96,13 +96,13 @@ export default function Giselle(){
                         <h1 className="font-neue-montreal font-bold text-[40px] text-start mb-5">Solo Projects</h1>
                         <div className="bg-[#CCFF00] flex flex-row items-center justify-start gap-3 lg:gap-10 p-[5px] lg:px-[14px] lg:py-[14px] rounded-lg lg:rounded-xl">
                             <div className="rounded-md overflow-hidden">
-                                <img src="/solo/22.jpg" className="w-[100px] h-[100px] lg:w-[150px] lg:h-[150px] object-cover"/>
+                                <img src="/solo/2hot4u.jpg" className="w-[100px] h-[100px] lg:w-[150px] lg:h-[150px] object-cover"/>
                             </div>
                             <div className="flex flex-col font-neue-montreal font-semibold">
-                                <h1 className="text-[16px] lg:text-[32px]">22 (Unreleased)</h1>
+                                <h1 className="text-[16px] lg:text-[32px]">2HOT4U (Unreleased)</h1>
                                 <p className="opacity-75">25 February 2023</p>
                                 <div className="flex flex-row gap-1 mt-5">
-                                    <a href="https://youtu.be/22giselle" target="_blank">
+                                    <a href="https://youtu.be/nMsuGUr2OGY?si=g1iFxSo7UjjZaXwN" target="_blank">
                                         <FontAwesomeIcon icon={faYoutube} className="cursor-pointer"/>
                                     </a>
                                 </div>
@@ -116,13 +116,13 @@ export default function Giselle(){
                                 <h1 className="text-[16px] lg:text-[32px]">Dopamine (GISELLE Solo)</h1>
                                 <p className="opacity-75">9 October 2024</p>
                                 <div className="flex flex-row gap-1 mt-5">
-                                    <a href="https://youtu.be/dopamine" target="_blank">
+                                    <a href="https://youtu.be/hz4kvS7_iR8?si=oq7ViYyJEwtyHSYo" target="_blank">
                                         <FontAwesomeIcon icon={faYoutube} className="cursor-pointer"/>
                                     </a>
-                                    <a href="https://open.spotify.com/track/dopamine" target="_blank">
+                                    <a href="https://open.spotify.com/track/6pIuPm3u7QgUFAX1V0D9wY?si=7be39fc4f73c4d5c" target="_blank">
                                         <FontAwesomeIcon icon={faSpotify} className="cursor-pointer"/>
                                     </a>
-                                    <a href="https://music.apple.com/us/album/dopamine-giselle-solo" target="_blank">
+                                    <a href="https://music.apple.com/us/song/dopamine-giselle-solo/1772223477" target="_blank">
                                         <FontAwesomeIcon icon={faMusic} className="cursor-pointer"/>
                                     </a>
                                 </div>
@@ -130,19 +130,19 @@ export default function Giselle(){
                         </div>
                         <div className="bg-[#CCFF00] flex flex-row items-center justify-start gap-3 lg:gap-10 p-[5px] lg:px-[14px] lg:py-[14px] rounded-xl">
                             <div className="rounded-md overflow-hidden">
-                                <img src="/solo/dopamine.jpg" className="w-[100px] h-[100px] lg:w-[150px] lg:h-[150px] object-cover"/>
+                                <img src="/solo/tornado.png" className="w-[100px] h-[100px] lg:w-[150px] lg:h-[150px] object-cover"/>
                             </div>
                             <div className="flex flex-col font-neue-montreal font-semibold">
                                 <h1 className="text-[16px] lg:text-[32px]">TORNADO (GISELLE Solo)</h1>
-                                <p className="opacity-75">9 October 2024</p>
+                                <p className="opacity-75">17 November 2025</p>
                                 <div className="flex flex-row gap-1 mt-5">
-                                    <a href="https://youtu.be/dopamine" target="_blank">
+                                    <a href="https://youtu.be/01JG_6e9P-0?si=x449HjRk-_Gr6DO2" target="_blank">
                                         <FontAwesomeIcon icon={faYoutube} className="cursor-pointer"/>
                                     </a>
-                                    <a href="https://open.spotify.com/track/dopamine" target="_blank">
+                                    <a href="https://open.spotify.com/track/09mT11oYwaa8geGu4UHpzL?si=c523b26902d74107" target="_blank">
                                         <FontAwesomeIcon icon={faSpotify} className="cursor-pointer"/>
                                     </a>
-                                    <a href="https://music.apple.com/us/album/dopamine-giselle-solo" target="_blank">
+                                    <a href="https://music.apple.com/us/song/tornado-giselle-solo/1850395176" target="_blank">
                                         <FontAwesomeIcon icon={faMusic} className="cursor-pointer"/>
                                     </a>
                                 </div>
