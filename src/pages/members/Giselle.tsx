@@ -155,7 +155,7 @@ export default function Giselle(){
 
             {/** Personal Section */}
             <section id="personal-section" className="min-h-screen h-screen flex items-center">
-                <div className="bg-black lg:w-11/12 h-full lg:h-[700px] mx-auto relative flex flex-col items-center justify-center">
+                <div className="bg-black w-full lg:w-11/12 h-full lg:h-[700px] mx-auto relative flex flex-col items-center justify-center">
                     <h1 className="z-20 relative text-center lg:text-start text-white font-neue-montreal text-3xl font-semibold opacity-90">"That's hot."</h1>
                     <a className="z-20 relative text-white font-neue-montreal text-3xl font-semibold opacity-90 cursor-pointer" href="https://www.instagram.com/aerichandesu/" target="_blank">- @aerichandesu</a>
                     <img src="/members/Giselle-lemonade-2.jpg" className="w-full h-full absolute inset-0 opacity-70 object-top object-cover"/>
