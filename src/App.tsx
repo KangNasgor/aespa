@@ -66,7 +66,7 @@ const members : Members[] = [
 ]
 
 function App() {
-  const { theme } = useTheme();
+  const { theme } = useTheme(); // Getting the returned "theme" from the function useTheme
 
   const [imageClicked, setImageClicked] = useState<boolean>(false); // image is on the about section
 

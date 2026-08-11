@@ -11,7 +11,7 @@ function Footer({ links } : { links : FooterItem[] }){
     const { theme } = useTheme();
 
     return(
-        <footer className="min-h-screen h-fit md:min-h-0 md:h-[400px] bg-black dark:bg-white px-[10px] md:pt-[20px] lg:px-[80px] pb-[20px] pt-[20px] lg:pt-[100px] text-[#CCFF00] dark:text-black">
+        <footer data-theme={theme} className="min-h-screen h-fit md:min-h-0 md:h-[400px] bg-black dark:bg-white px-[10px] md:pt-[20px] lg:px-[80px] pb-[20px] pt-[20px] lg:pt-[100px] text-[#CCFF00] dark:text-black">
           <div className="flex flex-col md:flex-row justify-between lg:items-center h-full">
             <div className="flex flex-col items-center md:justify-between h-full">
               <img src={theme === "light" ? "/svg/icon-light.svg" : "/svg/icon-dark.svg"} className="w-[250px] md:w-[300px] lg:w-[350px]"/>
